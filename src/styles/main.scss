@@ -1,0 +1,86 @@
+/* styles/main.scss */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Richer Dark Theme */
+  --bg-color: #030712;      /* Deeper black */
+  --nav-bg: rgba(17, 24, 39, 0.8); /* Translucent for glass effect */
+  --card-bg: #111827;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  
+  /* Vibrant Accent - Electric Cyan */
+  --accent-color: #00f2fe;  
+  --accent-glow: rgba(0, 242, 254, 0.3);
+  --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  
+  /* Smooth Typography */
+  --font-main: 'Poppins', sans-serif;
+  
+  /* Global Ease-in-out transition for everything */
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Smooth scrolling experience */
+  scroll-behavior: smooth; 
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll during animations */
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* Common Section Title Animation Utility */
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 4rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: var(--transition-smooth);
+  }
+
+  /* Title animates on load when section is visible */
+  animation: titleSlideIn 0.8s ease forwards;
+}
+
+@keyframes titleSlideIn {
+  from { opacity: 0; transform: translate(-50%, -20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 768px) {
+  .section-title { font-size: 2.2rem; }
+}
