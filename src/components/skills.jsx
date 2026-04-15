@@ -5,7 +5,7 @@ const Skills = () => {
   const skillList = [
     "Java", "HTML", "CSS", "JavaScript", 
     "React", "Node.js", "Express", 
-    "Sass (SCSS)", "Git / GitHub", "Vite"
+    "Sass (SCSS)", "Git / GitHub", "Vite","C","Python","MySQL","Numpy","Pandas","Matplotlib "
   ];
 
   return (

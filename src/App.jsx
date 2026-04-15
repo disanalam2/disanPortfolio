@@ -4,7 +4,7 @@ import Navbar from './components/navbar.jsx';
 import About from './components/about.jsx';
 import Project from './components/Project.jsx';
 import Skills from './components/skills.jsx';
-
+import { motion } from "framer-motion";
 import Contact from './components/contact.jsx';
 import './styles/App.scss';
 

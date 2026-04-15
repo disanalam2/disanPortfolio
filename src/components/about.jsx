@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section className="about-section container">
       <div className="about-details">
-        <img src="" alt="" />
+        <img src="./src/assets/DISAN ALAM.JPG" alt="Disan PIC" />
         <h1 className="title">Hi, I’m Disan Alam — full‑stack developer and problem solver. </h1>
         <p className="description">
           I build clean, reliable web applications and tools that turn ideas into polished, user‑focused products. I blend pragmatic engineering with thoughtful design to ship features that matter.

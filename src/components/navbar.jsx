@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="nav-container container">
         <div className="logo">
           <NavLink to="/">
-            <img src="" alt="Photo" />
+            <img src="./src/assets/DISAN ALAM.JPG" alt="Photo" />
             Disan Alam
 
           </NavLink>
@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
 
         <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
-          {['About', 'Skills', 'Projects', 'Experience', 'Certificates', 'Contact'].map(link => (
+          {['About', 'Skills', 'Projects', 'Contact'].map(link => (
             <li key={link}>
               <NavLink
                 to={link === 'About' ? '/' : `/${link.toLowerCase()}`}
