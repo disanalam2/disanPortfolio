@@ -13,23 +13,30 @@ const Project = () => {
     },
     {
       id: 2,
-      title: "Backend API Project",
+      title: "School Website",
       description: "A robust backend system handling user requests, routing, and data management.",
-      techStack: ["Node.js", "Express", "JavaScript"],
+      techStack: ["HTML", "CSS", "JavaScript"],
       githubLink: "https://github.com/disanalam2"
     },
     {
       id: 3,
-      title: "E-commerce Website",
+      title: "Demo Services Website",
       description: "A dynamic e-commerce platform with product listings, shopping cart, and checkout functionality.",
-      techStack: ["React", "Node.js", "Express", "MongoDB"],
+      techStack: ["Html","CSS", "JavaScript"],
       githubLink: "https://github.com/yourusername/ecommerce"
     },
     {
       id: 4,
-      title: "Task Management App",
+      title: "Demo Services Website",
+      description: "A dynamic e-commerce platform with product listings, shopping cart, and checkout functionality.",
+      techStack: ["React","CSS", "JavaScript"],
+      githubLink: "https://github.com/yourusername/ecommerce"
+    },
+    {
+      id: 5,
+      title: "Demo Factory Website",
       description: "A simple yet effective task management application with drag-and-drop functionality.",
-      techStack: ["React", "JavaScript", "CSS"],
+      techStack: ["Html", "JavaScript", "CSS"],
       githubLink: "https://github.com/yourusername/task-manager"
     }
   ];
