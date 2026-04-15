@@ -1,10 +1,18 @@
 import '../styles/about.scss';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section className="about-section container">
+    <motion.section
+      className="about-section container"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -24 }}
+      transition={{ duration: 0.65, ease: 'easeOut' }}
+    >
       <div className="about-details">
-        <img src="./src/assets/DISAN ALAM.JPG" alt="Disan PIC" />
+        <img src="./DISAN ALAM.JPG" alt="Disan PIC" />
         <h1 className="title">Hi, I’m Disan Alam — full‑stack developer and problem solver. </h1>
         <p className="description">
           I build clean, reliable web applications and tools that turn ideas into polished, user‑focused products. I blend pragmatic engineering with thoughtful design to ship features that matter.
@@ -25,11 +33,12 @@ const About = () => {
           I approach problems by breaking them into small, testable pieces, shipping early, and iterating based on feedback. I value readable code, automated tests, and continuous integration. When not coding, I explore new libraries, contribute to open source, and refine my craft through real projects.
         </p>
         <div className="action-buttons">
-          <a href="/projects" className="btn primary-btn">View My Work</a>
-          <a href="/contact" className="btn secondary-btn">Contact Me</a>
+          {/* 2. <a> ki jagah <Link> use karein aur sahi path dein */}
+          <Link to="/projects" className="btn primary-btn">View My Work</Link>
+          <Link to="/contact" className="btn secondary-btn">Contact Me</Link>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

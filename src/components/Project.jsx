@@ -1,4 +1,5 @@
 import '../styles/project.scss';
+import { motion } from 'framer-motion';
 
 const Project = () => {
   // Project data array
@@ -34,11 +35,23 @@ const Project = () => {
   ];
 
   return (
-    <section className="projects-section container">
+    <motion.section
+      className="projects-section container"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -24 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
       <h2 className="section-title">My Projects</h2>
       <div className="projects-container">
         {projectsData.map((project) => (
-          <div key={project.id} className="project-card">
+          <motion.div
+            key={project.id}
+            className="project-card"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: project.id * 0.1, duration: 0.45, ease: 'easeOut' }}
+          >
             <h3>{project.title}</h3>
             <p className="desc">{project.description}</p>
             <div className="tech-stack">
@@ -49,10 +62,10 @@ const Project = () => {
             <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn">
               View on GitHub
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

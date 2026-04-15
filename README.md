@@ -1,16 +1,102 @@
-# React + Vite
+# Disan Alam Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern personal portfolio website built with React, Vite, and Sass. This project showcases projects, skills, contact information, and smooth page navigation using React Router.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React + Vite frontend application
+- Client-side routing with `react-router-dom`
+- Styled with Sass
+- Responsive layout for desktop and mobile
+- Sections for About, Projects, Skills, and Contact
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `react`
+- `react-dom`
+- `vite`
+- `react-router-dom`
+- `sass`
+- `eslint`
 
-## Expanding the ESLint configuration
+## Project structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/App.jsx` – main app layout and route configuration
+- `src/components/navbar.jsx` – navigation bar
+- `src/components/about.jsx` – about section
+- `src/components/Project.jsx` – project showcase page
+- `src/components/skills.jsx` – skills page
+- `src/components/contact.jsx` – contact page
+- `src/styles/` – Sass styling files
+
+## Getting started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the URL shown in the terminal (usually `http://localhost:5173`).
+
+## Build for production
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Deploy to Firebase Hosting
+
+1. Install Firebase CLI globally:
+
+```bash
+npm install -g firebase-tools
+```
+
+2. Login to Firebase:
+
+```bash
+firebase login
+```
+
+3. Initialize Hosting in the project root:
+
+```bash
+firebase init hosting
+```
+
+- Select your Firebase project
+- Set the public directory to `dist`
+- Configure as a single-page app: `Yes`
+- Do not overwrite `index.html` if prompted
+
+4. Build and deploy:
+
+```bash
+npm run build
+firebase deploy
+```
+
+## NPM scripts
+
+- `npm run dev` — start development server
+- `npm run build` — create production build in `dist`
+- `npm run preview` — locally preview production build
+- `npm run lint` — run ESLint on the project
+
+## Notes
+
+- Customize the portfolio content in `src/components/` and `src/styles/`.
+- Update your projects, skills, and contact details directly in the React components.

@@ -1,4 +1,4 @@
-// components/navbar.jsx
+
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../styles/navbar.scss';
@@ -11,9 +11,8 @@ const Navbar = () => {
       <div className="nav-container container">
         <div className="logo">
           <NavLink to="/">
-            <img src="./src/assets/DISAN ALAM.JPG" alt="Photo" />
+            <img src="./DISAN ALAM.JPG" alt="Photo" />
             Disan Alam
-
           </NavLink>
         </div>
 
@@ -24,12 +23,13 @@ const Navbar = () => {
           <span className="bar3"></span>
         </div>
 
-        <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
+        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
           {['About', 'Skills', 'Projects', 'Contact'].map(link => (
             <li key={link}>
               <NavLink
                 to={link === 'About' ? '/' : `/${link.toLowerCase()}`}
                 onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) => (isActive ? 'active' : undefined)}
               >
                 {link}
               </NavLink>

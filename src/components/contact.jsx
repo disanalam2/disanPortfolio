@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/contact.scss';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -55,7 +56,13 @@ Message: ${formData.message}`;
   };
 
   return (
-    <section className="contact-section container">
+    <motion.section
+      className="contact-section container"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -24 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
       <h2 className="section-title">Get In Touch</h2>
       <div className="contact-container">
         <p className="contact-text">
@@ -95,7 +102,7 @@ Message: ${formData.message}`;
           </div>
           
           {/* Dual Buttons */}
-          <div className="button-group" style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+          <div className="button-group">
             <button 
               type="submit" 
               className="submit-btn whatsapp-btn" 
@@ -113,7 +120,7 @@ Message: ${formData.message}`;
           </div>
         </form>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
