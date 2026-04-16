@@ -9,35 +9,38 @@ const Project = () => {
       title: "Personal Portfolio",
       description: "A fully responsive personal portfolio website with seamless routing and modular components.",
       techStack: ["React", "Vite", "Sass"],
-      githubLink: "https://github.com/yourusername/portfolio"
+      githubLink: "https://github.com/disanalam2/disanPortfolio",
+      liveLink: ""
     },
     {
       id: 2,
       title: "School Website",
       description: "A robust backend system handling user requests, routing, and data management.",
       techStack: ["HTML", "CSS", "JavaScript"],
-      githubLink: "https://github.com/disanalam2"
+      githubLink: "https://github.com/disanalam2/SchoolWebsite",
+      liveLink: ""
     },
     {
       id: 3,
-      title: "Demo Services Website",
+      title: "Demo Services Website(HTML, CSS, JavaScript)",
       description: "A dynamic e-commerce platform with product listings, shopping cart, and checkout functionality.",
       techStack: ["Html","CSS", "JavaScript"],
-      githubLink: "https://github.com/yourusername/ecommerce"
+      githubLink: "https://github.com/disanalam2/demo-service-website-HTML-CSS-JS"
     },
     {
       id: 4,
-      title: "Demo Services Website",
+      title: "Demo Services Website(React, Vite, JavaScript, CSS)",
       description: "A dynamic e-commerce platform with product listings, shopping cart, and checkout functionality.",
       techStack: ["React","Vite", "JavaScript","CSS"],
-      githubLink: "https://github.com/yourusername/ecommerce"
+      githubLink: "https://github.com/disanalam2/demo-software-service-website-ReactVite"
     },
     {
       id: 5,
       title: "Demo Factory Website",
       description: "A simple yet effective task management application with drag-and-drop functionality.",
       techStack: ["Html", "JavaScript", "CSS"],
-      githubLink: "https://github.com/yourusername/task-manager"
+      githubLink: "https://github.com/disanalam2/demofactorywebsite-HTML",
+      liveLink: ""
     }
   ];
 
@@ -66,9 +69,16 @@ const Project = () => {
                 <span key={index} className="tech-pill">{tech}</span>
               ))}
             </div>
-            <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn">
-              View on GitHub
-            </a>
+            <div className="project-actions">
+              <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn">
+                View on GitHub
+              </a>
+              {project.liveLink && (
+                <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn secondary">
+                  Live Demo
+                </a>
+              )}
+            </div>
           </motion.div>
         ))}
       </div>

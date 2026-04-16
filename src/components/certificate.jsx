@@ -8,7 +8,7 @@ const certificates = [
     date: 'April 13 2026',
     description: 'Completed a hands-on certification covering React, Node.js, Express, MongoDB, and deployment best practices.',
     href: 'https://coursera.org/share/7c193bd5721af5568da0387e19c0cc88',
-    image: '/Introduction to Software Engineering.jpeg'
+    image: './introduction-to-software-engineering.jpeg'
   }
 ];
 

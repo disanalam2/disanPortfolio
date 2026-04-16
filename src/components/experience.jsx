@@ -7,8 +7,9 @@ const experienceItems = [
     company: 'GDG on Campus, Haldia Institute of Technology',
     period: 'April 2026 - Present',
     details: [
-      'Built responsive React applications with clean, maintainable code.',
-      'Integrated REST APIs and optimized UIs for performance and accessibility.'
+      'Learning and applying web development technologies such as HTML, CSS, JavaScript, React, Node.js, and Express.',
+      'Building projects to gain hands-on experience and enhance my skills in front-end and back-end development.',
+      'Collaborating with peers and mentors to improve my coding abilities and understanding of web development concepts.'
     ]
   },
   
