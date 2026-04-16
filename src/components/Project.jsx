@@ -29,7 +29,7 @@ const Project = () => {
       id: 4,
       title: "Demo Services Website",
       description: "A dynamic e-commerce platform with product listings, shopping cart, and checkout functionality.",
-      techStack: ["React","CSS", "JavaScript"],
+      techStack: ["React","Vite", "JavaScript","CSS"],
       githubLink: "https://github.com/yourusername/ecommerce"
     },
     {

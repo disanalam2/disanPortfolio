@@ -40,6 +40,40 @@
       font-weight: 800;
       line-height: 1.2;
     }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s ease, background-color 0.25s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+      background: rgba(56, 189, 248, 0.18);
+    }
+
+    .social-links svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: var(--text-secondary);
+    }
+
+    .social-links a:hover svg {
+      fill: var(--accent-color);
+    }
   }
 
   .about-content {

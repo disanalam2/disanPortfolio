@@ -6,6 +6,7 @@ import About from './components/about.jsx';
 import Project from './components/Project.jsx';
 import Skills from './components/skills.jsx';
 import Contact from './components/contact.jsx';
+import Footer from './components/footer.jsx';
 import './styles/App.scss';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           </Routes>
         </AnimatePresence>
       </main>
+      <Footer />
     </div>
   );
 }
