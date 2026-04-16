@@ -1,0 +1,130 @@
+.certificate-section {
+  padding: 2.5rem 0;
+
+  .section-header {
+    margin-bottom: 2rem;
+    max-width: 720px;
+
+    h2 {
+      color: var(--accent-color);
+      font-size: 2.4rem;
+      margin-bottom: 0.75rem;
+      font-weight: 800;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+
+  .certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .certificate-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 1.75rem;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+
+    .certificate-card-body {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    &.reverse .certificate-card-body {
+      grid-template-columns: 1fr 160px;
+    }
+
+    .certificate-image {
+      width: 100%;
+      min-width: 160px;
+      max-width: 160px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .certificate-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+
+      .certificate-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .certificate-date {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+    }
+
+    .certificate-issuer {
+      color: var(--accent-color);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .certificate-description {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .certificate-link {
+      color: var(--accent-color);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.25s ease;
+
+      &:hover {
+        color: #38bdf8;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .certificate-section {
+    padding: 2rem 0;
+  }
+
+  .certificate-card {
+    .certificate-card-body {
+      grid-template-columns: 1fr;
+    }
+
+    .certificate-image {
+      max-width: 100%;
+      min-width: auto;
+    }
+  }
+}

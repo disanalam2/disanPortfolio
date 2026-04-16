@@ -5,6 +5,8 @@ import Navbar from './components/navbar.jsx';
 import About from './components/about.jsx';
 import Project from './components/Project.jsx';
 import Skills from './components/skills.jsx';
+import Experience from './components/experience.jsx';
+import Certificate from './components/certificate.jsx';
 import Contact from './components/contact.jsx';
 import Footer from './components/footer.jsx';
 import './styles/App.scss';
@@ -21,6 +23,8 @@ function App() {
             <Route path="/" element={<About />} />
             <Route path="/projects" element={<Project />} />
             <Route path="/skills" element={<Skills />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/certificate" element={<Certificate />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>

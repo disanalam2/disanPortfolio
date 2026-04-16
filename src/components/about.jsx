@@ -67,6 +67,10 @@ const About = () => {
             </svg>
           </a>
         </div>
+        <div className="action-buttons">
+          <Link to="/projects" className="btn primary-btn">View My Work</Link>
+          <Link to="/contact" className="btn secondary-btn">Contact Me</Link>
+        </div>
       </div>
       <div className="about-content">
         
@@ -82,11 +86,6 @@ const About = () => {
           How I work <br/>
           I approach problems by breaking them into small, testable pieces, shipping early, and iterating based on feedback. I value readable code, automated tests, and continuous integration. When not coding, I explore new libraries, contribute to open source, and refine my craft through real projects.
         </p>
-        <div className="action-buttons">
-          {/* 2. <a> ki jagah <Link> use karein aur sahi path dein */}
-          <Link to="/projects" className="btn primary-btn">View My Work</Link>
-          <Link to="/contact" className="btn secondary-btn">Contact Me</Link>
-        </div>
       </div>
     </motion.section>
   );

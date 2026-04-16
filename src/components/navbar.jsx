@@ -24,7 +24,7 @@ const Navbar = () => {
         </div>
 
         <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          {['About', 'Skills', 'Projects', 'Contact'].map(link => (
+          {['About', 'Skills', 'Projects', 'Experience', 'Certificate', 'Contact'].map(link => (
             <li key={link}>
               <NavLink
                 to={link === 'About' ? '/' : `/${link.toLowerCase()}`}
