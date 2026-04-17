@@ -7,37 +7,38 @@ const Project = () => {
     {
       id: 1,
       title: "Personal Portfolio",
-      description: "A fully responsive personal portfolio website with seamless routing and modular components.",
-      techStack: ["React", "Vite", "Sass"],
+      description: "A personal portfolio website created with React and Vite, designed to present my skills, projects, work experience, and contact details in a polished and responsive layout.",
+      techStack: ["React", "Vite", "Sass", "JavaScript", "HTML", "CSS", "Framer Motion", "React Router", "GitHub Pages"],
       githubLink: "https://github.com/disanalam2/disanPortfolio",
       liveLink: ""
     },
     {
       id: 2,
       title: "School Website",
-      description: "A robust backend system handling user requests, routing, and data management.",
+      description: "Built a school exhibition website for Firayalal Public School using HTML, CSS, and JavaScript. Designed a clean homepage with section-based navigation Created separate pages for About, Admissions, Academics, Media, Infrastructure, and more Added a “Get in Touch” page with Google Maps, contact details, and an inquiry form Included a login page layout for future portal access Organized the project with separate CSS, JavaScript, and content files for maintainability",
       techStack: ["HTML", "CSS", "JavaScript"],
       githubLink: "https://github.com/disanalam2/SchoolWebsite",
-      liveLink: ""
+      liveLink: "https://fpsexibition2023.web.app/"
     },
     {
       id: 3,
       title: "Demo Services Website(HTML, CSS, JavaScript)",
-      description: "A dynamic e-commerce platform with product listings, shopping cart, and checkout functionality.",
+      description: "",
       techStack: ["Html","CSS", "JavaScript"],
-      githubLink: "https://github.com/disanalam2/demo-service-website-HTML-CSS-JS"
+      githubLink: "https://github.com/disanalam2/demo-service-website-HTML-CSS-JS",
+      liveLink: "https://demoservicewebsite-html-css-js.web.app/"
     },
     {
       id: 4,
       title: "Demo Services Website(React, Vite, JavaScript, CSS)",
-      description: "A dynamic e-commerce platform with product listings, shopping cart, and checkout functionality.",
+      description: "",
       techStack: ["React","Vite", "JavaScript","CSS"],
       githubLink: "https://github.com/disanalam2/demo-software-service-website-ReactVite"
     },
     {
       id: 5,
       title: "Demo Factory Website",
-      description: "A simple yet effective task management application with drag-and-drop functionality.",
+      description: "",
       techStack: ["Html", "JavaScript", "CSS"],
       githubLink: "https://github.com/disanalam2/demofactorywebsite-HTML",
       liveLink: ""
@@ -63,12 +64,6 @@ const Project = () => {
             transition={{ delay: project.id * 0.1, duration: 0.45, ease: 'easeOut' }}
           >
             <h3>{project.title}</h3>
-            <p className="desc">{project.description}</p>
-            <div className="tech-stack">
-              {project.techStack.map((tech, index) => (
-                <span key={index} className="tech-pill">{tech}</span>
-              ))}
-            </div>
             <div className="project-actions">
               <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn">
                 View on GitHub
@@ -79,6 +74,13 @@ const Project = () => {
                 </a>
               )}
             </div>
+            <p className="desc">{project.description}</p>
+            <div className="tech-stack">
+              {project.techStack.map((tech, index) => (
+                <span key={index} className="tech-pill">{tech}</span>
+              ))}
+            </div>
+            
           </motion.div>
         ))}
       </div>
