@@ -10,7 +10,7 @@ const Project = () => {
       description: "A personal portfolio website created with React and Vite, designed to present my skills, projects, work experience, and contact details in a polished and responsive layout.",
       techStack: ["React", "Vite", "Sass", "JavaScript", "HTML", "CSS", "Framer Motion", "React Router", "GitHub Pages"],
       githubLink: "https://github.com/disanalam2/disanPortfolio",
-      liveLink: ""
+      liveLink: "https://disan-alam-portfolio.web.app"
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const Project = () => {
       description: "Built a school exhibition website for Firayalal Public School using HTML, CSS, and JavaScript. Designed a clean homepage with section-based navigation Created separate pages for About, Admissions, Academics, Media, Infrastructure, and more Added a “Get in Touch” page with Google Maps, contact details, and an inquiry form Included a login page layout for future portal access Organized the project with separate CSS, JavaScript, and content files for maintainability",
       techStack: ["HTML", "CSS", "JavaScript"],
       githubLink: "https://github.com/disanalam2/SchoolWebsite",
-      liveLink: "https://fpsexibition2023.web.app/"
+      liveLink: "https://disanalam-project-school.web.app"
     },
     {
       id: 3,
@@ -26,14 +26,15 @@ const Project = () => {
       description: "",
       techStack: ["Html","CSS", "JavaScript"],
       githubLink: "https://github.com/disanalam2/demo-service-website-HTML-CSS-JS",
-      liveLink: "https://demoservicewebsite-html-css-js.web.app/"
+      liveLink: "https://disanalam-project-serviceiwebsite-htmlcssjs.web.app"
     },
     {
       id: 4,
       title: "Demo Services Website(React, Vite, JavaScript, CSS)",
       description: "",
       techStack: ["React","Vite", "JavaScript","CSS"],
-      githubLink: "https://github.com/disanalam2/demo-software-service-website-ReactVite"
+      githubLink: "https://github.com/disanalam2/demo-software-service-website-ReactVite",
+      liveLink:"https://disanalam-project-servicewebsite-reactjs.web.app"
     },
     {
       id: 5,
@@ -41,7 +42,7 @@ const Project = () => {
       description: "",
       techStack: ["Html", "JavaScript", "CSS"],
       githubLink: "https://github.com/disanalam2/demofactorywebsite-HTML",
-      liveLink: ""
+      liveLink: "https://disanalam-project-factory.web.app"
     }
   ];
 
