@@ -212,3 +212,90 @@
     width: 100%;
   }
 }
+textarea.edit-input {
+  width: 100%;
+  max-width: 100%; 
+  background: rgba(15, 23, 42, 0.9); 
+  border: 1px dashed var(--accent-color);
+  border-radius: 12px;
+  padding: 15px;
+  color: #fff !important;
+  font-family: var(--font-main);
+  margin: 10px 0;
+  display: block;
+  box-sizing: border-box; 
+  line-height: 1.6;
+}
+
+.edit-photo-wrapper {
+  position: relative;
+  width: 180px;
+  margin: 0 auto 20px;
+  
+  img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    object-fit: cover;
+  }
+
+  .file-input {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--accent-color);
+    width: 100%;
+  }
+}
+
+.admin-controls {
+  position: fixed; // Screen par fixed rahega
+  bottom: 100px;
+  right: 20px;
+  z-index: 1000;
+  display: block;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 10px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+  .btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .edit-page-btn, .save-btn {
+    background: var(--gradient-primary);
+    color: #030712;
+  }
+
+  .cancel-btn {
+    background: #ef4444;
+    color: white;
+  }
+}
+
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+  
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    &:hover { transform: translateY(-3px); }
+  }
+}
