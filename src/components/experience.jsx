@@ -13,7 +13,7 @@ const Experience = ({ isAdmin }) => {
   useEffect(() => {
     const fetchExperience = async () => {
       try {
-        const response = await fetch('http://13.232.90.249:5000/api/experience');
+        const response = await fetch('https://d3sh63r9ecih9a.cloudfront.net/api/experience');
         if (response.ok) {
           const data = await response.json();
           setExperienceData(data);
@@ -54,7 +54,7 @@ const Experience = ({ isAdmin }) => {
     };
 
     try {
-      const response = await fetch('http://13.232.90.249:5000/api/experience/add', {
+      const response = await fetch('https://d3sh63r9ecih9a.cloudfront.net/api/experience/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const Experience = ({ isAdmin }) => {
   const handleDeleteExperience = async (id) => {
     if (window.confirm("Are you sure you want to delete this experience?")) {
       try {
-        const response = await fetch(`http://13.232.90.249:5000/api/experience/delete/${id}`, {
+        const response = await fetch(`https://d3sh63r9ecih9a.cloudfront.net/api/experience/delete/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}` // <-- NAYA HEADER ADD KIYA
@@ -119,7 +119,7 @@ const Experience = ({ isAdmin }) => {
     };
 
     try {
-      const response = await fetch(`http://13.232.90.249:5000/api/experience/update/${id}`, {
+      const response = await fetch(`https://d3sh63r9ecih9a.cloudfront.net/api/experience/update/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

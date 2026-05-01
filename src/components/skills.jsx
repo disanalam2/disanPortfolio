@@ -12,7 +12,7 @@ const Skills = ({ isAdmin }) => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await fetch('http://13.232.90.249:5000/api/skills');
+        const response = await fetch('https://d3sh63r9ecih9a.cloudfront.net/api/skills');
         if (response.ok) {
           const data = await response.json();
           setSkillsData(data);
@@ -101,7 +101,7 @@ const Skills = ({ isAdmin }) => {
   // ================= DATABASE ME SYNC KARNA =================
   const handleSave = async () => {
     try {
-      const response = await fetch('http://13.232.90.249:5000/api/skills/sync', {
+      const response = await fetch('https://d3sh63r9ecih9a.cloudfront.net/api/skills/sync', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`

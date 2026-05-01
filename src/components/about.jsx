@@ -22,7 +22,7 @@ const About = ({ isAdmin }) => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const response = await fetch('http://13.232.90.249:5000/api/about');
+        const response = await fetch('https://d3sh63r9ecih9a.cloudfront.net/api/about');
         if (response.ok) {
           const data = await response.json();
           setAboutData(data);
@@ -56,7 +56,7 @@ const About = ({ isAdmin }) => {
   // DATABASE ME DATA SAVE KARNA
   const handleSave = async () => {
     try {
-      const response = await fetch('http://13.232.90.249:5000/api/about/update', {
+      const response = await fetch('https://d3sh63r9ecih9a.cloudfront.net/api/about/update', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
