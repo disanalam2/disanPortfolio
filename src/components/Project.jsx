@@ -53,7 +53,7 @@ const Project = ({ isAdmin }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/projects');
+        const response = await fetch('http://13.232.90.249:5000/api/projects');
         if (response.ok) {
           const data = await response.json();
           setProjectsData(data);
@@ -107,7 +107,7 @@ const Project = ({ isAdmin }) => {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/projects/add', {
+      const response = await fetch('http://13.232.90.249:5000/api/projects/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ const Project = ({ isAdmin }) => {
   const handleDeleteProject = async (id) => {
     if (window.confirm("Are you sure you want to delete this project permanently?")) {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/api/projects/delete/${id}`, {
+        const response = await fetch(`http://13.232.90.249:5000/api/projects/delete/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}` // <-- NAYA HEADER ADD KIYA
@@ -191,7 +191,7 @@ const Project = ({ isAdmin }) => {
     };
 
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/projects/update/${id}`, {
+      const response = await fetch(`http://13.232.90.249:5000/api/projects/update/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`

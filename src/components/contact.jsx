@@ -22,7 +22,7 @@ const Contact = ({ isAdmin }) => {
     if (isAdmin) {
       const fetchMessages = async () => {
         try {
-          const response = await fetch('http://127.0.0.1:5000/api/contact/inbox', {
+          const response = await fetch('http://13.232.90.249:5000/api/contact/inbox', {
             // YAHAN HEADER ADD KAREIN (Ye miss ho gaya tha)
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -63,7 +63,7 @@ const Contact = ({ isAdmin }) => {
 
     try {
       // Yahan route bilkul sahi hai: /send aur IP: 127.0.0.1
-      const response = await fetch('http://127.0.0.1:5000/api/contact/send', {
+      const response = await fetch('http://13.232.90.249:5000/api/contact/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

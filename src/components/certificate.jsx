@@ -16,7 +16,7 @@ const Certificate = ({ isAdmin }) => {
   useEffect(() => {
     const fetchCertificates = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/certificates');
+        const response = await fetch('http://13.232.90.249:5000/api/certificates');
         if (response.ok) {
           const data = await response.json();
           setCertificatesData(data);
@@ -70,7 +70,7 @@ const Certificate = ({ isAdmin }) => {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/certificates/add', {
+      const response = await fetch('http://13.232.90.249:5000/api/certificates/add', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}` // <-- NAYA HEADER ADD KIYA
@@ -94,7 +94,7 @@ const Certificate = ({ isAdmin }) => {
   const handleDeleteCertificate = async (id) => {
     if (window.confirm("Are you sure you want to delete this certificate permanently?")) {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/api/certificates/delete/${id}`, {
+        const response = await fetch(`http://13.232.90.249:5000/api/certificates/delete/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -125,7 +125,7 @@ const Certificate = ({ isAdmin }) => {
   // ================= UPDATE CERTIFICATE =================
   const saveCertificateDetails = async (id) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/certificates/update/${id}`, {
+      const response = await fetch(`http://13.232.90.249:5000/api/certificates/update/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}` // <-- NAYA HEADER ADD KIYA
