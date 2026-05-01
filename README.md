@@ -1,24 +1,26 @@
 # Disan Alam Portfolio
 
-A polished portfolio website built with React, Vite, Sass, and Framer Motion. This project highlights personal projects, technical skills, contact options, and responsive animated page transitions.
+A polished portfolio website built with React, Vite, Sass, and Framer Motion. This project highlights personal projects, technical skills, professional experience, certificates, and provides a responsive, animated user experience.
 
 ## What’s included
 
 - Modern React app with route-based navigation
 - Animated page transitions using `framer-motion`
 - Responsive layout for mobile and desktop
-- Glassmorphism-inspired visual styling
-- About, Projects, Skills, and Contact sections
-- Contact form with WhatsApp and email quick-send buttons
+- Comprehensive sections: About, Experience, Projects, Skills, Certificates, and Contact
+- Secure Admin login page layout
+- Contact form with WhatsApp and email quick-send integrations
+- Icon integrations using `lucide-react` and `react-icons`
 
 ## Tech stack
 
-- `react`
-- `react-dom`
+- `react` / `react-dom`
 - `vite`
 - `react-router-dom`
 - `framer-motion`
-- `sass`
+- `sass` & `tailwindcss`
+- `lucide-react` & `react-icons`
+- `react-phone-input-2`
 - `eslint`
 
 ## Project structure
@@ -26,10 +28,14 @@ A polished portfolio website built with React, Vite, Sass, and Framer Motion. Th
 - `src/App.jsx` — main app layout and routing configuration
 - `src/components/navbar.jsx` — navigation and mobile menu
 - `src/components/about.jsx` — hero/about section
+- `src/components/experience.jsx` — professional experience timeline
 - `src/components/Project.jsx` — project showcase cards
-- `src/components/skills.jsx` — skill grid with hover animation
+- `src/components/skills.jsx` — skill grid with hover animations
+- `src/components/certificate.jsx` — certifications showcase
 - `src/components/contact.jsx` — contact form and CTA
-- `src/styles/` — custom Sass styles for each section
+- `src/components/admin-login.jsx` — admin authentication interface
+- `src/components/footer.jsx` — app footer component
+- `src/styles/` — custom Sass styles for each component
 - `index.html` — app shell and page metadata
 
 ## Getting started
@@ -103,9 +109,9 @@ firebase deploy
 
 ## Customization
 
-- Edit content in `src/components/` to update text, projects, and contact details.
+- Edit content in `src/components/` to update text, projects, experiences, and contact details.
 - Update styling in `src/styles/` to change the theme, spacing, and animation behavior.
-- Replace `./DISAN ALAM.JPG` with your own profile image in `src/components/navbar.jsx` and `src/components/about.jsx`.
+- Replace profile imagery with your own assets.
 
 ## Notes
 
