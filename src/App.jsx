@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import Navbar from './components/navbar.jsx';
-import About from './components/about.jsx';
-import Project from './components/Project.jsx';
-import Skills from './components/skills.jsx';
-import Experience from './components/experience.jsx';
-import Certificate from './components/certificate.jsx';
-import Contact from './components/contact.jsx';
-import Footer from './components/footer.jsx';
-import Login from './components/admin-login.jsx';
-import './styles/App.scss';
+
+// Naye Layout aur Page imports
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import AboutContainer from './pages/About/AboutContainer';
+import Projects from './pages/Projects/Projects';
+import Skills from './pages/Skills/Skills';
+import Experience from './pages/Experience/Experience';
+import Certificates from './pages/Certificate/Certificates';
+import Contact from './pages/Contact/Contact';
+import Login from './pages/Admin/Login';
+
+import './styles/main.scss'; // Assuming main.scss handles the global variables and layout classes
 
 function App() {
   const location = useLocation();
-  const [isAdmin, setIsAdmin] = useState(false);
   
   return (
     <div className="app-layout">
@@ -22,13 +24,13 @@ function App() {
       <main className="main-content">
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<About isAdmin={isAdmin}/>} />
-            <Route path="/projects" element={<Project isAdmin={isAdmin}/>} />
-            <Route path="/skills" element={<Skills isAdmin={isAdmin}/>} />
-            <Route path="/experience" element={<Experience isAdmin={isAdmin}/>} />
-            <Route path="/certificate" element={<Certificate isAdmin={isAdmin}/>} />
-            <Route path="/contact" element={<Contact isAdmin={isAdmin} />} />
-            <Route path="/admin" element={<Login setIsAdmin={setIsAdmin} />} />
+            <Route path="/" element={<AboutContainer />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/certificate" element={<Certificates />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<Login />} />
           </Routes>
         </AnimatePresence>
       </main>

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  // Colors
+  --bg-color: #030712;      
+  --nav-bg: rgba(17, 24, 39, 0.8); 
+  --card-bg: #111827;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  
+  // Accents
+  --accent-color: #00f2fe;  
+  --accent-glow: rgba(0, 242, 254, 0.3);
+  --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  
+  // Typography & Transitions
+  --font-main: 'Poppins', sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
