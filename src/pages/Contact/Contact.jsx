@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/authContext';
 import PageLayout from '../../components/layout/PageLayout';
 import ContactForm from './ContactForm';
 import AdminInbox from './AdminInbox';

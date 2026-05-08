@@ -1,9 +1,13 @@
 const BASE_URL = 'https://d3sh63r9ecih9a.cloudfront.net/api';
-
+const BASE_URL = 'http://localhost:5000/api'; // Local development ke liye
 export const apiCall = async (endpoint, options = {}) => {
-  let token = localStorage.getItem('adminToken');
+  // sessionStorage se token lete hain (updated from localStorage)
+  let token = sessionStorage.getItem('adminToken');
   
   const headers = {
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0',
     ...(options.headers || {}),
   };
 
@@ -25,7 +29,7 @@ export const apiCall = async (endpoint, options = {}) => {
 
   // FIX 3: Agar token invalid/expire hai (401 ya 403), toh auto-logout karo
   if (response.status === 401 || response.status === 403) {
-    localStorage.removeItem('adminToken');
+    sessionStorage.removeItem('adminToken');
     alert("Aapka Admin session expire ho gaya hai. Kripya wapas login karein!");
     window.location.hash = '#/admin';
     window.location.reload();

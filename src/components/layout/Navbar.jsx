@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/authContext';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAdmin, logout } = useAuth();
+  const navigate = useNavigate();
 
   const navItems = ['About', 'Skills', 'Projects', 'Experience', 'Certificate', 'Contact'];
+
+  const handleLogout = () => {
+    logout();
+    setIsMobileMenuOpen(false);
+    navigate('/');
+    alert('Admin Logged Out Successfully! 👋');
+  };
 
   return (
     <nav className="navbar">
@@ -39,6 +49,28 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
+          
+          {/* Logout Button - Only show jab admin logged in ho */}
+          {isAdmin && (
+            <li>
+              <button 
+                onClick={handleLogout}
+                style={{
+                  background: '#ef4444',
+                  color: 'white',
+                  border: 'none',
+                  padding: '8px 16px',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  marginLeft: '10px'
+                }}
+              >
+                Logout
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </nav>
