@@ -1,5 +1,5 @@
-const BASE_URL = 'https://d3sh63r9ecih9a.cloudfront.net/api';
-const BASE_URL = 'http://localhost:5000/api'; // Local development ke liye
+const BASE_URL = 'https://api.disanalam.me/api';
+//const BASE_URL = 'http://localhost:5000/api'; // Local development ke liye
 export const apiCall = async (endpoint, options = {}) => {
   // sessionStorage se token lete hain (updated from localStorage)
   let token = sessionStorage.getItem('adminToken');
