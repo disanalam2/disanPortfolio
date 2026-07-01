@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useTitle from '../../hooks/useTitle';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
@@ -11,6 +12,7 @@ import './About.scss';
 
 const AboutContainer = () => {
   const { isAdmin } = useAuth();
+  useTitle('About');
   const { data: aboutData, setData: setAboutData, loading } = useFetch('/about');
   const { putData, isWriting } = useWrite();
 

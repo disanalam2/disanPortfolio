@@ -50,6 +50,28 @@ const Navbar = () => {
             </li>
           ))}
           
+          {/* Resume Download Button */}
+          <li>
+            <a 
+              href="/Disan Alam - Resume.pdf" 
+              download="Disan_Alam_Resume.pdf"
+              style={{
+                background: 'var(--gradient-primary)',
+                color: '#fff',
+                padding: '8px 18px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '0.95rem',
+                marginLeft: '5px',
+                display: 'inline-block',
+                boxShadow: '0 4px 14px var(--accent-glow)'
+              }}
+            >
+              Resume
+            </a>
+          </li>
+
           {/* Logout Button - Only show jab admin logged in ho */}
           {isAdmin && (
             <li>

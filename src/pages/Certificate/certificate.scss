@@ -25,7 +25,7 @@
 
   .add-new-cert {
     border: 2px dashed rgba(255, 255, 255, 0.2) !important; background: transparent !important; display: flex; justify-content: center; align-items: center; cursor: pointer; min-height: 200px;
-    &:hover { border-color: var(--accent-color) !important; background: rgba(0, 242, 254, 0.05) !important; .plus-icon { transform: scale(1.2); color: var(--accent-color); } }
+    &:hover { border-color: var(--accent-color) !important; background: var(--accent-glow) !important; .plus-icon { transform: scale(1.2); color: var(--accent-color); } }
     .add-content { text-align: center; color: rgba(255, 255, 255, 0.5); .plus-icon { font-size: 3rem; display: block; margin-bottom: 5px; transition: 0.3s; } h3 { color: inherit; font-size: 1.2rem; margin: 0; } }
   }
 }

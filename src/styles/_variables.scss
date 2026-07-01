@@ -1,19 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
   // Colors
-  --bg-color: #030712;      
-  --nav-bg: rgba(17, 24, 39, 0.8); 
-  --card-bg: #111827;
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
+  --bg-color: #0b0f19;      
+  --nav-bg: rgba(11, 15, 25, 0.75); 
+  --card-bg: rgba(30, 41, 59, 0.4);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
   
   // Accents
-  --accent-color: #00f2fe;  
-  --accent-glow: rgba(0, 242, 254, 0.3);
-  --gradient-primary: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  --accent-color: #6366f1; 
+  --accent-secondary: #f59e0b; 
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --accent-glow: rgba(99, 102, 241, 0.2);
   
   // Typography & Transitions
-  --font-main: 'Poppins', sans-serif;
-  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-main: 'DM Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
