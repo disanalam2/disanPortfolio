@@ -5,7 +5,7 @@ import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
 import PageLayout from '../../components/layout/PageLayout';
 import Loader from '../../components/common/Loader';
-import AdminBottomBar from '../../components/common/AdminBottomBar';
+import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import AboutView from './AboutView';
 import AboutEdit from './AboutEdit';
 import './About.scss';
@@ -71,7 +71,7 @@ const AboutContainer = () => {
   if (loading) return <Loader message="Loading Profile Details..." />;
 
   return (
-    <PageLayout className="about-section">
+    <PageLayout className="about-section animate-fade-up">
       {isEditing ? (
         <AboutEdit 
           tempData={tempData} 

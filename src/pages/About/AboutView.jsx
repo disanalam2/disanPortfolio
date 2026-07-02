@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../../components/ui/Button';
+import Card from '../../components/ui/Card';
 import SocialLinks from '../../components/common/SocialLinks';
 
 const AboutView = ({ aboutData }) => {
   return (
     <>
-      <div className="about-details">
+      <Card className="about-details">
         <img src={aboutData.photo || "./DISAN ALAM.JPG"} alt="Disan PIC" />
         <h1 className="title">{aboutData.title || "Loading..."}</h1>
         <p className="description">{aboutData.shortDesc || "Loading..."}</p>
@@ -14,12 +15,12 @@ const AboutView = ({ aboutData }) => {
         <SocialLinks />
 
         <div className="action-buttons">
-          <Link to="/projects" className="btn primary-btn">View My Work</Link>
-          <Link to="/contact" className="btn secondary-btn">Contact Me</Link>
+          <Button to="/projects" variant="primary">View My Work</Button>
+          <Button to="/contact" variant="secondary">Contact Me</Button>
         </div>
-      </div>
+      </Card>
 
-      <div className="about-content">
+      <Card className="about-content">
         <p className="description">Who I am <br /></p>
         <p className="description">{aboutData.whoIAm}</p>
 
@@ -28,7 +29,7 @@ const AboutView = ({ aboutData }) => {
 
         <p className="description">How I work <br /></p>
         <p className="description">{aboutData.howIWork}</p>
-      </div>
+      </Card>
     </>
   );
 };

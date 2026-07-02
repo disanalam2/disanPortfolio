@@ -1,22 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 :root {
-  // Colors
-  --bg-color: #0b0f19;      
-  --nav-bg: rgba(11, 15, 25, 0.75); 
-  --card-bg: rgba(30, 41, 59, 0.4);
-  --card-border: rgba(255, 255, 255, 0.08);
+  // Colors - Premium Charcoal Background with Neon Blue Accents
+  --bg-color: #121212;      
+  --nav-bg: rgba(18, 18, 18, 0.85); 
+  --card-bg: rgba(30, 30, 30, 0.6);
+  --card-border: rgba(0, 243, 255, 0.12);
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --text-secondary: #a1a1aa;
   
   // Accents
-  --accent-color: #6366f1; 
-  --accent-secondary: #f59e0b; 
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  --accent-glow: rgba(99, 102, 241, 0.2);
+  --accent-color: #00f3ff; 
+  --accent-secondary: #3b82f6; // Deep blue for secondary accent
+  --gradient-primary: linear-gradient(135deg, #00f3ff 0%, #3b82f6 100%);
+  --accent-glow: rgba(0, 243, 255, 0.25);
   
   // Typography & Transitions
-  --font-main: 'DM Sans', sans-serif;
-  --font-heading: 'Outfit', sans-serif;
-  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --transition-smooth: all 0.3s ease-in-out;
 }

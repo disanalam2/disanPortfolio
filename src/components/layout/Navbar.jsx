@@ -16,6 +16,17 @@ const Navbar = () => {
     alert('Admin Logged Out Successfully! 👋');
   };
 
+  const [resumeLink, setResumeLink] = useState(localStorage.getItem('resumeLink') || '/Disan Alam - Resume.pdf');
+
+  const handleEditResumeLink = () => {
+    const newLink = prompt("Enter new Resume Link/URL:", resumeLink);
+    if (newLink !== null && newLink.trim() !== "") {
+      setResumeLink(newLink.trim());
+      localStorage.setItem('resumeLink', newLink.trim());
+      alert("Resume link updated successfully (Frontend only)!");
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-container container">
@@ -50,26 +61,37 @@ const Navbar = () => {
             </li>
           ))}
           
-          {/* Resume Download Button */}
-          <li>
+          {/* Resume Download Button with Edit Option */}
+          <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <a 
-              href="/Disan Alam - Resume.pdf" 
-              download="Disan_Alam_Resume.pdf"
-              style={{
-                background: 'var(--gradient-primary)',
-                color: '#fff',
-                padding: '8px 18px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontWeight: '600',
-                fontSize: '0.95rem',
-                marginLeft: '5px',
-                display: 'inline-block',
-                boxShadow: '0 4px 14px var(--accent-glow)'
-              }}
+              href={resumeLink} 
+              download={resumeLink.startsWith('http') ? undefined : "Disan_Alam_Resume.pdf"}
+              target={resumeLink.startsWith('http') ? "_blank" : "_self"}
+              rel="noreferrer"
+              className="nav-resume-btn"
             >
               Resume
             </a>
+            {isAdmin && (
+              <button 
+                onClick={handleEditResumeLink}
+                title="Edit Resume Link (Frontend Only)"
+                style={{ 
+                  background: 'rgba(255,255,255,0.1)', 
+                  border: 'none', 
+                  borderRadius: '50%', 
+                  width: '30px', 
+                  height: '30px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  cursor: 'pointer',
+                  fontSize: '0.9rem'
+                }}
+              >
+                ✏️
+              </button>
+            )}
           </li>
 
           {/* Logout Button - Only show jab admin logged in ho */}
@@ -77,17 +99,7 @@ const Navbar = () => {
             <li>
               <button 
                 onClick={handleLogout}
-                style={{
-                  background: '#ef4444',
-                  color: 'white',
-                  border: 'none',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  marginLeft: '10px'
-                }}
+                className="nav-logout-btn"
               >
                 Logout
               </button>

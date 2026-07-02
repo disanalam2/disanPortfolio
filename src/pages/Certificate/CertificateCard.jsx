@@ -1,5 +1,5 @@
 import React from 'react';
-import CardActionMenu from '../../components/common/CardActionMenu';
+import CardActionMenu from '../../components/admin/CardActionMenu';
 
 const CertificateCard = ({ certificate, isEditingPage, onEdit, onDelete }) => {
   return (

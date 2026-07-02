@@ -4,9 +4,10 @@ import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
 import PageLayout from '../../components/layout/PageLayout';
 import Loader from '../../components/common/Loader';
-import AdminBottomBar from '../../components/common/AdminBottomBar';
+import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import SkillCategoryView from './SkillsCategoryView';
 import SkillCategoryEdit from './SkillsCategoryEdit';
+import SectionTitle from '../../components/ui/SectionTitle';
 import './Skills.scss';
 
 const Skills = () => {
@@ -89,8 +90,8 @@ const Skills = () => {
 
   return (
     <PageLayout className="skills-section">
-      <h2 className="section-title">My Skills</h2>
-      {displayData?.length === 0 && !isEditing && <p style={{textAlign: "center", color: "#9ca3af"}}>No skills added yet.</p>}
+      <SectionTitle title="My Skills" />
+      {displayData?.length === 0 && !isEditing && <p className="empty-state">No skills added yet.</p>}
 
       <div className="skills-container">
         {displayData?.map((catItem, catIndex) => (

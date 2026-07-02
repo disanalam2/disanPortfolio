@@ -6,9 +6,10 @@ import { useWrite } from '../../hooks/Write';
 import { useDragAndDrop } from '../../hooks/DragAndDrop';
 import PageLayout from '../../components/layout/PageLayout';
 import Loader from '../../components/common/Loader';
-import AdminBottomBar from '../../components/common/AdminBottomBar';
+import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import CertificateCard from './CertificateCard';
 import CertificateForm from './CertificateForm';
+import SectionTitle from '../../components/ui/SectionTitle';
 import './certificate.scss';
 
 const Certificates = () => {
@@ -79,8 +80,8 @@ const Certificates = () => {
 
   return (
     <PageLayout className="certificate-section">
+      <SectionTitle title="My Certificates" />
       <div className="section-header">
-        <h2>Certificates</h2>
         <p>Verified credentials and training that show the tools, frameworks, and workflows I use every day.</p>
       </div>
 

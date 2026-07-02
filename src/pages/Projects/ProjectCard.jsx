@@ -1,8 +1,9 @@
 import React from 'react';
+import Button from '../../components/ui/Button';
 import MediaCarousel from '../../components/common/MediaCarousel';
-import CardActionMenu from '../../components/common/CardActionMenu';
+import CardActionMenu from '../../components/admin/CardActionMenu';
 
-const ProjectCard = ({ project, isEditingPage, onEdit, onDelete }) => {
+const ProjectCard = ({ project, isEditingPage, onEdit, onDelete, onViewDetails }) => {
   return (
     <>
       {isEditingPage && (
@@ -19,23 +20,34 @@ const ProjectCard = ({ project, isEditingPage, onEdit, onDelete }) => {
       
       <div className="project-actions">
         {project.githubLink && (
-          <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn">
+          <Button asLink href={project.githubLink} target="_blank" rel="noopener noreferrer" variant="primary">
             View on GitHub
-          </a>
+          </Button>
         )}
         {project.liveLink && (
-          <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn secondary">
+          <Button asLink href={project.liveLink} target="_blank" rel="noopener noreferrer" variant="secondary">
             Live Demo
-          </a>
+          </Button>
         )}
       </div>
       
-      <p className="desc">{project.description}</p>
-      
       <div className="tech-stack">
-        {project.techStack && project.techStack.map((tech, i) => (
+        {project.techStack && project.techStack.slice(0, 3).map((tech, i) => (
           <span key={i} className="tech-pill">{tech}</span>
         ))}
+        {project.techStack && project.techStack.length > 3 && (
+          <span className="tech-pill more">+{project.techStack.length - 3}</span>
+        )}
+      </div>
+
+      <div className="view-more-container">
+        <button className="view-details-btn" onClick={onViewDetails}>
+          View Details
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
       </div>
     </>
   );

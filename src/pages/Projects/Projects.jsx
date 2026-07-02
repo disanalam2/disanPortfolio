@@ -6,9 +6,13 @@ import { useWrite } from '../../hooks/Write';
 import { useDragAndDrop } from '../../hooks/DragAndDrop';
 import PageLayout from '../../components/layout/PageLayout';
 import Loader from '../../components/common/Loader';
-import AdminBottomBar from '../../components/common/AdminBottomBar';
+import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import ProjectCard from './ProjectCard';
 import ProjectForm from './ProjectForm';
+import SectionTitle from '../../components/ui/SectionTitle';
+import Modal from '../../components/ui/Modal';
+import Button from '../../components/ui/Button';
+import MediaCarousel from '../../components/common/MediaCarousel';
 import './projects.scss';
 
 const Projects = () => {
@@ -19,6 +23,9 @@ const Projects = () => {
   const [isEditingPage, setIsEditingPage] = useState(false);
   const [tempData, setTempData] = useState([]);
   const [editingProjectId, setEditingProjectId] = useState(null);
+  
+  // Modal State
+  const [selectedProject, setSelectedProject] = useState(null);
 
   // Drag and Drop Hook
   const { dragItem, dragOverItem, handleSort } = useDragAndDrop(tempData, setTempData);
@@ -86,9 +93,9 @@ const Projects = () => {
 
   return (
     <PageLayout className="projects-section">
-      <h2 className="section-title">My Projects</h2>
+      <SectionTitle title="My Projects" />
       {displayData?.length === 0 && !isEditingPage && (
-        <p style={{ textAlign: "center", color: "#9ca3af" }}>No projects found.</p>
+        <p className="empty-state">No projects found.</p>
       )}
 
       <div className="projects-container">
@@ -108,7 +115,13 @@ const Projects = () => {
             {editingProjectId === project.id ? (
               <ProjectForm project={project} onSave={saveProjectDetails} onCancel={() => setEditingProjectId(null)} />
             ) : (
-              <ProjectCard project={project} isEditingPage={isEditingPage} onEdit={() => setEditingProjectId(project.id)} onDelete={() => handleDeleteProject(project.id)} />
+              <ProjectCard 
+                project={project} 
+                isEditingPage={isEditingPage} 
+                onEdit={() => setEditingProjectId(project.id)} 
+                onDelete={() => handleDeleteProject(project.id)} 
+                onViewDetails={() => setSelectedProject(project)}
+              />
             )}
           </motion.div>
         ))}
@@ -126,6 +139,44 @@ const Projects = () => {
       {isAdmin && (
         <AdminBottomBar isEditing={isEditingPage} onEdit={handleStartEditingPage} onSave={handleSavePage} onCancel={handleCancelPage} />
       )}
+
+      {/* Project Details Modal */}
+      <Modal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)}>
+        {selectedProject && (
+          <div className="project-modal-details">
+            <MediaCarousel media={selectedProject.media} />
+            
+            <h2 className="modal-title">{selectedProject.title}</h2>
+            
+            <div className="project-actions modal-actions">
+              {selectedProject.githubLink && (
+                <Button asLink href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" variant="primary">
+                  View on GitHub
+                </Button>
+              )}
+              {selectedProject.liveLink && (
+                <Button asLink href={selectedProject.liveLink} target="_blank" rel="noopener noreferrer" variant="secondary">
+                  Live Demo
+                </Button>
+              )}
+            </div>
+            
+            <div className="modal-section">
+              <h3>About Project</h3>
+              <p className="desc">{selectedProject.description}</p>
+            </div>
+            
+            <div className="modal-section">
+              <h3>Technologies Used</h3>
+              <div className="tech-stack">
+                {selectedProject.techStack && selectedProject.techStack.map((tech, i) => (
+                  <span key={i} className="tech-pill">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </Modal>
     </PageLayout>
   );
 };

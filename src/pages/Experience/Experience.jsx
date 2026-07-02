@@ -5,9 +5,10 @@ import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
 import PageLayout from '../../components/layout/PageLayout';
 import Loader from '../../components/common/Loader';
-import AdminBottomBar from '../../components/common/AdminBottomBar';
+import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import ExperienceTimeline from './ExperienceTimeline';
 import ExperienceForm from './ExperienceForm';
+import SectionTitle from '../../components/ui/SectionTitle';
 import './experience.scss';
 
 const Experience = () => {
@@ -76,12 +77,12 @@ const Experience = () => {
 
   return (
     <PageLayout className="experience-section">
+      <SectionTitle title="My Experience" />
       <div className="section-header">
-        <h2>Experience</h2>
         <p>Roles, projects, and hands-on work that demonstrate how I build real products.</p>
       </div>
 
-      {displayData?.length === 0 && !isEditingPage && <p style={{ textAlign: "center", color: "#9ca3af" }}>No experience added yet.</p>}
+      {displayData?.length === 0 && !isEditingPage && <p className="empty-state">No experience added yet.</p>}
 
       <div className="timeline">
         {displayData?.map((item, index) => (
