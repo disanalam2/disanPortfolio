@@ -32,11 +32,14 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     const uploadData = new FormData();
     uploadData.append('file', file);
 
+    let token = sessionStorage.getItem('adminToken');
+    if (token) token = token.replace(/^"(.*)"$/, '$1');
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/upload`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}` // Admin token
+          'Authorization': `Bearer ${token}` // Admin token
         },
         body: uploadData
       });
