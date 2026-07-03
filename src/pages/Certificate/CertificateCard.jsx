@@ -19,7 +19,7 @@ const CertificateCard = ({ certificate, isEditingPage, onEdit, onDelete }) => {
 
       {certificate.image && (
         <div style={{ width: '100%', height: '220px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.05)' }}>
-          <img src={certificate.image} alt={certificate.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={certificate.image} alt={`Certificate: ${certificate.title}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       )}
 

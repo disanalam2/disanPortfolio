@@ -32,7 +32,8 @@ const MediaCarousel = ({ media }) => {
       ) : (
         <img 
           src={currentMedia.url} 
-          alt="Project Demo" 
+          alt="Project showcase screenshot" 
+          loading="lazy"
           className="carousel-media image" 
           key={currentMedia.url} // Key add karne se fade animation sahi se trigger hota hai
         />

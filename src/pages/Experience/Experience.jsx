@@ -9,6 +9,7 @@ import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import ExperienceTimeline from './ExperienceTimeline';
 import ExperienceForm from './ExperienceForm';
 import SectionTitle from '../../components/ui/SectionTitle';
+import SEO from '../../components/common/SEO';
 import './experience.scss';
 
 const Experience = () => {
@@ -77,6 +78,11 @@ const Experience = () => {
 
   return (
     <PageLayout className="experience-section">
+      <SEO 
+        title="Experience" 
+        description="My professional experience and roles in web development, showcasing the projects and companies I have worked with." 
+        url="experience"
+      />
       <SectionTitle title="My Experience" />
       <div className="section-header">
         <p>Roles, projects, and hands-on work that demonstrate how I build real products.</p>

@@ -8,6 +8,7 @@ import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import SkillCategoryView from './SkillsCategoryView';
 import SkillCategoryEdit from './SkillsCategoryEdit';
 import SectionTitle from '../../components/ui/SectionTitle';
+import SEO from '../../components/common/SEO';
 import './Skills.scss';
 
 const Skills = () => {
@@ -60,7 +61,7 @@ const Skills = () => {
   const handleAddSkill = (catIndex) => {
     const skillName = newSkillInputs[catIndex];
     if (skillName?.trim()) {
-      setTempData(tempData.map((cat, i) => i === catIndex ? { ...cat, skills: [...cat.skills, skillName.trim()] } : cat));
+      setTempData(tempData.map((cat, i) => i === catIndex ? { ...cat, skills: [...(cat.skills || []), skillName.trim()] } : cat));
       setNewSkillInputs({ ...newSkillInputs, [catIndex]: '' });
     }
   };
@@ -90,6 +91,11 @@ const Skills = () => {
 
   return (
     <PageLayout className="skills-section">
+      <SEO 
+        title="Skills" 
+        description="Check out my technical skills including Frontend development, Backend technologies, and tools." 
+        url="skills"
+      />
       <SectionTitle title="My Skills" />
       {displayData?.length === 0 && !isEditing && <p className="empty-state">No skills added yet.</p>}
 

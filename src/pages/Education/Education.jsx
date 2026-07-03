@@ -9,6 +9,7 @@ import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import EducationCard from './EducationCard';
 import EducationForm from './EducationForm';
 import SectionTitle from '../../components/ui/SectionTitle';
+import SEO from '../../components/common/SEO';
 import './education.scss';
 
 const Education = () => {
@@ -77,6 +78,11 @@ const Education = () => {
 
   return (
     <PageLayout className="education-section">
+      <SEO 
+        title="Education" 
+        description="My academic background, degrees, and the institutions where I built my foundation in software development." 
+        url="education"
+      />
       <SectionTitle title="My Education" />
       <div className="section-header">
         <p>Academic background, degrees, and institutions that built my foundation.</p>

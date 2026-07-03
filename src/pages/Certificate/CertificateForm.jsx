@@ -11,7 +11,40 @@ const CertificateForm = ({ certificate, onSave, onCancel }) => {
     setFormData(certificate);
   }, [certificate]);
 
+  const [uploading, setUploading] = useState(false);
+
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: uploadData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setFormData(prev => ({ ...prev, image: data.url }));
+      } else {
+        alert("Upload Failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Error uploading file");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
     <div className="cert-edit-form">
@@ -24,7 +57,25 @@ const CertificateForm = ({ certificate, onSave, onCancel }) => {
       
       <TextAreaField name="description" value={formData.description} onChange={handleChange} placeholder="Description" className="edit-input desc" rows="3" />
       <InputField name="href" value={formData.href} onChange={handleChange} placeholder="Credential Link" className="edit-input" />
-      <InputField name="image" value={formData.image} onChange={handleChange} placeholder="Image URL / Path" className="edit-input" />
+      
+      <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+        <div style={{ flex: 1 }}>
+          <InputField name="image" value={formData.image} onChange={handleChange} placeholder="Image URL / Path" className="edit-input" />
+        </div>
+        <div>
+          <label htmlFor={`upload-cert-${certificate.id || 'new'}`} style={{ cursor: 'pointer', background: 'var(--accent-color)', color: '#000', padding: '10px 15px', borderRadius: '4px', fontSize: '0.85rem', fontWeight: 'bold' }}>
+            {uploading ? 'Uploading...' : 'Upload S3'}
+          </label>
+          <input 
+            type="file" 
+            id={`upload-cert-${certificate.id || 'new'}`} 
+            style={{ display: 'none' }} 
+            accept="image/*" 
+            onChange={handleFileUpload}
+            disabled={uploading}
+          />
+        </div>
+      </div>
 
       <div className="card-edit-actions">
         <button onClick={() => onSave(certificate.id, formData)} className="btn save-btn">Save Done</button>

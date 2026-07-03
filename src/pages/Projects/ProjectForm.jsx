@@ -7,6 +7,8 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     title: '', description: '', problemFaced: '', techStack: '', githubLink: '', liveLink: '', imageUrls: '', videoUrl: ''
   });
 
+  const [uploading, setUploading] = useState(false);
+
   // Mount hone par existing project details set karo
   useEffect(() => {
     const imagesStr = project.media?.filter(m => m.type === 'image').map(m => m.url).join(', ') || '';
@@ -21,6 +23,41 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
   }, [project]);
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}` // Admin token
+        },
+        body: uploadData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        // Purane links me naya link comma laga kar jod do
+        setFormData(prev => ({
+          ...prev,
+          imageUrls: prev.imageUrls ? `${prev.imageUrls}, ${data.url}` : data.url
+        }));
+      } else {
+        alert("Upload Failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Error uploading file");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   const handleSaveClick = () => {
     // Strings ko wapas arrays me convert karo API ke liye
@@ -46,8 +83,23 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     <div className="project-edit-form">
       <InputField name="title" value={formData.title} onChange={handleChange} placeholder="Project Title" className="edit-input bold" />
 
-      <div className="media-inputs">
-        <label>Images (Comma separated links):</label>
+      <div className="media-inputs" style={{ padding: '10px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', marginBottom: '15px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+          <label style={{ margin: 0 }}>Images (Comma separated links):</label>
+          <div>
+            <label htmlFor={`upload-${project.id || 'new'}`} style={{ cursor: 'pointer', background: 'var(--accent-color)', color: '#000', padding: '4px 12px', borderRadius: '4px', fontSize: '0.85rem', fontWeight: 'bold' }}>
+              {uploading ? 'Uploading...' : 'Upload Image to S3'}
+            </label>
+            <input 
+              type="file" 
+              id={`upload-${project.id || 'new'}`} 
+              style={{ display: 'none' }} 
+              accept="image/*" 
+              onChange={handleFileUpload}
+              disabled={uploading}
+            />
+          </div>
+        </div>
         <TextAreaField name="imageUrls" value={formData.imageUrls} onChange={handleChange} placeholder="https://img1.jpg, https://img2.jpg" className="edit-input" rows="2" />
         
         <label>Video (Direct .mp4 link):</label>

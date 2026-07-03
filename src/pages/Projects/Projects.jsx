@@ -13,6 +13,7 @@ import SectionTitle from '../../components/ui/SectionTitle';
 import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 import MediaCarousel from '../../components/common/MediaCarousel';
+import SEO from '../../components/common/SEO';
 import './projects.scss';
 
 const Projects = () => {
@@ -93,6 +94,11 @@ const Projects = () => {
 
   return (
     <PageLayout className="projects-section">
+      <SEO 
+        title="Projects" 
+        description="Explore my latest web development projects, ranging from full-stack applications to responsive UI designs." 
+        url="projects"
+      />
       <SectionTitle title="My Projects" />
       {displayData?.length === 0 && !isEditingPage && (
         <p className="empty-state">No projects found.</p>

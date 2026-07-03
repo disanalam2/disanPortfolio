@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import useTitle from '../../hooks/useTitle';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
@@ -8,11 +7,11 @@ import Loader from '../../components/common/Loader';
 import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import AboutView from './AboutView';
 import AboutEdit from './AboutEdit';
+import SEO from '../../components/common/SEO';
 import './About.scss';
 
 const AboutContainer = () => {
   const { isAdmin } = useAuth();
-  useTitle('About');
   const { data: aboutData, setData: setAboutData, loading } = useFetch('/about');
   const { putData, isWriting } = useWrite();
 
@@ -72,6 +71,11 @@ const AboutContainer = () => {
 
   return (
     <PageLayout className="about-section animate-fade-up">
+      <SEO 
+        title="About Me" 
+        description="Learn more about Disan Alam, a passionate Full-Stack Developer with expertise in React, Node.js, and modern web architecture." 
+        url="about"
+      />
       {isEditing ? (
         <AboutEdit 
           tempData={tempData} 

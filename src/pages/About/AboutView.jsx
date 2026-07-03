@@ -7,7 +7,7 @@ const AboutView = ({ aboutData }) => {
   return (
     <>
       <Card className="about-details">
-        <img src={aboutData.photo || "./DISAN ALAM.JPG"} alt="Disan PIC" />
+        <img src={aboutData.photo || "./DISAN ALAM.JPG"} alt="Disan Alam - Full Stack Developer" loading="lazy" />
         <h1 className="title">{aboutData.title || "Loading..."}</h1>
         <p className="description">{aboutData.shortDesc || "Loading..."}</p>
         
