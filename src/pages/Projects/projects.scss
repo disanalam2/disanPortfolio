@@ -334,12 +334,26 @@
 // Global Project Actions styles (for both card and modal)
 .project-actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
   gap: 0.8rem;
   margin-bottom: 1.8rem;
+  width: 100%;
+
+  .full-width-btn {
+    width: 100%;
+  }
+
+  .github-links-row {
+    display: flex;
+    gap: 0.8rem;
+    width: 100%;
+    
+    .btn {
+      flex: 1;
+    }
+  }
 
   .btn {
-    flex: 1;
     display: inline-flex;
     justify-content: center;
     align-items: center;

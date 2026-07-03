@@ -155,15 +155,25 @@ const Projects = () => {
             <h2 className="modal-title">{selectedProject.title}</h2>
             
             <div className="project-actions modal-actions">
-              {selectedProject.githubLink && (
-                <Button asLink href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" variant="primary">
-                  View on GitHub
-                </Button>
-              )}
               {selectedProject.liveLink && (
-                <Button asLink href={selectedProject.liveLink} target="_blank" rel="noopener noreferrer" variant="secondary">
+                <Button asLink href={selectedProject.liveLink} target="_blank" rel="noopener noreferrer" variant="secondary" className="full-width-btn">
                   Live Demo
                 </Button>
+              )}
+              
+              {(selectedProject.githubLink || selectedProject.githubLinkBackend) && (
+                <div className="github-links-row">
+                  {selectedProject.githubLink && (
+                    <Button asLink href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" variant="primary">
+                      {selectedProject.githubLinkBackend ? "Frontend Code" : "View on GitHub"}
+                    </Button>
+                  )}
+                  {selectedProject.githubLinkBackend && (
+                    <Button asLink href={selectedProject.githubLinkBackend} target="_blank" rel="noopener noreferrer" variant="primary">
+                      Backend Code
+                    </Button>
+                  )}
+                </div>
               )}
             </div>
             

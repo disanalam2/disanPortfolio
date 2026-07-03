@@ -19,15 +19,25 @@ const ProjectCard = ({ project, isEditingPage, onEdit, onDelete, onViewDetails }
       <h3>{project.title}</h3>
       
       <div className="project-actions">
-        {project.githubLink && (
-          <Button asLink href={project.githubLink} target="_blank" rel="noopener noreferrer" variant="primary">
-            View on GitHub
-          </Button>
-        )}
         {project.liveLink && (
-          <Button asLink href={project.liveLink} target="_blank" rel="noopener noreferrer" variant="secondary">
+          <Button asLink href={project.liveLink} target="_blank" rel="noopener noreferrer" variant="secondary" className="full-width-btn">
             Live Demo
           </Button>
+        )}
+        
+        {(project.githubLink || project.githubLinkBackend) && (
+          <div className="github-links-row">
+            {project.githubLink && (
+              <Button asLink href={project.githubLink} target="_blank" rel="noopener noreferrer" variant="primary">
+                {project.githubLinkBackend ? "Frontend Code" : "View on GitHub"}
+              </Button>
+            )}
+            {project.githubLinkBackend && (
+              <Button asLink href={project.githubLinkBackend} target="_blank" rel="noopener noreferrer" variant="primary">
+                Backend Code
+              </Button>
+            )}
+          </div>
         )}
       </div>
       

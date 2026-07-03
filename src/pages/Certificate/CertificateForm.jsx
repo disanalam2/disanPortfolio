@@ -24,7 +24,7 @@ const CertificateForm = ({ certificate, onSave, onCancel }) => {
     uploadData.append('file', file);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`

@@ -4,7 +4,7 @@ import TextAreaField from '../../components/form/TextAreaField';
 
 const ProjectForm = ({ project, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
-    title: '', description: '', problemFaced: '', techStack: '', githubLink: '', liveLink: '', imageUrls: '', videoUrl: ''
+    title: '', description: '', problemFaced: '', techStack: '', githubLink: '', githubLinkBackend: '', liveLink: '', imageUrls: '', videoUrl: ''
   });
 
   const [uploading, setUploading] = useState(false);
@@ -33,7 +33,7 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     uploadData.append('file', file);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}` // Admin token
@@ -109,7 +109,8 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
       <TextAreaField name="description" value={formData.description} onChange={handleChange} placeholder="Description" className="edit-input desc" rows="3" />
       <TextAreaField name="problemFaced" value={formData.problemFaced || ''} onChange={handleChange} placeholder="Problem Faced" className="edit-input desc" rows="3" />
       <InputField name="techStack" value={formData.techStack} onChange={handleChange} placeholder="Tech Stack (comma separated)" className="edit-input" />
-      <InputField name="githubLink" value={formData.githubLink} onChange={handleChange} placeholder="GitHub Link" className="edit-input" />
+      <InputField name="githubLink" value={formData.githubLink} onChange={handleChange} placeholder="Frontend GitHub Link" className="edit-input" />
+      <InputField name="githubLinkBackend" value={formData.githubLinkBackend || ''} onChange={handleChange} placeholder="Backend GitHub Link" className="edit-input" />
       <InputField name="liveLink" value={formData.liveLink} onChange={handleChange} placeholder="Live Demo Link" className="edit-input" />
 
       <div className="card-edit-actions">
