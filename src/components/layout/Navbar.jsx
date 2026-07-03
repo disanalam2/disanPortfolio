@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
+import { apiCall } from '../../services/api';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isAdmin, logout } = useAuth();
   const navigate = useNavigate();
 
-  const navItems = ['About', 'Skills', 'Projects', 'Experience', 'Certificate', 'Contact'];
+  const navItems = ['About', 'Skills', 'Projects', 'Education', 'Experience', 'Certificate', 'Contact'];
 
   const handleLogout = () => {
     logout();
@@ -16,14 +17,50 @@ const Navbar = () => {
     alert('Admin Logged Out Successfully! 👋');
   };
 
-  const [resumeLink, setResumeLink] = useState(localStorage.getItem('resumeLink') || '/Disan Alam - Resume.pdf');
+  const [resumeLink, setResumeLink] = useState('/Disan Alam - Resume.pdf');
 
-  const handleEditResumeLink = () => {
+  // Fetch resume link from backend
+  useEffect(() => {
+    const fetchAboutData = async () => {
+      try {
+        const data = await apiCall('/about');
+        if (data && data.resume_link) {
+          setResumeLink(data.resume_link);
+        }
+      } catch (err) {
+        console.error("Failed to fetch resume link");
+      }
+    };
+    fetchAboutData();
+  }, []);
+
+  const handleEditResumeLink = async () => {
+    if (!isAdmin) return;
     const newLink = prompt("Enter new Resume Link/URL:", resumeLink);
-    if (newLink !== null && newLink.trim() !== "") {
-      setResumeLink(newLink.trim());
-      localStorage.setItem('resumeLink', newLink.trim());
-      alert("Resume link updated successfully (Frontend only)!");
+    if (newLink !== null && newLink.trim() !== '') {
+      // First fetch current about data to update just the resume_link
+      try {
+        const currentData = await apiCall('/about');
+        
+        const updateData = {
+          ...currentData,
+          resume_link: newLink.trim()
+        };
+
+        const res = await apiCall('/about/update', {
+          method: 'PUT',
+          body: JSON.stringify(updateData)
+        });
+        
+        if (res.success) {
+          setResumeLink(newLink.trim());
+          alert("Resume link updated successfully in database!");
+        } else {
+          alert("Failed to update resume link on server.");
+        }
+      } catch (err) {
+        alert("Server connection failed.");
+      }
     }
   };
 
@@ -75,7 +112,7 @@ const Navbar = () => {
             {isAdmin && (
               <button 
                 onClick={handleEditResumeLink}
-                title="Edit Resume Link (Frontend Only)"
+                title="Edit Resume Link (Database)"
                 style={{ 
                   background: 'rgba(255,255,255,0.1)', 
                   border: 'none', 

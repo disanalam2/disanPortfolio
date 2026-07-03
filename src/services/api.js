@@ -1,5 +1,4 @@
-const BASE_URL = 'https://api.disanalam.me/api';
-//const BASE_URL = 'http://localhost:5000/api'; // Local development ke liye
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://13.232.90.249:5000/api';
 export const apiCall = async (endpoint, options = {}) => {
   // sessionStorage se token lete hain (updated from localStorage)
   let token = sessionStorage.getItem('adminToken');
@@ -31,8 +30,7 @@ export const apiCall = async (endpoint, options = {}) => {
   if (response.status === 401 || response.status === 403) {
     sessionStorage.removeItem('adminToken');
     alert("Aapka Admin session expire ho gaya hai. Kripya wapas login karein!");
-    window.location.hash = '#/admin';
-    window.location.reload();
+    window.location.href = '/admin';
     throw new Error("Session expired");
   }
 

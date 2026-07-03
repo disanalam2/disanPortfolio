@@ -29,7 +29,7 @@ const SkillCategoryEdit = ({
       </div>
 
       <div className="skills-grid">
-        {catItem.skills.map((skill, skillIndex) => (
+        {catItem.skills?.map((skill, skillIndex) => (
           <div
             key={skillIndex}
             className="skill-card draggable-skill"

@@ -6,7 +6,7 @@ const SkillCategoryView = ({ catItem }) => {
     <>
       <h3 className="category-title">{catItem.category}</h3>
       <div className="skills-grid">
-        {catItem.skills.map((skill, skillIndex) => (
+        {catItem.skills?.map((skill, skillIndex) => (
           <motion.div
             key={skillIndex}
             className="skill-card"

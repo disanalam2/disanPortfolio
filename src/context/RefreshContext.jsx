@@ -6,7 +6,6 @@ export const RefreshProvider = ({ children }) => {
   const [refreshKey, setRefreshKey] = useState(0);
 
   const triggerRefresh = useCallback(() => {
-    console.log('🔄 Triggering global refresh...');
     setRefreshKey(prev => prev + 1);
   }, []);
 

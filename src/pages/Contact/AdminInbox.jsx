@@ -11,18 +11,14 @@ const AdminInbox = () => {
 
   // Auto-poll for new messages every 5 seconds while admin is viewing inbox
   useEffect(() => {
-    console.log('✅ AdminInbox mounted - starting auto-poll for new messages');
-    
     // Start polling - this will refetch data every 5 seconds
     pollIntervalRef.current = setInterval(() => {
-      console.log('🔄 Auto-polling for new messages... triggering refresh');
       triggerRefresh();
     }, 5000);
 
     return () => {
       if (pollIntervalRef.current) {
         clearInterval(pollIntervalRef.current);
-        console.log('❌ AdminInbox unmounted - stopping auto-poll');
       }
     };
   }, [triggerRefresh]);

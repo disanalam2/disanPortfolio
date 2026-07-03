@@ -4,7 +4,7 @@ import TextAreaField from '../../components/form/TextAreaField';
 
 const ProjectForm = ({ project, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
-    title: '', description: '', techStack: '', githubLink: '', liveLink: '', imageUrls: '', videoUrl: ''
+    title: '', description: '', problemFaced: '', techStack: '', githubLink: '', liveLink: '', imageUrls: '', videoUrl: ''
   });
 
   // Mount hone par existing project details set karo
@@ -55,6 +55,7 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
       </div>
 
       <TextAreaField name="description" value={formData.description} onChange={handleChange} placeholder="Description" className="edit-input desc" rows="3" />
+      <TextAreaField name="problemFaced" value={formData.problemFaced || ''} onChange={handleChange} placeholder="Problem Faced" className="edit-input desc" rows="3" />
       <InputField name="techStack" value={formData.techStack} onChange={handleChange} placeholder="Tech Stack (comma separated)" className="edit-input" />
       <InputField name="githubLink" value={formData.githubLink} onChange={handleChange} placeholder="GitHub Link" className="edit-input" />
       <InputField name="liveLink" value={formData.liveLink} onChange={handleChange} placeholder="Live Demo Link" className="edit-input" />

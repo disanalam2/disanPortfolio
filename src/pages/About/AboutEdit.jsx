@@ -28,6 +28,17 @@ const AboutEdit = ({ tempData, imagePreview, handleInputChange, handleImageChang
           onChange={handleInputChange} 
           rows="3" 
         />
+        <div style={{ marginTop: '1rem' }}>
+          <p className="description" style={{ marginBottom: '5px' }}>Resume Link (PDF URL) <br /></p>
+          <input 
+            name="resume_link" 
+            className="edit-input" 
+            style={{ width: '100%', padding: '10px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}
+            value={tempData.resume_link || ''} 
+            onChange={handleInputChange} 
+            placeholder="https://example.com/resume.pdf"
+          />
+        </div>
       </div>
 
       <div className="about-content">

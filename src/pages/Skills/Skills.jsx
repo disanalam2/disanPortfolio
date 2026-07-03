@@ -94,7 +94,7 @@ const Skills = () => {
       {displayData?.length === 0 && !isEditing && <p className="empty-state">No skills added yet.</p>}
 
       <div className="skills-container">
-        {displayData?.map((catItem, catIndex) => (
+        {Array.isArray(displayData) && displayData.map((catItem, catIndex) => (
           <div 
             key={catIndex} 
             className={`skill-category-block ${isEditing ? 'draggable-category' : ''}`}

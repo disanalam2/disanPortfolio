@@ -52,7 +52,7 @@ const Projects = () => {
 
   // Backend Actions
   const handleAddProject = async () => {
-    const newTemplate = { title: "New Project", description: "Project description...", techStack: ["React"], githubLink: "", liveLink: "", media: [] };
+    const newTemplate = { title: "New Project", description: "Project description...", problemFaced: "", techStack: ["React"], githubLink: "", liveLink: "", media: [] };
     try {
       const response = await postData('/projects/add', newTemplate);
       if (response.success) {
@@ -165,6 +165,13 @@ const Projects = () => {
               <h3>About Project</h3>
               <p className="desc">{selectedProject.description}</p>
             </div>
+            
+            {selectedProject.problemFaced && (
+              <div className="modal-section">
+                <h3>Problem Faced</h3>
+                <p className="desc">{selectedProject.problemFaced}</p>
+              </div>
+            )}
             
             <div className="modal-section">
               <h3>Technologies Used</h3>

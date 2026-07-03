@@ -14,8 +14,6 @@ export const useWrite = () => {
         body: JSON.stringify(payload),
       });
       setIsWriting(false);
-      // Data updated successfully - trigger refresh across all components
-      console.log(`✅ POST ${endpoint} success - triggering refresh`);
       triggerRefresh();
       return result;
     } catch (error) {
@@ -33,8 +31,6 @@ export const useWrite = () => {
         body: JSON.stringify(payload),
       });
       setIsWriting(false);
-      // Data updated successfully - trigger refresh across all components
-      console.log(`✅ PUT ${endpoint} success - triggering refresh`);
       triggerRefresh();
       return result;
     } catch (error) {
@@ -51,8 +47,6 @@ export const useWrite = () => {
         method: 'DELETE',
       });
       setIsWriting(false);
-      // Data deleted successfully - trigger refresh across all components
-      console.log(`✅ DELETE ${endpoint} success - triggering refresh`);
       triggerRefresh();
       return result;
     } catch (error) {
