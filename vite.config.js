@@ -11,9 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Disan Alam Portfolio',
+        name: 'Disan Alam',
         short_name: 'Disan',
-        description: 'Portfolio website of Disan Alam',
+        description: 'Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer.',
         theme_color: '#0f172a',
         background_color: '#0f172a',
         display: 'standalone',
