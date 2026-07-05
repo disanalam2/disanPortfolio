@@ -208,10 +208,37 @@
 }
 
 @media (max-width: 768px) {
+  .blog-layout-wrapper {
+    flex-direction: column;
+  }
+
+  .blog-sidebar {
+    position: static;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 0;
+    margin-bottom: 15px;
+  }
+
   .blog-container {
     padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
+  
   .blog-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .blog-hero-image {
+    max-height: 220px;
+    border-radius: 8px;
+  }
+  
+  .blog-hero {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
   }
 }

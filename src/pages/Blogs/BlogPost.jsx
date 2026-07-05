@@ -33,10 +33,10 @@ const BlogPost = () => {
     fetchBlog();
   }, [slug, navigate]);
 
+  const [copied, setCopied] = useState(false);
+
   if (loading) return <Loader message="Loading Article..." />;
   if (!blog) return null;
-
-  const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -104,7 +104,9 @@ const BlogPost = () => {
             <h1 className="blog-title">{blog.title}</h1>
             {blog.summary && <p className="blog-summary">{blog.summary}</p>}
             <div className="blog-meta-row">
-              <span className="meta-date">{new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span className="meta-date">
+                {blog.created_at ? new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Recently Published'}
+              </span>
               <span className="meta-dot">•</span>
               <span className="meta-read-time">{blog.read_time || 1} min read</span>
             </div>
