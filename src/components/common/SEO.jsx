@@ -5,10 +5,10 @@ const SEO = ({ title, description, keywords, image, url, schema }) => {
   const defaultTitle = 'Disan Alam | Full-Stack Developer';
   const fullTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
   
-  const defaultDescription = "Professional Full-Stack Web Developer and Website Developer. View my latest projects, technical skills, professional experience, and verified certificates.";
+  const defaultDescription = "Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer. Explore the portfolio of Disan Alam to view real-world projects, technical skills in React.js, Node.js, Express.js, and MySQL, professional experience, and verified certificates. Hire Disan Alam for top-tier custom website development services.";
   const metaDescription = description || defaultDescription;
   
-  const defaultKeywords = "Disan Alam, Full Stack Developer, Web Developer, React, Node.js";
+  const defaultKeywords = "Disan Alam, Disan Alam Portfolio, Disan Alam Projects, Disan Alam Skills, Disan Alam Experience, Disan Alam Certificates, Full Stack Developer, Website Developer, Web Developer, Freelance Web Developer, Hire Web Developer, React Developer, Node.js Expert, Portfolio, Best Web Developer, React.js, Express.js, MySQL, Cybersecurity";
   const metaKeywords = keywords || defaultKeywords;
   
   const defaultImage = "/banner.jpeg";

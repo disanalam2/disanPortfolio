@@ -96,7 +96,7 @@ const Projects = () => {
     <PageLayout className="projects-section">
       <SEO 
         title="Projects" 
-        description="Explore my latest web development projects, ranging from full-stack applications to responsive UI designs." 
+        description="Explore the latest web development projects by Disan Alam, ranging from full-stack applications to responsive UI designs using React.js and Node.js." 
         url="projects"
       />
       <SectionTitle title="My Projects" />

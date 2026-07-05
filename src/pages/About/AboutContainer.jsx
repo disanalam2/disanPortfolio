@@ -73,8 +73,8 @@ const AboutContainer = () => {
     <PageLayout className="about-section animate-fade-up">
       <SEO 
         title="About Me" 
-        description="Learn more about Disan Alam, a passionate Full-Stack Developer with expertise in React, Node.js, and modern web architecture." 
-        url="about"
+        description="Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer. Explore the portfolio of Disan Alam to view real-world projects, technical skills in React.js, Node.js, Express.js, and MySQL, professional experience, and verified certificates. Hire Disan Alam for top-tier custom website development services." 
+        url=""
       />
       {isEditing ? (
         <AboutEdit 
