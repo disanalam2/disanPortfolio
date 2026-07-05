@@ -36,9 +36,12 @@ const BlogPost = () => {
   if (loading) return <Loader message="Loading Article..." />;
   if (!blog) return null;
 
+  const [copied, setCopied] = useState(false);
+
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    alert('Link copied to clipboard!');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const articleSchema = {
@@ -71,8 +74,23 @@ const BlogPost = () => {
           <Link to="/blogs" className="sidebar-btn back-btn" title="Back to Articles">
             ←
           </Link>
-          <button onClick={handleCopyLink} className="sidebar-btn share-btn" title="Copy Link">
+          <button onClick={handleCopyLink} className="sidebar-btn share-btn" title="Copy Link" style={{ position: 'relative' }}>
             🔗
+            {copied && (
+              <span style={{
+                position: 'absolute',
+                left: '60px',
+                background: 'var(--accent-color)',
+                color: '#fff',
+                padding: '4px 8px',
+                borderRadius: '4px',
+                fontSize: '0.8rem',
+                whiteSpace: 'nowrap',
+                pointerEvents: 'none'
+              }}>
+                Link copied
+              </span>
+            )}
           </button>
         </aside>
 
