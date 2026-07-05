@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import Tilt from 'react-parallax-tilt';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
@@ -32,6 +34,7 @@ const Projects = () => {
   const { dragItem, dragOverItem, handleSort } = useDragAndDrop(tempData, setTempData);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (projectsData) setTempData(projectsData);
   }, [projectsData]);
 
@@ -61,6 +64,7 @@ const Projects = () => {
         setTempData([newProject, ...tempData]);
         setProjectsData([newProject, ...projectsData]);
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Backend se connect nahi ho paya!"); }
   };
 
@@ -86,11 +90,34 @@ const Projects = () => {
         setEditingProjectId(null);
         alert("Project details updated safely!");
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Error saving project details!"); }
   };
 
   if (loading) return <Loader message="Loading Projects..." />;
   const displayData = isEditingPage ? tempData : projectsData;
+
+  // Generate dynamic keywords for SEO
+  let dynamicKeywords = "Projects, Portfolio, Web Development, Full Stack";
+  if (projectsData && projectsData.length > 0) {
+    const allTech = new Set();
+    projectsData.forEach(p => p.techStack?.forEach(t => allTech.add(t)));
+    if (allTech.size > 0) {
+      dynamicKeywords = Array.from(allTech).slice(0, 10).join(', ');
+    }
+  }
+
+  const projectListSchema = displayData && displayData.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": displayData.map((proj, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": proj.liveLink || "https://disanalam.me/projects",
+      "name": proj.title,
+      "description": proj.description
+    }))
+  } : null;
 
   return (
     <PageLayout className="projects-section">
@@ -98,6 +125,8 @@ const Projects = () => {
         title="Projects" 
         description="Explore the latest web development projects by Disan Alam, ranging from full-stack applications to responsive UI designs using React.js and Node.js." 
         url="projects"
+        keywords={dynamicKeywords}
+        schema={projectListSchema}
       />
       <SectionTitle title="My Projects" />
       {displayData?.length === 0 && !isEditingPage && (
@@ -106,30 +135,46 @@ const Projects = () => {
 
       <div className="projects-container">
         {displayData?.map((project, index) => (
-          <motion.div
+          <Tilt
             key={project.id}
-            className={`project-card ${isEditingPage ? 'draggable-card' : ''}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={isEditingPage ? { duration: 0 } : { delay: index * 0.1, duration: 0.45 }}
-            draggable={isEditingPage && editingProjectId !== project.id}
-            onDragStart={() => (dragItem.current = index)}
-            onDragEnter={() => (dragOverItem.current = index)}
-            onDragEnd={handleSort}
-            onDragOver={(e) => e.preventDefault()}
+            tiltMaxAngleX={5}
+            tiltMaxAngleY={5}
+            perspective={1000}
+            transitionSpeed={1000}
+            scale={1.02}
+            glareEnable={true}
+            glareMaxOpacity={0.1}
+            glareColor="#ffffff"
+            glarePosition="all"
+            className="tilt-wrapper"
+            tiltEnable={!isEditingPage}
+            style={{ display: 'flex', height: '100%' }}
           >
-            {editingProjectId === project.id ? (
-              <ProjectForm project={project} onSave={saveProjectDetails} onCancel={() => setEditingProjectId(null)} />
-            ) : (
-              <ProjectCard 
-                project={project} 
-                isEditingPage={isEditingPage} 
-                onEdit={() => setEditingProjectId(project.id)} 
-                onDelete={() => handleDeleteProject(project.id)} 
-                onViewDetails={() => setSelectedProject(project)}
-              />
-            )}
-          </motion.div>
+            <motion.div
+              className={`project-card ${isEditingPage ? 'draggable-card' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={isEditingPage ? { duration: 0 } : { delay: index * 0.1, duration: 0.45 }}
+              draggable={isEditingPage && editingProjectId !== project.id}
+              onDragStart={() => (dragItem.current = index)}
+              onDragEnter={() => (dragOverItem.current = index)}
+              onDragEnd={handleSort}
+              onDragOver={(e) => e.preventDefault()}
+              style={{ width: '100%' }}
+            >
+              {editingProjectId === project.id ? (
+                <ProjectForm project={project} onSave={saveProjectDetails} onCancel={() => setEditingProjectId(null)} />
+              ) : (
+                <ProjectCard 
+                  project={project} 
+                  isEditingPage={isEditingPage} 
+                  onEdit={() => setEditingProjectId(project.id)} 
+                  onDelete={() => handleDeleteProject(project.id)} 
+                  onViewDetails={() => setSelectedProject(project)}
+                />
+              )}
+            </motion.div>
+          </Tilt>
         ))}
 
         {isEditingPage && (

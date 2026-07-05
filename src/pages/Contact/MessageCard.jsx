@@ -36,7 +36,7 @@ const MessageCard = ({ msg, onDeleted }) => {
             disabled={isWriting || isDeleting}
             style={{
               background: '#ef4444',
-              color: 'white',
+              color: "var(--text-primary)",
               border: 'none',
               padding: '6px 12px',
               borderRadius: '4px',
@@ -55,7 +55,7 @@ const MessageCard = ({ msg, onDeleted }) => {
       <div className="msg-contact-info">
         <span className={`pref-badge ${msg.preference}`}>Prefers: {msg.preference}</span>
         {msg.email && <a href={`mailto:${msg.email}`} className="msg-link">📧 {msg.email}</a>}
-        {msg.phone && (
+        {msg.phone && msg.preference === 'whatsapp' && (
           <a
             href="#!"
             onClick={(e) => {
@@ -64,10 +64,40 @@ const MessageCard = ({ msg, onDeleted }) => {
             }}
             className="msg-link"
           >
-            📱 +{msg.phone}
+            💬 +{msg.phone}
+          </a>
+        )}
+        {msg.phone && msg.preference === 'telegram' && (
+          <a
+            href="#!"
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(`https://t.me/${msg.phone.replace('@', '')}`, '_blank');
+            }}
+            className="msg-link"
+          >
+            ✈️ {msg.phone.startsWith('@') ? msg.phone : `@${msg.phone}`}
           </a>
         )}
       </div>
+
+      {(msg.subject || msg.websiteUrl) && (
+        <div style={{ marginTop: '15px', padding: '12px', background: 'var(--glass-bg)', borderLeft: '3px solid var(--accent-color)', borderRadius: '0 8px 8px 0' }}>
+          {msg.subject && (
+            <div style={{ marginBottom: msg.websiteUrl ? '8px' : '0', fontSize: '0.95rem' }}>
+              <strong style={{ color: 'var(--text-secondary)' }}>Project Type:</strong> <span style={{ color: 'var(--text-primary)' }}>{msg.subject}</span>
+            </div>
+          )}
+          {msg.websiteUrl && (
+            <div style={{ fontSize: '0.95rem' }}>
+              <strong style={{ color: 'var(--text-secondary)' }}>Website URL:</strong>{' '}
+              <a href={msg.websiteUrl.startsWith('http') ? msg.websiteUrl : `https://${msg.websiteUrl}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>
+                {msg.websiteUrl}
+              </a>
+            </div>
+          )}
+        </div>
+      )}
 
       <p className="msg-body">{msg.message}</p>
     </div>

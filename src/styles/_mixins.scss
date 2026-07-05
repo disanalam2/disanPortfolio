@@ -7,9 +7,9 @@
 
 // Reusable Glass Effect
 @mixin glass-effect {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(var(--overlay-color), 0.03);
   backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(var(--overlay-color), 0.08);
 }
 
 // Media Queries

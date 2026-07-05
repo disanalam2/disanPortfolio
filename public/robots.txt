@@ -2,4 +2,23 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
+# Allow AI & LLM Crawlers explicitly for AIO (Artificial Intelligence Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://disanalam.me/sitemap.xml

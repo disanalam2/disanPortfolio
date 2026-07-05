@@ -8,6 +8,7 @@ const CertificateForm = ({ certificate, onSave, onCancel }) => {
   });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormData(certificate);
   }, [certificate]);
 

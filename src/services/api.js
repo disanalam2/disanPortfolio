@@ -1,4 +1,5 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://13.232.90.249:5000/api';
+const BASE_URL = 'https://api.disanalam.me/api';
+//const BASE_URL = 'http://localhost:5000/api'; // Local development ke liye
 export const apiCall = async (endpoint, options = {}) => {
   // sessionStorage se token lete hain (updated from localStorage)
   let token = sessionStorage.getItem('adminToken');
@@ -34,5 +35,11 @@ export const apiCall = async (endpoint, options = {}) => {
     throw new Error("Session expired");
   }
 
-  return response.json();
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'API request failed');
+  }
+
+  return data;
 };

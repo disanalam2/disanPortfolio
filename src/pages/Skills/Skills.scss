@@ -19,7 +19,7 @@
     font-size: 1.6rem;
     font-weight: 600;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(var(--overlay-color), 0.1);
     padding-bottom: 0.5rem;
     max-width: 900px;
     margin: 0 auto;
@@ -39,7 +39,7 @@
     background-color: var(--card-bg);
     padding: 1.9rem 1rem;
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(var(--overlay-color), 0.06);
     text-align: center;
     transition: var(--transition-smooth);
     position: relative;
@@ -86,8 +86,7 @@
       position: absolute;
       top: -8px;
       right: -8px;
-      background: #ef4444;
-      color: white;
+      background: #ef4444; color: white;
       border: none;
       border-radius: 50%;
       width: 24px;
@@ -99,7 +98,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 5px var(--shadow-color);
 
       &:hover {
         background: #dc2626;
@@ -111,7 +110,7 @@
   .add-skill-card {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(var(--overlay-color), 0.05);
     border: 1px dashed #10b981;
     border-radius: 18px;
     padding: 5px 10px;
@@ -120,14 +119,14 @@
     input {
       background: transparent;
       border: none;
-      color: white;
+      color: var(--text-primary);
       font-size: 0.95rem;
       width: 100px;
       outline: none;
       font-family: inherit;
 
       &::placeholder {
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(var(--overlay-color), 0.4);
       }
     }
 
@@ -179,7 +178,7 @@
     width: 100%;
 
     .drag-handle {
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(var(--overlay-color), 0.3);
       font-size: 1.5rem;
       cursor: grab;
 
@@ -190,7 +189,7 @@
 
     .category-edit-input {
       flex-grow: 1;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(var(--overlay-color), 0.05);
       border: 1px dashed var(--accent-color);
       color: var(--accent-color);
       font-size: 1.6rem;
@@ -200,7 +199,7 @@
       outline: none;
 
       &:focus {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(var(--overlay-color), 0.1);
         border-style: solid;
       }
     }

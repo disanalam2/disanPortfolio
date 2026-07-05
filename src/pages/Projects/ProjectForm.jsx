@@ -14,6 +14,7 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     const imagesStr = project.media?.filter(m => m.type === 'image').map(m => m.url).join(', ') || '';
     const videoStr = project.media?.find(m => m.type === 'video')?.url || '';
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormData({
       ...project,
       techStack: project.techStack ? project.techStack.join(', ') : '',

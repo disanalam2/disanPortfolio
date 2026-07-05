@@ -28,6 +28,7 @@ const Skills = () => {
   const dragSkillCategory = useRef(null); 
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (skillsData) setTempData(skillsData);
   }, [skillsData]);
 
@@ -80,11 +81,22 @@ const Skills = () => {
         setIsEditing(false);
         alert('Skills successfully updated!');
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Backend se connect nahi ho paya!"); }
   };
 
   if (loading) return <Loader message="Loading Skills..." />;
   const displayData = isEditing ? tempData : skillsData;
+
+  // Generate dynamic keywords for SEO
+  let dynamicKeywords = "Skills, Technologies, Frontend, Backend, Database";
+  if (skillsData && skillsData.length > 0) {
+    const allSkills = new Set();
+    skillsData.forEach(cat => cat.skills?.forEach(s => allSkills.add(typeof s === 'string' ? s : s.name)));
+    if (allSkills.size > 0) {
+      dynamicKeywords = Array.from(allSkills).slice(0, 15).join(', ');
+    }
+  }
 
   // Custom button for bottom bar
   const CustomAddCategoryBtn = <button onClick={() => setTempData([...tempData, { category: "New Category", skills: [] }])} className="btn category-btn">+ Category</button>;
@@ -95,6 +107,7 @@ const Skills = () => {
         title="Skills" 
         description="Check out my technical skills including Frontend development, Backend technologies, and tools." 
         url="skills"
+        keywords={dynamicKeywords}
       />
       <SectionTitle title="My Skills" />
       {displayData?.length === 0 && !isEditing && <p className="empty-state">No skills added yet.</p>}

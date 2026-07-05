@@ -1,44 +1,40 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SEO = ({ title, description, keywords, image, url, schema }) => {
-  const defaultTitle = 'Disan Alam | Full-Stack Developer';
-  const fullTitle = title ? `${title} | ${defaultTitle}` : defaultTitle;
-  
-  const defaultDescription = "Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer. Explore the portfolio of Disan Alam to view real-world projects, technical skills in React.js, Node.js, Express.js, and MySQL, professional experience, and verified certificates. Hire Disan Alam for top-tier custom website development services.";
-  const metaDescription = description || defaultDescription;
-  
-  const defaultKeywords = "Disan Alam, Disan Alam Portfolio, Disan Alam Projects, Disan Alam Skills, Disan Alam Experience, Disan Alam Certificates, Full Stack Developer, Website Developer, Web Developer, Freelance Web Developer, Hire Web Developer, React Developer, Node.js Expert, Portfolio, Best Web Developer, React.js, Express.js, MySQL, Cybersecurity";
-  const metaKeywords = keywords || defaultKeywords;
-  
-  const defaultImage = "/banner.jpeg";
-  const metaImage = image || defaultImage;
-  
-  const defaultUrl = "https://disanalam.me/";
-  const metaUrl = url ? `${defaultUrl}${url}` : defaultUrl;
-
+const SEO = ({ 
+  title = "Disan Alam | Full-Stack Web Developer", 
+  description = "Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer. Explore the portfolio of Disan Alam to view real-world projects and technical skills.", 
+  keywords = "Disan Alam, Full Stack Developer, Web Developer, React Developer, Node.js Expert", 
+  url = "https://disanalam.me/",
+  image = "https://disanalam.me/banner.jpeg",
+  schema = null
+}) => {
   return (
     <Helmet>
-      <title>{fullTitle}</title>
-      <meta name="description" content={metaDescription} />
-      <meta name="keywords" content={metaKeywords} />
+      {/* Primary Meta Tags */}
+      <title>{title}</title>
+      <meta name="title" content={title} />
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
       
       {/* Canonical Link */}
-      <link rel="canonical" href={metaUrl} />
-      
-      {/* Open Graph / Facebook / LinkedIn */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content={metaImage} />
-      <meta property="og:url" content={metaUrl} />
-      
+      {url ? <link rel="canonical" href={url} /> : null}
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={metaDescription} />
-      <meta property="twitter:image" content={metaImage} />
+      <meta property="twitter:url" content={url} />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={image} />
 
-      {/* JSON-LD Schema */}
+      {/* Dynamic JSON-LD Schema for LLMs and Search Engines */}
       {schema && (
         <script type="application/ld+json">
           {JSON.stringify(schema)}

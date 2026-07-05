@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
@@ -22,6 +23,7 @@ const Experience = () => {
   const [editingExpId, setEditingExpId] = useState(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (experienceData) setTempData(experienceData);
   }, [experienceData]);
 
@@ -45,6 +47,7 @@ const Experience = () => {
         setTempData([newExp, ...tempData]);
         setExperienceData([newExp, ...experienceData]);
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Backend se connect nahi ho paya!"); }
   };
 
@@ -70,6 +73,7 @@ const Experience = () => {
         setEditingExpId(null);
         alert("Experience updated safely!");
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Error saving experience details!"); }
   };
 

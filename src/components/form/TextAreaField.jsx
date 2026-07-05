@@ -19,6 +19,7 @@ const TextAreaField = ({
       className={className}
       rows={rows}
       required={required}
+      aria-label={placeholder || name}
       {...rest}
     />
   );

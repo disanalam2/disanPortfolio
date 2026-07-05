@@ -33,7 +33,7 @@ const AboutEdit = ({ tempData, imagePreview, handleInputChange, handleImageChang
           <input 
             name="resume_link" 
             className="edit-input" 
-            style={{ width: '100%', padding: '10px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }}
+            style={{ width: '100%', padding: '10px', borderRadius: '8px', background: 'var(--glass-bg)', color: "var(--text-primary)", border: '1px solid var(--glass-hover)' }}
             value={tempData.resume_link || ''} 
             onChange={handleInputChange} 
             placeholder="https://example.com/resume.pdf"

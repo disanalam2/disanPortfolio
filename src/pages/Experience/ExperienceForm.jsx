@@ -8,6 +8,7 @@ const ExperienceForm = ({ experience, onSave, onCancel }) => {
   });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormData({
       ...experience,
       // Array ko new line string me badalna taaki textarea me dikhe

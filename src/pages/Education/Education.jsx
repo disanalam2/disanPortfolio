@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
@@ -22,6 +23,7 @@ const Education = () => {
   const [editingEduId, setEditingEduId] = useState(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (educationData) setTempData(educationData);
   }, [educationData]);
 
@@ -45,6 +47,7 @@ const Education = () => {
         setTempData([newEdu, ...tempData]);
         setEducationData([newEdu, ...educationData]);
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Backend se connect nahi ho paya!"); }
   };
 
@@ -70,6 +73,7 @@ const Education = () => {
         setEditingEduId(null);
         alert("Education updated safely!");
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Error saving education details!"); }
   };
 

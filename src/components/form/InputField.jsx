@@ -19,6 +19,7 @@ const InputField = ({
       placeholder={placeholder}
       className={className}
       required={required}
+      aria-label={placeholder || name}
       {...rest}
     />
   );

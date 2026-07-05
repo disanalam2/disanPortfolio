@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const AuthContext = createContext();
@@ -9,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     // Page load par check karo agar token exist karta hai (sessionStorage mein)
     const token = sessionStorage.getItem('adminToken');
     if (token) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsAdmin(true);
     }
   }, []);

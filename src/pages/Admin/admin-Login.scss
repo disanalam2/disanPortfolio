@@ -9,7 +9,7 @@
     background: #1e293b;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px var(--shadow-color);
     width: 350px;
     text-align: center;
 
@@ -24,7 +24,7 @@
       margin-bottom: 1rem;
       background: var(--bg-color);
       border: 1px solid #334155;
-      color: white;
+      color: var(--text-primary);
       border-radius: 5px;
       font-family: inherit;
       outline: none;

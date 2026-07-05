@@ -22,6 +22,7 @@ const AboutContainer = () => {
   // Sync state jab naya data load ho ya cancel dabaya jaye
   useEffect(() => {
     if (aboutData) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTempData(aboutData);
       setImagePreview(aboutData.photo);
     }

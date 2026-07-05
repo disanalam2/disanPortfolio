@@ -22,8 +22,8 @@
   }
 
   .timeline-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(var(--overlay-color), 0.05);
+    border: 1px solid rgba(var(--overlay-color), 0.08);
     border-radius: 24px;
     padding: 1.75rem;
     transition: transform 0.25s ease, border-color 0.25s ease;
@@ -88,7 +88,7 @@
   }
 
   .add-new-exp {
-    border: 2px dashed rgba(255, 255, 255, 0.2) !important;
+    border: 2px dashed rgba(var(--overlay-color), 0.2) !important;
     background: transparent !important;
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@
 
     .add-content {
       text-align: center;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(var(--overlay-color), 0.5);
 
       .plus-icon {
         font-size: 3rem;

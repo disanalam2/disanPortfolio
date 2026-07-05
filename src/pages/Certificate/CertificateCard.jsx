@@ -18,8 +18,8 @@ const CertificateCard = ({ certificate, isEditingPage, onEdit, onDelete }) => {
       </h3>
 
       {certificate.image && (
-        <div style={{ width: '100%', height: '220px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.5rem', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.05)' }}>
-          <img src={certificate.image} alt={`Certificate: ${certificate.title}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ width: '100%', height: '220px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.5rem', background: 'var(--shadow-color)', border: '1px solid var(--glass-bg)' }}>
+          <img src={certificate.image} alt={`Certificate: ${certificate.title}`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       )}
 
@@ -31,7 +31,7 @@ const CertificateCard = ({ certificate, isEditingPage, onEdit, onDelete }) => {
         {certificate.description}
       </p>
 
-      <span style={{ display: 'block', fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', marginBottom: '1.5rem' }}>
+      <span style={{ display: 'block', fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
         Issued: {certificate.issue_date}
       </span>
 

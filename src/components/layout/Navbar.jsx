@@ -8,7 +8,7 @@ const Navbar = () => {
   const { isAdmin, logout } = useAuth();
   const navigate = useNavigate();
 
-  const navItems = ['About', 'Skills', 'Projects', 'Education', 'Experience', 'Certificate', 'Contact'];
+  const navItems = ['About', 'Skills', 'Projects', 'Blogs', 'Education', 'Experience', 'Certificate', 'Contact'];
 
   const handleLogout = () => {
     logout();
@@ -27,6 +27,7 @@ const Navbar = () => {
         if (data && data.resume_link) {
           setResumeLink(data.resume_link);
         }
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         console.error("Failed to fetch resume link");
       }
@@ -58,6 +59,7 @@ const Navbar = () => {
         } else {
           alert("Failed to update resume link on server.");
         }
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         alert("Server connection failed.");
       }
@@ -65,11 +67,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" aria-label="Main navigation">
       <div className="nav-container container">
         <div className="logo">
           <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
-            <img src="./DISAN ALAM.JPG" alt="Disan Alam Logo" />
+            <img src="/disan-alam.webp" alt="Disan Alam Logo" decoding="async" />
             Disan Alam
           </NavLink>
         </div>
@@ -78,6 +80,11 @@ const Navbar = () => {
         <div 
           className={`menu-icon ${isMobileMenuOpen ? 'open' : ''}`} 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          role="button"
+          aria-label="Toggle mobile menu"
+          aria-expanded={isMobileMenuOpen}
+          tabIndex={0}
+          onKeyDown={(e) => { if(e.key === 'Enter') setIsMobileMenuOpen(!isMobileMenuOpen); }}
         >
           <span className="bar1"></span>
           <span className="bar2"></span>
@@ -97,6 +104,8 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
+
+     
           
           {/* Resume Download Button with Edit Option */}
           <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -114,7 +123,7 @@ const Navbar = () => {
                 onClick={handleEditResumeLink}
                 title="Edit Resume Link (Database)"
                 style={{ 
-                  background: 'rgba(255,255,255,0.1)', 
+                  background: 'var(--glass-hover)', 
                   border: 'none', 
                   borderRadius: '50%', 
                   width: '30px', 

@@ -25,7 +25,7 @@ const SkillCategoryEdit = ({
           value={catItem.category} 
           onChange={(e) => handleCategoryChange(catIndex, e.target.value)}
         />
-        <button onClick={() => handleDeleteCategory(catIndex)} style={{background: '#ef4444', color: 'white', border: 'none', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold'}}>Delete Category</button>
+        <button onClick={() => handleDeleteCategory(catIndex)} style={{background: '#ef4444', color: "var(--text-primary)", border: 'none', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold'}}>Delete Category</button>
       </div>
 
       <div className="skills-grid">

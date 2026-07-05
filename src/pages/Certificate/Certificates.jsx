@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import Tilt from 'react-parallax-tilt';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
@@ -26,6 +28,7 @@ const Certificates = () => {
   const { dragItem, dragOverItem, handleSort } = useDragAndDrop(tempData, setTempData);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (certificatesData) setTempData(certificatesData);
   }, [certificatesData]);
 
@@ -48,6 +51,7 @@ const Certificates = () => {
         setTempData([newCert, ...tempData]);
         setCertificatesData([newCert, ...certificatesData]);
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Backend se connect nahi ho paya!"); }
   };
 
@@ -73,6 +77,7 @@ const Certificates = () => {
         setEditingCertId(null);
         alert("Certificate details updated!");
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) { alert("Error saving details!"); }
   };
 
@@ -95,24 +100,40 @@ const Certificates = () => {
 
       <div className="certificate-grid">
         {displayData?.map((certificate, index) => (
-          <motion.article
-            className={`certificate-card ${isEditingPage ? 'draggable-card' : ''}`}
+          <Tilt
             key={certificate.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={isEditingPage ? { duration: 0 } : { delay: index * 0.1, duration: 0.4 }}
-            draggable={isEditingPage && editingCertId !== certificate.id}
-            onDragStart={() => (dragItem.current = index)}
-            onDragEnter={() => (dragOverItem.current = index)}
-            onDragEnd={handleSort}
-            onDragOver={(e) => e.preventDefault()}
+            tiltMaxAngleX={5}
+            tiltMaxAngleY={5}
+            perspective={1000}
+            transitionSpeed={1000}
+            scale={1.02}
+            glareEnable={true}
+            glareMaxOpacity={0.1}
+            glareColor="#ffffff"
+            glarePosition="all"
+            className="tilt-wrapper"
+            tiltEnable={!isEditingPage}
+            style={{ display: 'flex', height: '100%' }}
           >
-            {editingCertId === certificate.id ? (
-              <CertificateForm certificate={certificate} onSave={saveCertificateDetails} onCancel={() => setEditingCertId(null)} />
-            ) : (
-              <CertificateCard certificate={certificate} isEditingPage={isEditingPage} onEdit={() => setEditingCertId(certificate.id)} onDelete={() => handleDeleteCertificate(certificate.id)} />
-            )}
-          </motion.article>
+            <motion.article
+              className={`certificate-card ${isEditingPage ? 'draggable-card' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={isEditingPage ? { duration: 0 } : { delay: index * 0.1, duration: 0.4 }}
+              draggable={isEditingPage && editingCertId !== certificate.id}
+              onDragStart={() => (dragItem.current = index)}
+              onDragEnter={() => (dragOverItem.current = index)}
+              onDragEnd={handleSort}
+              onDragOver={(e) => e.preventDefault()}
+              style={{ width: '100%' }}
+            >
+              {editingCertId === certificate.id ? (
+                <CertificateForm certificate={certificate} onSave={saveCertificateDetails} onCancel={() => setEditingCertId(null)} />
+              ) : (
+                <CertificateCard certificate={certificate} isEditingPage={isEditingPage} onEdit={() => setEditingCertId(certificate.id)} onDelete={() => handleDeleteCertificate(certificate.id)} />
+              )}
+            </motion.article>
+          </Tilt>
         ))}
 
         {isEditingPage && (
