@@ -49,13 +49,7 @@ const BlogsArchive = () => {
     // Schedule new blogs 1 year in the future by default
     const futureDate = new Date();
     futureDate.setFullYear(futureDate.getFullYear() + 1);
-    
-    const year = futureDate.getFullYear();
-    const month = String(futureDate.getMonth() + 1).padStart(2, '0');
-    const day = String(futureDate.getDate()).padStart(2, '0');
-    const hours = String(futureDate.getHours()).padStart(2, '0');
-    const minutes = String(futureDate.getMinutes()).padStart(2, '0');
-    const scheduledDateLocal = `${year}-${month}-${day}T${hours}:${minutes}:00`;
+    const scheduledDateISO = futureDate.toISOString();
 
     const newTemplate = { 
       title: "New Blog", 
@@ -63,7 +57,7 @@ const BlogsArchive = () => {
       summary: "Summary here...", 
       content: "## Hello World", 
       thumbnail: "", 
-      scheduledFor: scheduledDateLocal 
+      scheduledFor: scheduledDateISO 
     };
     
     try {
@@ -117,8 +111,11 @@ const BlogsArchive = () => {
         if (isAdmin) return true;
         if (!blog.scheduledFor) return true;
         
-        let dateStr = blog.scheduledFor.replace('Z', '');
-        if (dateStr.includes(' ')) dateStr = dateStr.replace(' ', 'T');
+        let dateStr = blog.scheduledFor;
+        if (!dateStr.includes('Z') && !dateStr.includes('+')) {
+            if (dateStr.includes(' ')) dateStr = dateStr.replace(' ', 'T');
+            dateStr += 'Z';
+        }
         
         return new Date(dateStr) <= now;
       });

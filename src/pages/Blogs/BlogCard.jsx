@@ -5,8 +5,11 @@ import CardActionMenu from '../../components/admin/CardActionMenu';
 const BlogCard = ({ blog, isEditingPage, onEdit, onDelete }) => {
   const navigate = useNavigate();
 
-  let safeDate = blog.scheduledFor ? blog.scheduledFor.replace('Z', '') : null;
-  if (safeDate && safeDate.includes(' ')) safeDate = safeDate.replace(' ', 'T');
+  let safeDate = blog.scheduledFor || null;
+  if (safeDate && !safeDate.includes('Z') && !safeDate.includes('+')) {
+    if (safeDate.includes(' ')) safeDate = safeDate.replace(' ', 'T');
+    safeDate += 'Z';
+  }
   const isScheduled = safeDate && new Date(safeDate) > new Date();
 
   const handleCopyLink = () => {

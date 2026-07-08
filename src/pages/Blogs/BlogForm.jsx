@@ -4,10 +4,14 @@ import Button from '../../components/ui/Button';
 const BlogForm = ({ blog, onSave, onCancel }) => {
   const formatDateTime = (dateString) => {
     if (!dateString) return '';
-    let dStr = dateString.replace('Z', '');
-    if (dStr.includes(' ')) dStr = dStr.replace(' ', 'T');
     
-    const date = new Date(dStr);
+    let safeStr = dateString;
+    if (!safeStr.includes('Z') && !safeStr.includes('+')) {
+      if (safeStr.includes(' ')) safeStr = safeStr.replace(' ', 'T');
+      safeStr += 'Z'; 
+    }
+    
+    const date = new Date(safeStr);
     if (isNaN(date.getTime())) return '';
     
     const year = date.getFullYear();
@@ -27,8 +31,11 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
     scheduledFor: formatDateTime(blog?.scheduledFor)
   });
 
-  let initialSafeDate = blog?.scheduledFor ? blog.scheduledFor.replace('Z', '') : null;
-  if (initialSafeDate && initialSafeDate.includes(' ')) initialSafeDate = initialSafeDate.replace(' ', 'T');
+  let initialSafeDate = blog?.scheduledFor || null;
+  if (initialSafeDate && !initialSafeDate.includes('Z') && !initialSafeDate.includes('+')) {
+    if (initialSafeDate.includes(' ')) initialSafeDate = initialSafeDate.replace(' ', 'T');
+    initialSafeDate += 'Z';
+  }
   const isScheduledInitial = initialSafeDate && new Date(initialSafeDate) > new Date();
   
   const [publishMode, setPublishMode] = useState(isScheduledInitial ? 'schedule' : 'now');
@@ -37,10 +44,7 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
     e.preventDefault();
     const dataToSave = { ...formData };
     if (publishMode === 'schedule' && dataToSave.scheduledFor) {
-      if (dataToSave.scheduledFor.length === 16) {
-        dataToSave.scheduledFor += ':00';
-      }
-
+      dataToSave.scheduledFor = new Date(dataToSave.scheduledFor).toISOString();
     } else {
       dataToSave.scheduledFor = null;
     }

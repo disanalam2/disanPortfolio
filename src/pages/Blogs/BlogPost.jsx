@@ -22,8 +22,11 @@ const BlogPost = () => {
         const data = await apiCall(`/blogs/${slug}`);
         if (data) {
           if (data.scheduledFor) {
-            let safeDate = data.scheduledFor.replace('Z', '');
-            if (safeDate.includes(' ')) safeDate = safeDate.replace(' ', 'T');
+            let safeDate = data.scheduledFor;
+            if (!safeDate.includes('Z') && !safeDate.includes('+')) {
+              if (safeDate.includes(' ')) safeDate = safeDate.replace(' ', 'T');
+              safeDate += 'Z';
+            }
             if (new Date(safeDate) > new Date() && !isAdmin) {
               navigate('/blogs');
               return;
