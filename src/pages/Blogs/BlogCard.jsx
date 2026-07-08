@@ -5,7 +5,9 @@ import CardActionMenu from '../../components/admin/CardActionMenu';
 const BlogCard = ({ blog, isEditingPage, onEdit, onDelete }) => {
   const navigate = useNavigate();
 
-  const isScheduled = blog.scheduledFor && new Date(blog.scheduledFor) > new Date();
+  let safeDate = blog.scheduledFor ? blog.scheduledFor.replace('Z', '') : null;
+  if (safeDate && safeDate.includes(' ')) safeDate = safeDate.replace(' ', 'T');
+  const isScheduled = safeDate && new Date(safeDate) > new Date();
 
   const handleCopyLink = () => {
     const url = `${window.location.origin}/blogs/${blog.slug}`;

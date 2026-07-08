@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useAuth } from '../../context/authContext';
 import PageLayout from '../../components/layout/PageLayout';
 import Loader from '../../components/common/Loader';
 import SEO from '../../components/common/SEO';
@@ -11,6 +12,7 @@ import './blogs.scss';
 const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { isAdmin } = useAuth();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -19,6 +21,14 @@ const BlogPost = () => {
       try {
         const data = await apiCall(`/blogs/${slug}`);
         if (data) {
+          if (data.scheduledFor) {
+            let safeDate = data.scheduledFor.replace('Z', '');
+            if (safeDate.includes(' ')) safeDate = safeDate.replace(' ', 'T');
+            if (new Date(safeDate) > new Date() && !isAdmin) {
+              navigate('/blogs');
+              return;
+            }
+          }
           setBlog(data);
           // Increment view count in background
           apiCall(`/blogs/${slug}/view`, { method: 'POST' }).catch(err => console.error("Error incrementing view:", err));

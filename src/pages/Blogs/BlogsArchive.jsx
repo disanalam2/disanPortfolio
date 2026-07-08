@@ -46,10 +46,16 @@ const BlogsArchive = () => {
 
   // Backend Actions
   const handleAddBlog = async () => {
-    // Schedule new blogs 1 year in the future by default so they act as private drafts
+    // Schedule new blogs 1 year in the future by default
     const futureDate = new Date();
     futureDate.setFullYear(futureDate.getFullYear() + 1);
-    const scheduledDateISO = futureDate.toISOString();
+    
+    const year = futureDate.getFullYear();
+    const month = String(futureDate.getMonth() + 1).padStart(2, '0');
+    const day = String(futureDate.getDate()).padStart(2, '0');
+    const hours = String(futureDate.getHours()).padStart(2, '0');
+    const minutes = String(futureDate.getMinutes()).padStart(2, '0');
+    const scheduledDateLocal = `${year}-${month}-${day}T${hours}:${minutes}:00`;
 
     const newTemplate = { 
       title: "New Blog", 
@@ -57,7 +63,7 @@ const BlogsArchive = () => {
       summary: "Summary here...", 
       content: "## Hello World", 
       thumbnail: "", 
-      scheduledFor: scheduledDateISO 
+      scheduledFor: scheduledDateLocal 
     };
     
     try {
@@ -66,6 +72,7 @@ const BlogsArchive = () => {
         const newBlog = { ...newTemplate, id: response.insertId };
         setTempData([newBlog, ...tempData]);
         setBlogsData([newBlog, ...(blogsData || [])]);
+        setEditingBlogId(response.insertId);
       }
     } catch (error) { alert(error.response?.data?.message || "Failed to add blog"); }
   };
@@ -96,8 +103,25 @@ const BlogsArchive = () => {
     } catch (error) { alert(error.response?.data?.message || "Error saving blog!"); }
   };
 
+  const [currentTime, setCurrentTime] = useState(new Date());
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 60000);
+    return () => clearInterval(timer);
+  }, []);
+
   if (loading) return <Loader message="Loading Articles..." />;
-  const displayData = isEditingPage ? tempData : (blogsData || []);
+  const now = currentTime;
+  const displayData = isEditingPage 
+    ? tempData 
+    : (blogsData || []).filter(blog => {
+        if (isAdmin) return true;
+        if (!blog.scheduledFor) return true;
+        
+        let dateStr = blog.scheduledFor.replace('Z', '');
+        if (dateStr.includes(' ')) dateStr = dateStr.replace(' ', 'T');
+        
+        return new Date(dateStr) <= now;
+      });
 
   // Generate dynamic keywords for SEO
   let dynamicKeywords = "Blogs, Articles, Tech Insights, Web Development";
