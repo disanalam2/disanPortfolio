@@ -16,7 +16,7 @@ import '../Projects/projects.scss'; // Reusing projects css for grid layout
 
 const BlogsArchive = () => {
   const { isAdmin } = useAuth();
-  const { data: blogsData, setData: setBlogsData, loading } = useFetch('/blogs');
+  const { data: blogsData, setData: setBlogsData, loading } = useFetch(isAdmin ? '/blogs/admin' : '/blogs');
   const { postData, putData, deleteData } = useWrite();
 
   const [isEditingPage, setIsEditingPage] = useState(false);
@@ -46,7 +46,20 @@ const BlogsArchive = () => {
 
   // Backend Actions
   const handleAddBlog = async () => {
-    const newTemplate = { title: "New Blog", slug: `new-blog-${Date.now()}`, summary: "Summary here...", content: "## Hello World", thumbnail: "" };
+    // Schedule new blogs 1 year in the future by default so they act as private drafts
+    const futureDate = new Date();
+    futureDate.setFullYear(futureDate.getFullYear() + 1);
+    const scheduledDateISO = futureDate.toISOString();
+
+    const newTemplate = { 
+      title: "New Blog", 
+      slug: `new-blog-${Date.now()}`, 
+      summary: "Summary here...", 
+      content: "## Hello World", 
+      thumbnail: "", 
+      scheduledFor: scheduledDateISO 
+    };
+    
     try {
       const response = await postData('/blogs/add', newTemplate);
       if (response.success) {

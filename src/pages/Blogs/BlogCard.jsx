@@ -5,14 +5,37 @@ import CardActionMenu from '../../components/admin/CardActionMenu';
 const BlogCard = ({ blog, isEditingPage, onEdit, onDelete }) => {
   const navigate = useNavigate();
 
+  const isScheduled = blog.scheduledFor && new Date(blog.scheduledFor) > new Date();
+
+  const handleCopyLink = () => {
+    const url = `${window.location.origin}/blogs/${blog.slug}`;
+    navigator.clipboard.writeText(url);
+    alert("Link copied: " + url);
+  };
+
   return (
     <>
       {isEditingPage && (
-        <CardActionMenu 
-          onEdit={onEdit} 
-          onDelete={onDelete} 
-          showDragHandle={false} 
-        />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <CardActionMenu 
+            onEdit={onEdit} 
+            onDelete={onDelete} 
+            showDragHandle={false} 
+          />
+          <button 
+            onClick={handleCopyLink} 
+            style={{ background: 'var(--primary-color)', color: '#fff', border: 'none', borderRadius: '4px', padding: '5px 10px', cursor: 'pointer', fontSize: '0.8rem' }}
+            title="Copy Link"
+          >
+            📋 Copy Link
+          </button>
+        </div>
+      )}
+
+      {isScheduled && (
+        <div style={{ position: 'absolute', top: '10px', left: '10px', background: 'var(--accent-color)', color: '#fff', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 'bold', zIndex: 10 }}>
+          🕒 Scheduled
+        </div>
       )}
 
       {blog.thumbnail && (
@@ -22,6 +45,10 @@ const BlogCard = ({ blog, isEditingPage, onEdit, onDelete }) => {
       )}
 
       <h3>{blog.title}</h3>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '5px 0', fontSize: '0.85rem', color: 'var(--text-color-secondary)' }}>
+        <span>👁️ {blog.views || 0} views</span>
+        <span>⏱️ {blog.read_time || 1} min read</span>
+      </div>
       <p style={{ margin: '10px 0', color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.5' }}>
         {blog.summary}
       </p>

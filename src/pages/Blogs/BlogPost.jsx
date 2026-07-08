@@ -20,6 +20,8 @@ const BlogPost = () => {
         const data = await apiCall(`/blogs/${slug}`);
         if (data) {
           setBlog(data);
+          // Increment view count in background
+          apiCall(`/blogs/${slug}/view`, { method: 'POST' }).catch(err => console.error("Error incrementing view:", err));
         } else {
           navigate('/blogs');
         }
@@ -109,6 +111,8 @@ const BlogPost = () => {
               </span>
               <span className="meta-dot">•</span>
               <span className="meta-read-time">{blog.read_time || 1} min read</span>
+              <span className="meta-dot">•</span>
+              <span className="meta-views">👁️ {blog.views || 0} views</span>
             </div>
           </header>
 
