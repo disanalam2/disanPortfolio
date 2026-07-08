@@ -22,6 +22,16 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
     return `${year}-${month}-${day}T${hours}:${minutes}`;
   };
 
+  const getMinDateTime = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
+
   const [formData, setFormData] = useState({
     title: blog?.title || '',
     slug: blog?.slug || '',
@@ -44,7 +54,12 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
     e.preventDefault();
     const dataToSave = { ...formData };
     if (publishMode === 'schedule' && dataToSave.scheduledFor) {
-      dataToSave.scheduledFor = new Date(dataToSave.scheduledFor).toISOString();
+      const selectedTime = new Date(dataToSave.scheduledFor);
+      if (selectedTime <= new Date()) {
+        alert("Aap past (beeta hua) time schedule nahi kar sakte! Kripya aage (future) ka time select karein.");
+        return;
+      }
+      dataToSave.scheduledFor = selectedTime.toISOString();
     } else {
       dataToSave.scheduledFor = null;
     }
@@ -116,6 +131,7 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
             value={formData.scheduledFor} 
             onChange={handleChange} 
             required
+            min={getMinDateTime()}
             style={{ width: '100%', padding: '10px', borderRadius: '6px' }} 
           />
           <small style={{ color: 'var(--text-color-secondary)' }}>The blog will be hidden from public until this exact time.</small>
