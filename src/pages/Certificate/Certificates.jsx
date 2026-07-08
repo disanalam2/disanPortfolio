@@ -87,8 +87,8 @@ const Certificates = () => {
   return (
     <PageLayout className="certificate-section">
       <SEO 
-        title="Certificates" 
-        description="Verified credentials and training that show the tools, frameworks, and workflows I use every day." 
+        title="Certificates | Disan Alam" 
+        description="View Disan Alam's verified certifications from top institutions in Web Development, Cybersecurity, and Software Engineering." 
         url="certificate"
       />
       <SectionTitle title="My Certificates" />

@@ -1,119 +1,59 @@
-# Disan Alam Portfolio
+# Disan Alam Portfolio - Frontend
 
-A polished portfolio website built with React, Vite, Sass, and Framer Motion. This project highlights personal projects, technical skills, professional experience, certificates, and provides a responsive, animated user experience.
+A highly dynamic, extremely fast, and completely CMS-driven portfolio website built with React, Vite, Sass, and Framer Motion. This project highlights personal projects, technical skills, professional experience, certificates, and features an integrated Admin Dashboard for real-time content management.
 
-## What’s included
+## 🚀 Key Features
 
-- Modern React app with route-based navigation
-- Animated page transitions using `framer-motion`
-- Responsive layout for mobile and desktop
-- Comprehensive sections: About, Experience, Projects, Skills, Certificates, and Contact
-- Secure Admin login page layout
-- Contact form with WhatsApp and email quick-send integrations
-- Icon integrations using `lucide-react` and `react-icons`
+- **Integrated Admin CMS**: Login as Admin to add, edit, or delete Skills, Projects, Blogs, Certificates, Education, and Experience directly from the UI.
+- **Real-Time Data (WebSockets)**: Integrated with Socket.IO. The moment you save changes in the admin panel or receive a new contact message, the website updates instantly for all users without requiring a page refresh.
+- **Advanced SEO & AIO (AI Optimization)**: 
+  - Dynamic, page-specific `<meta>` tags and Open Graph descriptions using `react-helmet-async`.
+  - Blog post SEO perfectly syncs with the exact blog summary for maximum search visibility.
+- **Blogging Engine with Scheduling**: Full markdown support (`react-markdown`) for writing tech blogs, including an automated scheduling system (drafting blogs to be published in the future).
+- **Smooth Animations & Interactions**: Page transitions using `framer-motion` and 3D hover tilt effects using `react-parallax-tilt`.
+- **Drag-and-Drop Sorting**: Visually reorder projects and skills using native HTML5 drag-and-drop right from the browser.
+- **Progressive Web App (PWA)**: Fully installable with service workers for offline caching and high performance.
 
-## Tech stack
+## 🛠 Tech Stack
 
-- `react` / `react-dom`
-- `vite`
-- `react-router-dom`
-- `framer-motion`
-- `sass` & `tailwindcss`
-- `lucide-react` & `react-icons`
-- `react-phone-input-2`
-- `eslint`
+- **Framework**: `React 18` + `Vite`
+- **Routing**: `react-router-dom`
+- **Styling**: `Sass` (SCSS) + CSS Modules
+- **Animations**: `framer-motion`, `react-parallax-tilt`
+- **SEO**: `react-helmet-async`
+- **Real-Time**: `socket.io-client`
+- **Markdown Processing**: `react-markdown`, `remark-gfm`
+- **Analytics**: `react-ga4` (Google Analytics 4)
 
-## Project structure
+## 📂 Project Structure
 
-- `src/App.jsx` — main app layout and routing configuration
-- `src/components/navbar.jsx` — navigation and mobile menu
-- `src/components/about.jsx` — hero/about section
-- `src/components/experience.jsx` — professional experience timeline
-- `src/components/Project.jsx` — project showcase cards
-- `src/components/skills.jsx` — skill grid with hover animations
-- `src/components/certificate.jsx` — certifications showcase
-- `src/components/contact.jsx` — contact form and CTA
-- `src/components/admin-login.jsx` — admin authentication interface
-- `src/components/footer.jsx` — app footer component
-- `src/styles/` — custom Sass styles for each component
-- `index.html` — app shell and page metadata
+- `src/App.jsx` — Main app layout, routing, and lazy loading configurations.
+- `src/pages/` — Core pages of the application (`About`, `Projects`, `Skills`, `Blogs`, `Contact`, etc.).
+- `src/components/common/SEO.jsx` — Dynamic SEO meta tag injection component.
+- `src/components/admin/` — Admin specific components (Bottom Action Bar, Drag handles).
+- `src/services/socket.js` — WebSocket connection singleton.
+- `src/hooks/` — Custom hooks (`useFetch`, `useWrite`, `useDragAndDrop`) for handling APIs.
+- `src/context/` — State management contexts (Auth, RefreshTriggers).
 
-## Getting started
+## 🏃‍♂️ Getting Started
 
-Install dependencies:
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm install
-```
+2. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-Run the development server:
+3. **Build for Production**:
+   ```bash
+   npm run build
+   ```
 
-```bash
-npm run dev
-```
+## 🔒 Environment Variables
+Ensure you have an `.env` file at the root with the following variables:
+- `VITE_API_URL` - Points to the backend server (e.g., `http://localhost:5001/api`)
 
-Open the address shown in the terminal (usually `http://localhost:5173`).
-
-## Build
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-Preview the built app locally:
-
-```bash
-npm run preview
-```
-
-## Deploy to Firebase Hosting
-
-1. Install Firebase CLI:
-
-```bash
-npm install -g firebase-tools
-```
-
-2. Login:
-
-```bash
-firebase login
-```
-
-3. Initialize Firebase Hosting:
-
-```bash
-firebase init hosting
-```
-
-- Choose your Firebase project
-- Set the public directory to `dist`
-- Configure as a single-page app: `Yes`
-- Do not overwrite `index.html` if prompted
-
-4. Deploy:
-
-```bash
-npm run build
-firebase deploy
-```
-
-## Available scripts
-
-- `npm run dev` — start the Vite development server
-- `npm run build` — build production files into `dist`
-- `npm run preview` — preview the production build locally
-- `npm run lint` — run ESLint across the project
-
-## Customization
-
-- Edit content in `src/components/` to update text, projects, experiences, and contact details.
-- Update styling in `src/styles/` to change the theme, spacing, and animation behavior.
-- Replace profile imagery with your own assets.
-
-## Notes
-
-- The app is built for fast loading and smooth interactions.
-- If you add new routes, register them in `src/App.jsx` and update the navbar links.
+*Designed and Developed by Disan Alam.*

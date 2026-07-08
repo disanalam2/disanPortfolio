@@ -104,8 +104,8 @@ const Skills = () => {
   return (
     <PageLayout className="skills-section">
       <SEO 
-        title="Skills" 
-        description="Check out my technical skills including Frontend development, Backend technologies, and tools." 
+        title="Skills | Disan Alam" 
+        description="Explore Disan Alam's technical skills and tech stack, including React.js, Node.js, Express.js, MySQL, cloud deployments, and modern web development technologies." 
         url="skills"
         keywords={dynamicKeywords}
       />

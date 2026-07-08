@@ -5,7 +5,9 @@ import Tilt from 'react-parallax-tilt';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
+import { useRefresh } from '../../context/RefreshContext';
 import PageLayout from '../../components/layout/PageLayout';
+import socket from '../../services/socket';
 import Loader from '../../components/common/Loader';
 import AdminBottomBar from '../../components/admin/AdminBottomBar';
 import BlogCard from './BlogCard';
@@ -18,10 +20,28 @@ const BlogsArchive = () => {
   const { isAdmin } = useAuth();
   const { data: blogsData, setData: setBlogsData, loading } = useFetch(isAdmin ? '/blogs/admin' : '/blogs');
   const { postData, putData, deleteData } = useWrite();
+  const { triggerRefresh } = useRefresh();
 
   const [isEditingPage, setIsEditingPage] = useState(false);
   const [tempData, setTempData] = useState([]);
   const [editingBlogId, setEditingBlogId] = useState(null);
+
+  // Real-time synchronization
+  useEffect(() => {
+    const handleBlogChange = () => {
+      triggerRefresh();
+    };
+
+    socket.on('newBlog', handleBlogChange);
+    socket.on('updateBlog', handleBlogChange);
+    socket.on('deleteBlog', handleBlogChange);
+
+    return () => {
+      socket.off('newBlog', handleBlogChange);
+      socket.off('updateBlog', handleBlogChange);
+      socket.off('deleteBlog', handleBlogChange);
+    };
+  }, [triggerRefresh]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -134,8 +154,8 @@ const BlogsArchive = () => {
   return (
     <PageLayout className="projects-section">
       <SEO 
-        title="Articles & Blogs" 
-        description="Read the latest articles, tutorials, and tech insights written by Disan Alam." 
+        title="Articles & Blogs | Disan Alam" 
+        description="Read the latest articles, tutorials, and tech insights written by Disan Alam on Web Development, System Architecture, and Software Engineering best practices." 
         url="blogs"
         keywords={dynamicKeywords}
       />

@@ -73,8 +73,8 @@ const AboutContainer = () => {
   return (
     <PageLayout className="about-section animate-fade-up">
       <SEO 
-        title="About Me" 
-        description="Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer. Explore the portfolio of Disan Alam to view real-world projects, technical skills in React.js, Node.js, Express.js, and MySQL, professional experience, and verified certificates. Hire Disan Alam for top-tier custom website development services." 
+        title="About Me | Disan Alam" 
+        description="Disan Alam is a highly skilled Full-Stack Web Developer and Software Engineer specializing in React.js, Node.js, Express.js, and modern database architectures. Hire Disan Alam for custom web applications, performance optimization, and scalable digital solutions." 
         url=""
       />
       {isEditing ? (

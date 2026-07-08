@@ -83,8 +83,8 @@ const Education = () => {
   return (
     <PageLayout className="education-section">
       <SEO 
-        title="Education" 
-        description="My academic background, degrees, and the institutions where I built my foundation in software development." 
+        title="Education | Disan Alam" 
+        description="Discover Disan Alam's educational background, degrees, and academic achievements in the field of Computer Science and Engineering." 
         url="education"
       />
       <SectionTitle title="My Education" />

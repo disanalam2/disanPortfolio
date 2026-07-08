@@ -1,25 +1,30 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useFetch } from '../../hooks/Fetch';
 import { useRefresh } from '../../context/RefreshContext';
 import Loader from '../../components/common/Loader';
 import MessageCard from './MessageCard';
+import socket from '../../services/socket';
 
 const AdminInbox = () => {
   const { data: messages, loading, error, setData } = useFetch('/contact/inbox', []);
   const { triggerRefresh } = useRefresh();
-  const pollIntervalRef = useRef(null);
 
-  // Auto-poll for new messages every 5 seconds while admin is viewing inbox
+  // Listen for real-time updates
   useEffect(() => {
-    // Start polling - this will refetch data every 5 seconds
-    pollIntervalRef.current = setInterval(() => {
+    const handleNewContact = () => {
       triggerRefresh();
-    }, 5000);
+    };
+
+    const handleDeleteContact = () => {
+      triggerRefresh();
+    };
+
+    socket.on('newContact', handleNewContact);
+    socket.on('deleteContact', handleDeleteContact);
 
     return () => {
-      if (pollIntervalRef.current) {
-        clearInterval(pollIntervalRef.current);
-      }
+      socket.off('newContact', handleNewContact);
+      socket.off('deleteContact', handleDeleteContact);
     };
   }, [triggerRefresh]);
 
@@ -51,7 +56,7 @@ const AdminInbox = () => {
   return (
     <div className="admin-inbox-container">
       <div style={{ fontSize: '12px', color: '#888', marginBottom: '10px', textAlign: 'center' }}>
-        📡 Live auto-refresh enabled (checks every 5 seconds) | Total messages: {messageList.length}
+        📡 Real-time sync enabled | Total messages: {messageList.length}
       </div>
       
       {messageList.length === 0 ? (

@@ -46,7 +46,7 @@ const BlogPost = () => {
       }
     };
     fetchBlog();
-  }, [slug, navigate]);
+  }, [slug, navigate, isAdmin]);
 
   const [copied, setCopied] = useState(false);
 
@@ -143,7 +143,7 @@ const BlogPost = () => {
         <p>Don't lose mobile traffic to a slow site. Let's modernize your tech stack today.</p>
         <Link 
           to="/contact" 
-          state={{ subject: 'Free 2026 Performance Check (Audit Report)' }} 
+          state={{ subject: 'Free Technical Performance & SEO Audit' }} 
           className="cta-btn"
         >
           Get a Free Performance Audit

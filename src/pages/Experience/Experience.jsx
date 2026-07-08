@@ -83,8 +83,8 @@ const Experience = () => {
   return (
     <PageLayout className="experience-section">
       <SEO 
-        title="Experience" 
-        description="My professional experience and roles in web development, showcasing the projects and companies I have worked with." 
+        title="Experience | Disan Alam" 
+        description="View Disan Alam's professional experience, work history, and roles as a Full-Stack Web Developer, building and maintaining production-grade applications." 
         url="experience"
       />
       <SectionTitle title="My Experience" />

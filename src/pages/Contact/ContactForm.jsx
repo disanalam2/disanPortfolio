@@ -27,7 +27,7 @@ const ContactForm = () => {
     email: '', 
     preference: 'email',
     contactHandle: '', 
-    subject: location.state?.subject || 'Free 2026 Performance Check (Audit Report)',
+    subject: location.state?.subject || 'Free Technical Performance & SEO Audit',
     websiteUrl: '',
     message: ''
   });
@@ -75,7 +75,7 @@ const ContactForm = () => {
           email: '', 
           preference: 'email',
           contactHandle: '', 
-          subject: 'Free 2026 Performance Check (Audit Report)',
+          subject: 'Free Technical Performance & SEO Audit',
           websiteUrl: '',
           message: ''
         });
@@ -159,15 +159,16 @@ const ContactForm = () => {
         <div className="form-group">
           <label className="input-label">Subject *</label>
           <select name="subject" value={formData.subject} onChange={handleChange} className="form-select" required aria-label="Subject">
-            <option value="Free 2026 Performance Check (Audit Report)">Free 2026 Performance Check (Audit Report)</option>
-            <option value="Speed Optimization & Performance Fixes (One-Time Project)">Speed Optimization & Performance Fixes (One-Time Project)</option>
+            <option value="Free Technical Performance & SEO Audit">Free Technical Performance & SEO Audit</option>
+            <option value="Free System Architecture & Automation Audit">Free System Architecture & Automation Audit</option>
+            <option value="Free Sales Funnel, UX & Tracking Audit">Free Sales Funnel, UX & Tracking Audit</option>
             <option value="Website Rebuild & Tech Stack Modernization">Website Rebuild & Tech Stack Modernization</option>
-            <option value="Custom Feature or API Integration">Custom Feature or API Integration</option>
-            <option value="Full-Stack Web Development (New Build)">Full-Stack Web Development (New Build)</option>
+            <option value="Enterprise Custom Web App (New Build)">Enterprise Custom Web App (New Build)</option>
+            <option value="Complete Digital Infrastructure Overhaul (Full Transformation)">Complete Digital Infrastructure Overhaul (Full Transformation)</option>
           </select>
         </div>
 
-        {formData.subject !== 'Full-Stack Web Development (New Build)' && (
+        {formData.subject !== 'Enterprise Custom Web App (New Build)' && (
           <div className="form-group">
             <InputField 
               type="url" 
