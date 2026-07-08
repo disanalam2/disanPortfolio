@@ -50,11 +50,11 @@ const BlogCard = ({ blog, isEditingPage, onEdit, onDelete }) => {
       )}
 
       <h3>{blog.title}</h3>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '5px 0', fontSize: '0.85rem', color: 'var(--text-color-secondary)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '5px 0 15px 0', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '500' }}>
         <span>👁️ {blog.views || 0} views</span>
         <span>⏱️ {blog.read_time || 1} min read</span>
       </div>
-      <p style={{ margin: '10px 0', color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+      <p className="desc">
         {blog.summary}
       </p>
 

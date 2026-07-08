@@ -10,11 +10,16 @@
     margin: 0 auto;
   }
 
+  .tilt-wrapper {
+    flex: 1 1 280px;
+    max-width: 380px;
+    width: 100%;
+    display: flex;
+  }
+
   .project-card {
     background-color: var(--card-bg);
-    flex: 1 1 280px; /* Fully responsive: grows and shrinks from 280px base */
     width: 100%;
-    max-width: 380px; /* Prevents it from becoming too wide on large screens */
     padding: 2rem;
     border-radius: 28px;
     display: flex;
@@ -272,6 +277,10 @@
       .btn {
         width: 100%;
       }
+    }
+
+    .project-media-carousel {
+      height: 180px;
     }
   }
 }
