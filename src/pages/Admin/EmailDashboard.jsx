@@ -824,7 +824,6 @@ export default function Dashboard() {
                     )}
                   </div>
                 </div>
-                </div>
 
                 {/* Website Info & Audit Summary */}
                 {selectedLead.website && (
