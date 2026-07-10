@@ -483,6 +483,9 @@ export default function Dashboard() {
                                         Speed: {audit.speed_score}
                                       </span>
                                     )}
+                                    {audit.lcp && audit.lcp !== 'N/A' && (
+                                      <span style={{ marginRight: '6px', color: '#94a3b8' }}>LCP: <span style={{color: '#f8fafc'}}>{audit.lcp}</span></span>
+                                    )}
                                     {audit.mobile_responsive === false && <span style={{ color: '#ef4444', marginRight: '6px' }} title="Not Mobile Responsive">📱❌</span>}
                                     {audit.ssl_issue === true && <span style={{ color: '#ef4444', marginRight: '6px' }} title="SSL Error">🔒❌</span>}
                                     {audit.missing_seo === true && <span style={{ color: '#ef4444' }} title="Missing SEO">🔍❌</span>}
@@ -870,6 +873,11 @@ export default function Dashboard() {
                             {audit.speed_score !== null && audit.speed_score !== undefined && (
                               <div style={{ background: '#1e293b', padding: '6px', borderRadius: '4px', fontSize: '0.8rem' }}>
                                 <span style={{ color: '#94a3b8' }}>Speed:</span> <strong style={{ color: audit.speed_score > 80 ? '#10b981' : audit.speed_score > 50 ? '#f59e0b' : '#ef4444' }}>{audit.speed_score}/100</strong>
+                              </div>
+                            )}
+                            {audit.lcp && audit.lcp !== 'N/A' && (
+                              <div style={{ background: '#1e293b', padding: '6px', borderRadius: '4px', fontSize: '0.8rem' }}>
+                                <span style={{ color: '#94a3b8' }}>LCP:</span> <strong style={{ color: '#f8fafc' }}>{audit.lcp}</strong>
                               </div>
                             )}
                             <div style={{ background: '#1e293b', padding: '6px', borderRadius: '4px', fontSize: '0.8rem' }}>
