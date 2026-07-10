@@ -824,6 +824,46 @@ export default function Dashboard() {
                     )}
                   </div>
                 </div>
+                </div>
+
+                {/* Website Info & Audit Summary */}
+                {selectedLead.website && (
+                  <div style={{ marginBottom: '15px', padding: '10px', backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <h4 style={{ margin: '0 0 10px 0', fontSize: '0.9rem', color: '#60a5fa' }}>Website Details</h4>
+                    <p style={{ margin: '0 0 5px 0', fontSize: '0.85rem' }}>
+                      <strong>URL: </strong> 
+                      <a href={selectedLead.website.startsWith('http') ? selectedLead.website : `https://${selectedLead.website}`} target="_blank" rel="noreferrer" style={{ color: '#3b82f6', textDecoration: 'underline' }}>
+                        {selectedLead.website}
+                      </a>
+                    </p>
+                    
+                    {selectedLead.website_issues && (() => {
+                      try {
+                        const audit = JSON.parse(selectedLead.website_issues);
+                        return (
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '8px', marginTop: '10px' }}>
+                            {audit.speed_score !== null && audit.speed_score !== undefined && (
+                              <div style={{ background: '#1e293b', padding: '6px', borderRadius: '4px', fontSize: '0.8rem' }}>
+                                <span style={{ color: '#94a3b8' }}>Speed:</span> <strong style={{ color: audit.speed_score > 80 ? '#10b981' : audit.speed_score > 50 ? '#f59e0b' : '#ef4444' }}>{audit.speed_score}/100</strong>
+                              </div>
+                            )}
+                            <div style={{ background: '#1e293b', padding: '6px', borderRadius: '4px', fontSize: '0.8rem' }}>
+                              <span style={{ color: '#94a3b8' }}>Mobile:</span> <strong>{audit.mobile_responsive ? '✅ Yes' : '❌ No'}</strong>
+                            </div>
+                            <div style={{ background: '#1e293b', padding: '6px', borderRadius: '4px', fontSize: '0.8rem' }}>
+                              <span style={{ color: '#94a3b8' }}>SSL:</span> <strong>{audit.ssl_issue ? '❌ Error' : '✅ Safe'}</strong>
+                            </div>
+                            <div style={{ background: '#1e293b', padding: '6px', borderRadius: '4px', fontSize: '0.8rem' }}>
+                              <span style={{ color: '#94a3b8' }}>SEO:</span> <strong>{audit.missing_seo ? '❌ Missing' : '✅ Good'}</strong>
+                            </div>
+                          </div>
+                        );
+                      } catch (e) {
+                        return null;
+                      }
+                    })()}
+                  </div>
+                )}
 
                 <label>Email Body (HTML/Text format)</label>
                 <textarea 
