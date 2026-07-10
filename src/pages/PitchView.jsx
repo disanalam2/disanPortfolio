@@ -29,6 +29,11 @@ const PitchView = () => {
       }
     };
     fetchLeadInfo();
+    
+    // Pre-load voices for TTS (some browsers need this triggered early)
+    window.speechSynthesis.onvoiceschanged = () => {
+      window.speechSynthesis.getVoices();
+    };
   }, [uuid]);
 
   // The Magic TTS Logic
@@ -42,6 +47,18 @@ const PitchView = () => {
     const utterance = new SpeechSynthesisUtterance(`Hi ${lead.business_name} team, I was reviewing your digital presence online and noticed a few critical areas where you are losing customers. Please take a look at the screen.`);
     utterance.lang = 'en-US';
     utterance.rate = 1.0;
+    
+    // Select premium/natural voice if available
+    const voices = window.speechSynthesis.getVoices();
+    const premiumVoice = voices.find(v => 
+      v.name.includes('Google UK English') || 
+      v.name.includes('Google US English') || 
+      v.name.includes('Samantha') || 
+      v.name.includes('Daniel')
+    );
+    if (premiumVoice) {
+      utterance.voice = premiumVoice;
+    }
     
     // Play the video right after the intro name-drop
     utterance.onend = () => {

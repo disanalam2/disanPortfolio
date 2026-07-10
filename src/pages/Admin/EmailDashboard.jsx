@@ -27,6 +27,7 @@ export default function Dashboard() {
   const [scrapeForm, setScrapeForm] = useState({ niche: '', location: '' });
   const [isScraping, setIsScraping] = useState(false);
   const [scrapeResult, setScrapeResult] = useState('');
+  const [queueStatus, setQueueStatus] = useState({ pending: 0, processing: 0, failed: 0 });
   
   const navigate = useNavigate();
   const { isAdmin } = useAuth();
@@ -86,6 +87,7 @@ export default function Dashboard() {
     fetchEmailAccounts();
     fetchAnalytics();
     fetchInbox();
+    fetchQueueStatus();
 
     return () => {
         socket.disconnect();
@@ -295,6 +297,32 @@ export default function Dashboard() {
     }
   };
 
+  const fetchQueueStatus = async () => {
+    try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+      const res = await axios.get(`${BASE_URL}/scraper/queue-status`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setQueueStatus(res.data);
+    } catch (err) {
+      console.error('Error fetching queue status', err);
+    }
+  };
+
+  const handleTriggerBackground = async () => {
+    try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+      const res = await axios.post(`${BASE_URL}/scraper/trigger-background`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      alert(res.data.message);
+      fetchQueueStatus();
+    } catch (err) {
+      console.error('Error triggering background', err);
+      alert('Failed to trigger background job.');
+    }
+  };
+
   return (
     <div className="email-dashboard">
       
@@ -394,6 +422,31 @@ export default function Dashboard() {
 
         {activeTab === 'leads' && (
           <>
+            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px', padding: '15px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <div>
+                <h3 style={{ margin: '0 0 5px 0', fontSize: '1rem', color: 'var(--text-secondary)' }}>AI Processing Queue</h3>
+                <div style={{ display: 'flex', gap: '15px', fontWeight: 'bold' }}>
+                  <span style={{ color: '#fbbf24' }}>Pending: {queueStatus.pending}</span>
+                  <span style={{ color: '#60a5fa' }}>Processing: {queueStatus.processing}</span>
+                  <span style={{ color: '#ef4444' }}>Failed: {queueStatus.failed}</span>
+                </div>
+              </div>
+              <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <button 
+                  onClick={fetchQueueStatus}
+                  style={{ padding: '8px 12px', background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', borderRadius: '6px', cursor: 'pointer' }}
+                >
+                  ↻ Refresh Queue
+                </button>
+                <button 
+                  onClick={handleTriggerBackground}
+                  style={{ padding: '8px 12px', background: 'var(--accent-color)', border: 'none', color: '#000', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}
+                >
+                  ⚡ Force Background Scrape
+                </button>
+              </div>
+            </div>
+
             <div className="dash-toolbar">
               <h2>Collected Leads</h2>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
@@ -515,6 +568,7 @@ export default function Dashboard() {
                             <span className={`status-badge ${
                               lead.status === 'replied' ? 'replied'
                               : lead.status === 'emailed' ? 'emailed' 
+                              : lead.status === 'failed_no_contact' || lead.status === 'failed' ? 'failed'
                               : lead.status.includes('scheduled') ? 'scheduled'
                               : lead.status.includes('ready') ? 'ready'
                               : 'default'
