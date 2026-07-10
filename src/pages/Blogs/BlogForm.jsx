@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../components/ui/Button';
+import { BASE_URL } from '../../services/api';
 
 const BlogForm = ({ blog, onSave, onCancel }) => {
   const formatDateTime = (dateString) => {
@@ -70,14 +71,39 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleThumbnailChange = (e) => {
+  const [uploading, setUploading] = useState(false);
+
+  const handleThumbnailChange = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, thumbnail: reader.result });
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    setUploading(true);
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+
+    let token = sessionStorage.getItem('adminToken');
+    if (token) token = token.replace(/^"(.*)"$/, '$1');
+
+    try {
+      const response = await fetch(`${BASE_URL}/upload`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: uploadData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setFormData({ ...formData, thumbnail: data.url });
+      } else {
+        alert("Upload Failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Error uploading file");
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -90,7 +116,8 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
         {formData.thumbnail && (
             <img src={formData.thumbnail} alt="Thumbnail Preview" style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px' }} />
         )}
-        <input type="file" accept="image/*" onChange={handleThumbnailChange} required={!formData.thumbnail} />
+        {uploading && <p style={{color: 'var(--accent-color)', fontSize: '0.85rem'}}>Uploading to S3...</p>}
+        <input type="file" accept="image/*" onChange={handleThumbnailChange} required={!formData.thumbnail} disabled={uploading} />
       </div>
 
       <div className="form-group" style={{ marginBottom: '15px' }}>

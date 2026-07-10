@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Plus, X, Upload } from 'lucide-react';
+import { BASE_URL } from '../../services/api';
 import InputField from '../../components/form/InputField';
 import TextAreaField from '../../components/form/TextAreaField';
 
@@ -37,7 +39,7 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     if (token) token = token.replace(/^"(.*)"$/, '$1');
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/upload`, {
+      const response = await fetch(`${BASE_URL}/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}` // Admin token

@@ -160,7 +160,21 @@ body::after {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1250px) {
+  .navbar {
+    .nav-links {
+      gap: 1rem;
+      li a:not(.nav-resume-btn) {
+        font-size: 0.85rem;
+      }
+    }
+    .logo a {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 1080px) {
   .navbar {
     width: 95%; height: 70px;
     .menu-icon { display: block; }

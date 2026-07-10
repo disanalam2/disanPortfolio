@@ -146,6 +146,8 @@ const Projects = () => {
             glareMaxOpacity={0.1}
             glareColor="#ffffff"
             glarePosition="all"
+            gyroscope={false}
+            trackOnWindow={false}
             className="tilt-wrapper"
             tiltEnable={!isEditingPage}
             style={{ display: 'flex', height: '100%' }}

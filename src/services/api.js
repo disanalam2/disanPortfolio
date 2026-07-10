@@ -1,4 +1,5 @@
-const BASE_URL = 'https://api.disanalam.me/api';
+export const API_URL = 'https://api.disanalam.me';
+export const BASE_URL = `${API_URL}/api`;
 //const BASE_URL = 'http://localhost:5000/api'; // Local development ke liye
 export const apiCall = async (endpoint, options = {}) => {
   // sessionStorage se token lete hain (updated from localStorage)

@@ -18,6 +18,7 @@ const Navbar = () => {
   };
 
   const [resumeLink, setResumeLink] = useState('/Disan Alam - Resume.pdf');
+  const [logoUrl, setLogoUrl] = useState('/disan-alam.webp');
 
   // Fetch resume link from backend
   useEffect(() => {
@@ -26,6 +27,9 @@ const Navbar = () => {
         const data = await apiCall('/about');
         if (data && data.resume_link) {
           setResumeLink(data.resume_link);
+        }
+        if (data && data.photo) {
+          setLogoUrl(data.photo);
         }
       // eslint-disable-next-line no-unused-vars
       } catch (err) {
@@ -71,7 +75,7 @@ const Navbar = () => {
       <div className="nav-container container">
         <div className="logo">
           <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
-            <img src="/disan-alam.webp" alt="Disan Alam Logo" decoding="async" />
+            <img src={logoUrl || "/disan-alam.webp"} alt="Disan Alam Logo" decoding="async" width="40" height="40" style={{objectFit: 'cover', borderRadius: '50%'}} />
             Disan Alam
           </NavLink>
         </div>
@@ -139,6 +143,20 @@ const Navbar = () => {
               </button>
             )}
           </li>
+
+          {/* Email Automation Link - Only for admin */}
+          {isAdmin && (
+            <li>
+              <NavLink 
+                to="/email-automation"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) => (isActive ? 'active' : undefined)}
+                style={{ color: '#3b82f6', fontWeight: 'bold' }}
+              >
+                Email Automation
+              </NavLink>
+            </li>
+          )}
 
           {/* Logout Button - Only show jab admin logged in ho */}
           {isAdmin && (

@@ -9,7 +9,7 @@ const socket = io(SOCKET_URL, {
 });
 
 socket.on('connect', () => {
-  console.log('🔌 Connected to Socket.IO Server:', socket.id);
+  // console.log('🔌 Connected to Socket.IO Server:', socket.id); // Commented for production
 });
 
 socket.on('disconnect', () => {

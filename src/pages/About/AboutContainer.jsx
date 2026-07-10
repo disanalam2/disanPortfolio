@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useFetch } from '../../hooks/Fetch';
 import { useWrite } from '../../hooks/Write';
+import { BASE_URL } from '../../services/api';
 import PageLayout from '../../components/layout/PageLayout';
 import Loader from '../../components/common/Loader';
 import AdminBottomBar from '../../components/admin/AdminBottomBar';
@@ -18,6 +19,7 @@ const AboutContainer = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [tempData, setTempData] = useState({});
   const [imagePreview, setImagePreview] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   // Sync state jab naya data load ho ya cancel dabaya jaye
   useEffect(() => {
@@ -38,15 +40,38 @@ const AboutContainer = () => {
     setTempData({ ...tempData, [e.target.name]: e.target.value });
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-        setTempData({ ...tempData, photo: reader.result }); // Base64 string save hogi
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    setUploading(true);
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+
+    let token = sessionStorage.getItem('adminToken');
+    if (token) token = token.replace(/^"(.*)"$/, '$1');
+
+    try {
+      const response = await fetch(`${BASE_URL}/upload`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: uploadData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setImagePreview(data.url);
+        setTempData({ ...tempData, photo: data.url });
+      } else {
+        alert("Upload Failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Error uploading file");
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -83,6 +108,7 @@ const AboutContainer = () => {
           imagePreview={imagePreview} 
           handleInputChange={handleInputChange} 
           handleImageChange={handleImageChange} 
+          uploading={uploading}
         />
       ) : (
         <AboutView aboutData={aboutData || {}} />

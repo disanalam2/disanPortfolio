@@ -1,7 +1,7 @@
 import React from 'react';
 import TextAreaField from '../../components/form/TextAreaField';
 
-const AboutEdit = ({ tempData, imagePreview, handleInputChange, handleImageChange }) => {
+const AboutEdit = ({ tempData, imagePreview, handleInputChange, handleImageChange, uploading }) => {
   return (
     <>
       <div className="about-details">
@@ -11,7 +11,28 @@ const AboutEdit = ({ tempData, imagePreview, handleInputChange, handleImageChang
           ) : (
             <div style={{width: 170, height: 170, borderRadius: '50%', background: '#333'}}></div>
           )}
-          <input type="file" accept="image/*" onChange={handleImageChange} className="file-input" />
+          {uploading ? (
+            <div style={{width: 170, height: 170, borderRadius: '50%', background: '#333', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-color)', fontSize: '0.9rem', fontWeight: 'bold'}}>Uploading...</div>
+          ) : (
+            <>
+              <label htmlFor="about-photo-upload" style={{cursor: 'pointer', background: 'var(--accent-color)', color: '#000', padding: '6px 14px', borderRadius: '4px', fontSize: '0.85rem', fontWeight: 'bold', marginTop: '10px', display: 'inline-block'}}>
+                Upload to S3
+              </label>
+              <input id="about-photo-upload" type="file" accept="image/*" onChange={handleImageChange} style={{display: 'none'}} />
+            </>
+          )}
+        </div>
+
+        <div style={{ marginTop: '1rem', marginBottom: '1.5rem', width: '100%' }}>
+          <p className="description" style={{ marginBottom: '5px' }}>Or Paste Image Link <br /></p>
+          <input 
+            name="photo" 
+            className="edit-input" 
+            style={{ width: '100%', padding: '10px', borderRadius: '8px', background: 'var(--glass-bg)', color: "var(--text-primary)", border: '1px solid var(--glass-hover)' }}
+            value={tempData.photo || ''} 
+            onChange={handleInputChange} 
+            placeholder="https://example.com/photo.jpg"
+          />
         </div>
 
         <TextAreaField 
