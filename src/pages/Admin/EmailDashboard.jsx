@@ -917,7 +917,13 @@ export default function Dashboard() {
               {selectedLead.lead_type === 'bad_website' && (
                 <div className="preview-section" style={{ marginTop: '10px', backgroundColor: '#fef2f2', padding: '10px', borderLeft: '4px solid #ef4444' }}>
                   <h4 style={{ color: '#b91c1c', margin: 0 }}>📄 Auto-Attachment: Free PDF Audit</h4>
-                  <p style={{ margin: '5px 0 0 0', color: '#7f1d1d', fontSize: '0.9rem' }}>A custom PDF report detailing the website issues will be dynamically generated and attached to this email when sent.</p>
+                  <p style={{ margin: '5px 0 5px 0', color: '#7f1d1d', fontSize: '0.9rem' }}>A custom PDF report detailing the website issues will be dynamically generated and attached to this email when sent.</p>
+                  <button 
+                    onClick={() => handleViewPDF(selectedLead.id)}
+                    style={{ marginTop: '5px', padding: '6px 12px', backgroundColor: '#dc2626', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '0.85rem' }}
+                  >
+                    👁️ View PDF Report
+                  </button>
                 </div>
               )}
             </div>
