@@ -256,6 +256,21 @@ export default function Dashboard() {
     }
   };
 
+  const handleViewPDF = async (id) => {
+    try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+      const response = await axios.get(`${BASE_URL}/leads/${id}/pdf`, {
+        headers: { Authorization: `Bearer ${token}` },
+        responseType: 'blob'
+      });
+      const fileURL = URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+      window.open(fileURL, '_blank');
+    } catch (error) {
+      console.error('Error fetching PDF:', error);
+      alert('Failed to generate or fetch PDF.');
+    }
+  };
+
   const handleScrapeSubmit = async (e) => {
     e.preventDefault();
     if (!scrapeForm.niche || !scrapeForm.location) return;
@@ -837,6 +852,14 @@ export default function Dashboard() {
                       style={{ padding: '8px 12px', backgroundColor: '#fbbf24', color: '#000', textDecoration: 'none', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 'bold' }}
                     >
                       Preview PR Page
+                    </a>
+                    
+                    <a 
+                      href={`/pitch/${selectedLead.uuid}?preview=true`}
+                      target="_blank" rel="noreferrer"
+                      style={{ padding: '8px 12px', backgroundColor: '#8b5cf6', color: '#fff', textDecoration: 'none', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 'bold' }}
+                    >
+                      ▶️ Preview Video Audit
                     </a>
                     
                     {!selectedLead.is_award_public ? (
