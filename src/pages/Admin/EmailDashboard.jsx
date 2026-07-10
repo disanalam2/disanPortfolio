@@ -452,7 +452,14 @@ export default function Dashboard() {
                               )}
                             </div>
                             <div className="lead-niche">{lead.niche}</div>
-                            <div className="lead-meta">
+                            {lead.website && (
+                              <div style={{ fontSize: '12px', marginTop: '4px' }}>
+                                <a href={lead.website.startsWith('http') ? lead.website : `https://${lead.website}`} target="_blank" rel="noreferrer" style={{ color: '#3b82f6', textDecoration: 'none' }}>
+                                  🌐 {lead.website}
+                                </a>
+                              </div>
+                            )}
+                            <div className="lead-meta" style={{ marginTop: '4px' }}>
                               <MapPin size={12} /> {lead.address || 'No address provided'}
                             </div>
                           </td>
@@ -466,6 +473,25 @@ export default function Dashboard() {
                             <span className={`type-badge ${lead.lead_type === 'bad_website' ? 'bad' : 'no'}`}>
                               {lead.lead_type === 'bad_website' ? 'Bad Website' : 'No Website'}
                             </span>
+                            {lead.website_issues && (() => {
+                              try {
+                                const audit = JSON.parse(lead.website_issues);
+                                return (
+                                  <div style={{ fontSize: '11px', marginTop: '6px', color: '#94a3b8' }}>
+                                    {audit.speed_score !== null && audit.speed_score !== undefined && (
+                                      <span style={{ marginRight: '6px', color: audit.speed_score > 80 ? '#10b981' : audit.speed_score > 50 ? '#f59e0b' : '#ef4444', fontWeight: 'bold' }}>
+                                        Speed: {audit.speed_score}
+                                      </span>
+                                    )}
+                                    {audit.mobile_responsive === false && <span style={{ color: '#ef4444', marginRight: '6px' }} title="Not Mobile Responsive">📱❌</span>}
+                                    {audit.ssl_issue === true && <span style={{ color: '#ef4444', marginRight: '6px' }} title="SSL Error">🔒❌</span>}
+                                    {audit.missing_seo === true && <span style={{ color: '#ef4444' }} title="Missing SEO">🔍❌</span>}
+                                  </div>
+                                )
+                              } catch (e) {
+                                return null;
+                              }
+                            })()}
                           </td>
                           <td>
                             <span className={`status-badge ${
