@@ -118,7 +118,19 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <!-- Google Analytics Tracking (Gtag) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEPZVJ6MEK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PEPZVJ6MEK');
+  </script>
+
+  <div id="root">
+    <!-- Fallback H1 for SEO bots that don't execute JavaScript (like our Cheerio scraper) -->
+    <h1 style="display: none;">Disan Alam | Full-Stack Web Developer</h1>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
