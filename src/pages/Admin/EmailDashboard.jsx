@@ -2,7 +2,7 @@ import React, { useState, useEffect, startTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { 
-  Search, Send, CheckCircle, Clock, Edit, X,
+  Search, Send, CheckCircle, Clock, Edit, X, Trash2,
   Building2, MapPin, Mail, Phone, BarChart2, PieChart as PieChartIcon
 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
@@ -29,6 +29,7 @@ export default function Dashboard() {
   const [isScraping, setIsScraping] = useState(false);
   const [scrapeResult, setScrapeResult] = useState('');
   const [queueStatus, setQueueStatus] = useState({ pending: 0, processing: 0, failed: 0 });
+  const [autoScraperActive, setAutoScraperActive] = useState(true);
   
   const navigate = useNavigate();
   const { isAdmin } = useAuth();
@@ -89,6 +90,7 @@ export default function Dashboard() {
     fetchAnalytics();
     fetchInbox();
     fetchQueueStatus();
+    fetchAutoScraperStatus();
 
     return () => {
         socket.disconnect();
@@ -183,6 +185,20 @@ export default function Dashboard() {
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDeleteLead = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this lead?')) return;
+    try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+      await axios.delete(`${BASE_URL}/leads/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      fetchLeads();
+      alert('Lead deleted successfully');
+    } catch (error) {
+      alert('Failed to delete lead');
     }
   };
 
@@ -324,6 +340,32 @@ export default function Dashboard() {
     }
   };
 
+  const fetchAutoScraperStatus = async () => {
+    try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+      const res = await axios.get(`${BASE_URL}/scraper/status`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setAutoScraperActive(res.data.is_active);
+    } catch (err) {
+      console.error('Error fetching auto scraper status', err);
+    }
+  };
+
+  const toggleAutoScraper = async () => {
+    try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+      const res = await axios.post(`${BASE_URL}/scraper/toggle`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setAutoScraperActive(res.data.is_active);
+      alert(res.data.message);
+    } catch (err) {
+      console.error('Error toggling auto scraper', err);
+      alert('Failed to toggle auto scraper.');
+    }
+  };
+
   return (
     <div className="email-dashboard">
       
@@ -444,6 +486,12 @@ export default function Dashboard() {
                   style={{ padding: '8px 12px', background: 'var(--accent-color)', border: 'none', color: '#000', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}
                 >
                   ⚡ Force Background Scrape
+                </button>
+                <button 
+                  onClick={toggleAutoScraper}
+                  style={{ padding: '8px 12px', background: autoScraperActive ? '#ef4444' : '#10b981', border: 'none', color: '#fff', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}
+                >
+                  {autoScraperActive ? '🛑 Stop Auto Scraper' : '▶️ Start Auto Scraper'}
                 </button>
               </div>
             </div>
@@ -610,12 +658,21 @@ export default function Dashboard() {
                               {lead.status.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
                             </span>
                           </td>
-                          <td style={{ textAlign: 'right' }}>
+                          <td style={{ textAlign: 'right', display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
                             <button 
                               onClick={() => openModal(lead)}
                               className="action-btn"
+                              title="Edit Lead"
                             >
                               <Edit size={20} />
+                            </button>
+                            <button 
+                              onClick={() => handleDeleteLead(lead.id)}
+                              className="action-btn"
+                              style={{ color: '#ef4444' }}
+                              title="Delete Lead"
+                            >
+                              <Trash2 size={20} />
                             </button>
                           </td>
                         </tr>
