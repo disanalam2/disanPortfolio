@@ -31,6 +31,10 @@ export default function Dashboard() {
   const [queueStatus, setQueueStatus] = useState({ pending: 0, processing: 0, failed: 0 });
   const [autoScraperActive, setAutoScraperActive] = useState(true);
   
+  const [manualAuditUrl, setManualAuditUrl] = useState('');
+  const [isAuditing, setIsAuditing] = useState(false);
+  const [manualAuditResult, setManualAuditResult] = useState(null);
+  
   const navigate = useNavigate();
   const { isAdmin } = useAuth();
 
@@ -314,6 +318,24 @@ export default function Dashboard() {
     }
   };
 
+  const handleManualAuditSubmit = async (e) => {
+      e.preventDefault();
+      if (!manualAuditUrl) return;
+      setIsAuditing(true);
+      setManualAuditResult(null);
+      try {
+          const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+          const res = await axios.post(`${BASE_URL}/scraper/manual-audit`, { url: manualAuditUrl }, {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          setManualAuditResult(res.data);
+      } catch (error) {
+          setManualAuditResult({ error: error.response?.data?.error || error.message });
+      } finally {
+          setIsAuditing(false);
+      }
+  };
+
   const fetchQueueStatus = async () => {
     try {
       const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
@@ -382,6 +404,13 @@ export default function Dashboard() {
               style={{ background: 'linear-gradient(45deg, #f59e0b, #d97706)', border: 'none', color: '#fff', fontWeight: 'bold' }}
             >
               🚀 Scraper Tool
+            </button>
+            <button 
+              onClick={() => startTransition(() => setActiveTab('manual_audit'))} 
+              className={activeTab === 'manual_audit' ? 'active' : ''}
+              style={{ background: 'linear-gradient(45deg, #8b5cf6, #6d28d9)', border: 'none', color: '#fff', fontWeight: 'bold', marginLeft: '10px' }}
+            >
+              🔍 Manual Audit
             </button>
             <button 
               onClick={() => startTransition(() => setActiveTab('leads'))} 
@@ -458,6 +487,63 @@ export default function Dashboard() {
             {scrapeResult && (
               <div style={{ padding: '1rem', borderRadius: '8px', background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59,130,246,0.3)', color: '#60a5fa' }}>
                 {scrapeResult}
+              </div>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'manual_audit' && (
+          <div className="scraper-container" style={{ padding: '2rem', background: 'var(--glass-bg)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <h2>Manual Website Audit (Client Report)</h2>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Enter a website link to generate a detailed problem-solution report for your client.</p>
+            
+            <form onSubmit={handleManualAuditSubmit} style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+              <input 
+                type="text" 
+                placeholder="https://example.com" 
+                value={manualAuditUrl}
+                onChange={e => setManualAuditUrl(e.target.value)}
+                style={{ flex: 1, minWidth: '300px', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--glass-hover)', background: 'rgba(0,0,0,0.2)', color: '#fff' }}
+                required
+              />
+              <button 
+                type="submit" 
+                disabled={isAuditing}
+                style={{ padding: '12px 24px', borderRadius: '8px', background: 'var(--accent-color)', color: '#fff', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}
+              >
+                {isAuditing ? 'Auditing & Generating AI Report...' : 'Generate Report'}
+              </button>
+            </form>
+
+            {manualAuditResult && (
+              <div style={{ marginTop: '20px', padding: '1.5rem', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                {manualAuditResult.error ? (
+                    <p style={{ color: '#ef4444' }}>{manualAuditResult.error}</p>
+                ) : (
+                    <div>
+                        <h3 style={{ marginBottom: '15px', color: '#a78bfa' }}>Audit Report for {manualAuditUrl}</h3>
+                        <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+                            <div style={{ padding: '15px', background: '#1e1e2e', borderRadius: '8px', flex: 1 }}>
+                                <strong>Speed Score:</strong> <span style={{ color: manualAuditResult.auditData.speed_score > 60 ? '#22c55e' : '#ef4444' }}>{manualAuditResult.auditData.speed_score} / 100</span>
+                            </div>
+                            <div style={{ padding: '15px', background: '#1e1e2e', borderRadius: '8px', flex: 1 }}>
+                                <strong>Mobile Responsive:</strong> <span style={{ color: manualAuditResult.auditData.mobile_responsive ? '#22c55e' : '#ef4444' }}>{manualAuditResult.auditData.mobile_responsive ? 'Yes' : 'No'}</span>
+                            </div>
+                            <div style={{ padding: '15px', background: '#1e1e2e', borderRadius: '8px', flex: 1 }}>
+                                <strong>SSL Secure:</strong> <span style={{ color: !manualAuditResult.auditData.ssl_issue ? '#22c55e' : '#ef4444' }}>{!manualAuditResult.auditData.ssl_issue ? 'Yes' : 'No'}</span>
+                            </div>
+                        </div>
+                        <div style={{ padding: '20px', background: '#181825', borderRadius: '8px', whiteSpace: 'pre-wrap', lineHeight: '1.6', fontSize: '15px' }}>
+                            {manualAuditResult.report}
+                        </div>
+                        <button 
+                            onClick={() => navigator.clipboard.writeText(manualAuditResult.report)} 
+                            style={{ marginTop: '15px', padding: '10px 20px', background: '#4c1d95', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+                        >
+                            Copy Report to Clipboard
+                        </button>
+                    </div>
+                )}
               </div>
             )}
           </div>
