@@ -18,6 +18,7 @@ export default function Dashboard() {
   const [emailDraftText, setEmailDraftText] = useState('');
   const [sendingId, setSendingId] = useState(null);
   const [activeTab, setActiveTab] = useState('leads'); // 'leads' | 'settings' | 'analytics'
+  const [leadSubTab, setLeadSubTab] = useState('all'); // 'all' | 'with_website' | 'without_website'
   const [emailAccounts, setEmailAccounts] = useState([]);
   const [newEmailForm, setNewEmailForm] = useState({ email: '', password: '', host: 'smtp.zoho.in', port: 465 });
   const [analyticsData, setAnalyticsData] = useState(null);
@@ -450,6 +451,26 @@ export default function Dashboard() {
             <div className="dash-toolbar">
               <h2>Collected Leads</h2>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <div className="lead-subtabs" style={{ display: 'flex', gap: '5px', background: 'rgba(0,0,0,0.3)', padding: '4px', borderRadius: '8px' }}>
+                  <button 
+                    onClick={() => setLeadSubTab('all')}
+                    style={{ padding: '6px 12px', border: 'none', borderRadius: '6px', cursor: 'pointer', background: leadSubTab === 'all' ? 'var(--accent-color)' : 'transparent', color: leadSubTab === 'all' ? '#000' : '#fff', fontWeight: leadSubTab === 'all' ? 'bold' : 'normal' }}
+                  >
+                    All Leads
+                  </button>
+                  <button 
+                    onClick={() => setLeadSubTab('with_website')}
+                    style={{ padding: '6px 12px', border: 'none', borderRadius: '6px', cursor: 'pointer', background: leadSubTab === 'with_website' ? 'var(--accent-color)' : 'transparent', color: leadSubTab === 'with_website' ? '#000' : '#fff', fontWeight: leadSubTab === 'with_website' ? 'bold' : 'normal' }}
+                  >
+                    With Website
+                  </button>
+                  <button 
+                    onClick={() => setLeadSubTab('without_website')}
+                    style={{ padding: '6px 12px', border: 'none', borderRadius: '6px', cursor: 'pointer', background: leadSubTab === 'without_website' ? 'var(--accent-color)' : 'transparent', color: leadSubTab === 'without_website' ? '#000' : '#fff', fontWeight: leadSubTab === 'without_website' ? 'bold' : 'normal' }}
+                  >
+                    Without Website
+                  </button>
+                </div>
                 <button 
                   onClick={exportToCSV}
                   style={{
@@ -494,14 +515,26 @@ export default function Dashboard() {
                       <tr>
                         <td colSpan="5" style={{ textAlign: 'center', padding: '2rem' }}>Loading leads...</td>
                       </tr>
-                    ) : leads.length === 0 ? (
+                    ) : leads.filter(lead => {
+                      if (leadSubTab === 'all') return true;
+                      const hasWebsite = Boolean(lead.website && !lead.website.includes('instagram.com') && !lead.website.includes('facebook.com') && !lead.website.includes('wa.me'));
+                      if (leadSubTab === 'with_website') return hasWebsite;
+                      if (leadSubTab === 'without_website') return !hasWebsite;
+                      return true;
+                    }).length === 0 ? (
                       <tr>
                         <td colSpan="5" style={{ textAlign: 'center', padding: '2rem' }}>
-                          No leads found. Ensure the background worker is running.
+                          No leads found for this filter.
                         </td>
                       </tr>
                     ) : (
-                      leads.map((lead) => (
+                      leads.filter(lead => {
+                        if (leadSubTab === 'all') return true;
+                        const hasWebsite = Boolean(lead.website && !lead.website.includes('instagram.com') && !lead.website.includes('facebook.com') && !lead.website.includes('wa.me'));
+                        if (leadSubTab === 'with_website') return hasWebsite;
+                        if (leadSubTab === 'without_website') return !hasWebsite;
+                        return true;
+                      }).map((lead) => (
                         <tr key={lead.id}>
                           <td>
                             <div className="lead-name">
