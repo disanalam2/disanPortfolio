@@ -1,11 +1,6 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import ReactGA from 'react-ga4';
-
-// Google Analytics Measurement ID
-const GA_MEASUREMENT_ID = "G-PEPZVJ6MEK";
-ReactGA.initialize(GA_MEASUREMENT_ID);
 
 // Naye Layout aur Page imports
 import Navbar from './components/layout/Navbar';
@@ -36,11 +31,12 @@ function App() {
   const location = useLocation();
   
   // Track page views on route change
-  React.useEffect(() => {
-    ReactGA.send({ 
-      hitType: "pageview", 
-      page: location.pathname + location.search 
-    });
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('config', 'G-PEPZVJ6MEK', {
+        page_path: location.pathname + location.search
+      });
+    }
   }, [location]);
 
   return (
