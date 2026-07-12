@@ -123,7 +123,7 @@ const Projects = () => {
     <PageLayout className="projects-section">
       <SEO 
         title="Projects | Disan Alam" 
-        description="Check out Disan Alam's portfolio of real-world projects, including scalable web applications, enterprise platforms, modern UIs, and full-stack software solutions." 
+        description="Check out Disan Alam's portfolio of real-world projects, including scalable web applications, enterprise platforms, modern UIs, and full-stack solutions." 
         url="projects"
         keywords={dynamicKeywords}
         schema={projectListSchema}

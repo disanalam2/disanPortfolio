@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ 
   title = "Disan Alam | Full-Stack Web Developer", 
-  description = "Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer. Explore the portfolio of Disan Alam to view real-world projects and technical skills.", 
+  description = "Disan Alam is a Professional Full-Stack Web Developer & Software Engineer. Explore the portfolio to view real-world projects and technical skills.", 
   keywords = "Disan Alam, Full Stack Developer, Web Developer, React Developer, Node.js Expert", 
   url = "https://disanalam.me/",
   image = "https://disanalam.me/banner.jpeg",

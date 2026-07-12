@@ -105,7 +105,7 @@ const Skills = () => {
     <PageLayout className="skills-section">
       <SEO 
         title="Skills | Disan Alam" 
-        description="Explore Disan Alam's technical skills and tech stack, including React.js, Node.js, Express.js, MySQL, cloud deployments, and modern web development technologies." 
+        description="Explore Disan Alam's technical skills and tech stack, including React.js, Node.js, Express.js, MySQL, and modern web development technologies." 
         url="skills"
         keywords={dynamicKeywords}
       />
