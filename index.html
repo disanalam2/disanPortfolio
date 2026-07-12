@@ -24,6 +24,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Preload LCP Image -->
+  <link rel="preload" href="/disan-alam.webp" as="image">
+  
   <!-- SEO & Primary Meta Tags -->
   <title>Disan Alam | Freelance Full-Stack Web Developer (Remote & India)</title>
   <meta name="title" content="Disan Alam | Freelance Full-Stack Web Developer (Remote & India)">
@@ -60,6 +63,31 @@
       "@type": "WebSite",
       "name": "Disan Alam",
       "url": "https://disanalam.me/"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Disan Alam | Freelance Full-Stack Web Developer",
+      "image": "https://disanalam.me/banner.webp",
+      "@id": "https://disanalam.me/",
+      "url": "https://disanalam.me/",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ranchi",
+        "addressRegion": "Jharkhand",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.3441,
+        "longitude": 85.3096
+      },
+      "areaServed": ["Ranchi", "Bangalore", "Kolkata", "India", "Worldwide"],
+      "priceRange": "$$",
+      "description": "Top-tier Full-Stack Web Development services specializing in React.js, Node.js, and custom web applications."
     }
   </script>
   <script type="application/ld+json">
@@ -129,8 +157,29 @@
   </script>
 
   <div id="root">
-    <!-- Fallback H1 for SEO bots that don't execute JavaScript (like our Cheerio scraper) -->
-    <h1 style="display: none;">Disan Alam | Full-Stack Web Developer</h1>
+    <header>
+      <h1>Disan Alam | Full-Stack Web Developer & Software Engineer</h1>
+      <p>Top-tier Freelance Web Developer based in Ranchi, India, serving clients globally.</p>
+    </header>
+    <main>
+      <section>
+        <h2>About Me</h2>
+        <p>I am a highly skilled Full-Stack Web Developer specializing in React.js, Node.js, Express.js, and modern database architectures. I build high-performance, scalable web applications for businesses in Bangalore, Kolkata, the US, and worldwide.</p>
+      </section>
+      <section>
+        <h2>My Services</h2>
+        <ul>
+          <li>Custom Web Application Development</li>
+          <li>Frontend & Backend Development (MERN Stack)</li>
+          <li>Performance Optimization & Local SEO</li>
+          <li>API Development & Integration</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contact</h2>
+        <p>Looking for a remote software engineering expert? <a href="mailto:contact@disanalam.me">Contact me today.</a></p>
+      </section>
+    </main>
   </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

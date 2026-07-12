@@ -93,8 +93,6 @@ const AboutContainer = () => {
 
   const handleCancel = () => setIsEditing(false);
 
-  if (loading) return <Loader message="Loading Profile Details..." />;
-
   return (
     <PageLayout className="about-section animate-fade-up">
       <SEO 
@@ -102,7 +100,9 @@ const AboutContainer = () => {
         description="Disan Alam is a highly skilled Full-Stack Web Developer and Software Engineer specializing in React.js, Node.js, Express.js, and modern database architectures. Hire Disan Alam for custom web applications, performance optimization, and scalable digital solutions." 
         url=""
       />
-      {isEditing ? (
+      {loading ? (
+        <AboutView aboutData={{}} />
+      ) : isEditing ? (
         <AboutEdit 
           tempData={tempData} 
           imagePreview={imagePreview} 
@@ -114,7 +114,7 @@ const AboutContainer = () => {
         <AboutView aboutData={aboutData || {}} />
       )}
 
-      {isAdmin && (
+      {isAdmin && !loading && (
         <AdminBottomBar
           isEditing={isEditing}
           onEdit={handleStartEditing}
