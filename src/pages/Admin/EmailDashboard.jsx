@@ -192,6 +192,20 @@ export default function Dashboard() {
     }
   };
 
+  const handleDeleteAllLeads = async () => {
+    if (!window.confirm('WARNING: Are you sure you want to delete ALL leads? This action cannot be undone.')) return;
+    try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
+      await axios.delete(`${BASE_URL}/leads/all`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      fetchLeads();
+      alert('All leads deleted successfully');
+    } catch (error) {
+      alert('Failed to delete all leads');
+    }
+  };
+
   const handleDeleteLead = async (id) => {
     if (!window.confirm('Are you sure you want to delete this lead?')) return;
     try {
@@ -605,23 +619,42 @@ export default function Dashboard() {
                     Without Website
                   </button>
                 </div>
-                <button 
-                  onClick={exportToCSV}
-                  style={{
-                    padding: '10px 16px',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    color: '#10b981',
-                    border: '1px solid rgba(16, 185, 129, 0.2)',
-                    borderRadius: '8px',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px'
-                  }}
-                >
-                  Download CSV
-                </button>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  <button 
+                    onClick={exportToCSV}
+                    style={{
+                      padding: '10px 16px',
+                      backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                      color: '#10b981',
+                      border: '1px solid rgba(16, 185, 129, 0.2)',
+                      borderRadius: '8px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}
+                  >
+                    Download CSV
+                  </button>
+                  <button 
+                    onClick={handleDeleteAllLeads}
+                    style={{
+                      padding: '10px 16px',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#ef4444',
+                      border: '1px solid rgba(239, 68, 68, 0.2)',
+                      borderRadius: '8px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}
+                  >
+                    🗑️ Delete All Leads
+                  </button>
+                </div>
                 <div className="search-box">
                   <Search />
                   <input 
