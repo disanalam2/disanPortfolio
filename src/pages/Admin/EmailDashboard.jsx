@@ -22,6 +22,7 @@ export default function Dashboard() {
   const [emailAccounts, setEmailAccounts] = useState([]);
   const [newEmailForm, setNewEmailForm] = useState({ email: '', password: '', host: 'smtp.zoho.in', port: 465 });
   const [analyticsData, setAnalyticsData] = useState(null);
+  const [websiteAnalytics, setWebsiteAnalytics] = useState(null);
   const [toasts, setToasts] = useState([]); // Custom toast notifications
   const [inboxMessages, setInboxMessages] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null);
@@ -103,8 +104,14 @@ export default function Dashboard() {
 
   async function fetchAnalytics() {
     try {
+      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
       const res = await axios.get(`${BASE_URL}/analytics`);
       setAnalyticsData(res.data);
+      
+      const webRes = await axios.get(`${BASE_URL}/web-analytics/stats`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setWebsiteAnalytics(webRes.data);
     } catch (error) {
       console.error('Failed to fetch analytics', error);
     }
@@ -801,6 +808,38 @@ export default function Dashboard() {
                 </table>
               </div>
             </div>
+
+            {/* NEW: Website Analytics Section */}
+            {websiteAnalytics && (
+              <div style={{ marginTop: '2rem' }}>
+                <h2 style={{ marginBottom: '1.5rem', color: '#fff' }}>Website Analytics (Adblock Bypass)</h2>
+                
+                <div className="analytics-kpis">
+                  <div className="kpi-card">
+                    <div className="kpi-label">Total Page Views</div>
+                    <div className="kpi-value">{websiteAnalytics.total_views}</div>
+                  </div>
+                  <div className="kpi-card">
+                    <div className="kpi-label">Unique Visitors</div>
+                    <div className="kpi-value blue-text">{websiteAnalytics.unique_visitors}</div>
+                  </div>
+                </div>
+
+                <div className="analytics-charts" style={{ marginTop: '2rem' }}>
+                  <div className="chart-container" style={{ background: 'rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '12px' }}>
+                    <h3 style={{ marginBottom: '1rem', color: '#ccc' }}>Top 5 Pages</h3>
+                    <ResponsiveContainer width="100%" height={300}>
+                      <BarChart data={websiteAnalytics.top_pages}>
+                        <XAxis dataKey="page_path" stroke="#888" tick={{fontSize: 12}} />
+                        <YAxis stroke="#888" />
+                        <Tooltip contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px' }} />
+                        <Bar dataKey="views" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+              </div>
+            )}
           </>
         )}
 

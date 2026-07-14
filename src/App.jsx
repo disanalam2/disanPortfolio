@@ -7,6 +7,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Loader from './components/common/Loader';
 import ErrorBoundary from './components/common/ErrorBoundary';
+import { useAnalytics } from './hooks/useAnalytics';
 
 // Lazy loaded pages
 const AboutContainer = lazy(() => import('./pages/About/AboutContainer'));
@@ -30,7 +31,9 @@ import './styles/main.scss'; // Assuming main.scss handles the global variables 
 function App() {
   const location = useLocation();
   
-  // Track page views on route change
+  useAnalytics();
+
+  // Track page views on route change (Legacy Gtag)
   useEffect(() => {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('config', 'G-PEPZVJ6MEK', {
