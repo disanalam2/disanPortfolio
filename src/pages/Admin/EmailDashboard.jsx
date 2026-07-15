@@ -283,22 +283,6 @@ export default function Dashboard() {
     }
   };
 
-  const handlePublishAward = async (id) => {
-    try {
-      const token = sessionStorage.getItem('adminToken')?.replace(/^"(.*)"$/, '$1');
-      await axios.post(`${BASE_URL}/leads/${id}/publish-award`, {}, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setLeads(leads.map(l => l.id === id ? { ...l, is_award_public: 1 } : l));
-      if (selectedLead && selectedLead.id === id) {
-        setSelectedLead({ ...selectedLead, is_award_public: 1 });
-      }
-      alert('PR Award is now public! The client can now view it.');
-    } catch (error) {
-      console.error('Error publishing award:', error);
-      alert('Failed to publish award.');
-    }
-  };
 
   const handleViewPDF = async (id) => {
     try {
@@ -1148,34 +1132,6 @@ export default function Dashboard() {
                        </a>
                     )}
                     
-                    <a 
-                      href={`/awards/${selectedLead.uuid}?preview=true`}
-                      target="_blank" rel="noreferrer"
-                      style={{ padding: '8px 12px', backgroundColor: '#fbbf24', color: '#000', textDecoration: 'none', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 'bold' }}
-                    >
-                      Preview PR Page
-                    </a>
-                    
-                    <a 
-                      href={`/pitch/${selectedLead.uuid}?preview=true`}
-                      target="_blank" rel="noreferrer"
-                      style={{ padding: '8px 12px', backgroundColor: '#8b5cf6', color: '#fff', textDecoration: 'none', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 'bold' }}
-                    >
-                      ▶️ Preview Video Audit
-                    </a>
-                    
-                    {!selectedLead.is_award_public ? (
-                      <button 
-                        onClick={() => handlePublishAward(selectedLead.id)}
-                        style={{ padding: '8px 12px', backgroundColor: '#10b981', border: 'none', color: '#fff', cursor: 'pointer', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 'bold' }}
-                      >
-                        ✅ Publish PR Award
-                      </button>
-                    ) : (
-                      <span style={{ padding: '8px 12px', backgroundColor: 'transparent', border: '1px solid #10b981', color: '#10b981', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 'bold' }}>
-                        ✅ PR is Public
-                      </span>
-                    )}
                   </div>
                 </div>
 

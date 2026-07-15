@@ -23,8 +23,6 @@ const Login = lazy(() => import('./pages/Admin/Login'));
 const EmailDashboard = lazy(() => import('./pages/Admin/EmailDashboard'));
 const UnsubscribeSuccess = lazy(() => import('./pages/UnsubscribeSuccess'));
 const ProposalPitch = lazy(() => import('./pages/ProposalPitch'));
-const PitchView = lazy(() => import('./pages/PitchView'));
-const AwardView = lazy(() => import('./pages/AwardView'));
 
 import './styles/main.scss'; // Assuming main.scss handles the global variables and layout classes
 
@@ -63,8 +61,6 @@ function App() {
                 <Route path="/email-automation" element={<EmailDashboard />} />
                 <Route path="/unsubscribe-success" element={<UnsubscribeSuccess />} />
                 <Route path="/proposal/:uuid" element={<ProposalPitch />} />
-                <Route path="/pitch/:uuid" element={<PitchView />} />
-                <Route path="/awards/:uuid" element={<AwardView />} />
               </Routes>
             </Suspense>
           </AnimatePresence>
