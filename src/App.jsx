@@ -8,6 +8,7 @@ import Footer from './components/layout/Footer';
 import Loader from './components/common/Loader';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import { useAnalytics } from './hooks/useAnalytics';
+import BackendStatusBanner from './components/common/BackendStatusBanner';
 
 // Lazy loaded pages
 const AboutContainer = lazy(() => import('./pages/About/AboutContainer'));
@@ -42,6 +43,7 @@ function App() {
 
   return (
     <div className="app-layout">
+      <BackendStatusBanner />
       <Navbar />
       <main className="main-content">
         <ErrorBoundary>

@@ -23,10 +23,22 @@ export const apiCall = async (endpoint, options = {}) => {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
-    ...options,
-    headers,
-  });
+  let response;
+  try {
+    response = await fetch(`${BASE_URL}${endpoint}`, {
+      ...options,
+      headers,
+    });
+  } catch (error) {
+    // Agar fetch completely fail ho jaye (server down / network issue)
+    window.dispatchEvent(new Event('backend-offline'));
+    throw error;
+  }
+
+  // Agar server respond kare lekin 500 error aaye
+  if (response.status >= 500) {
+    window.dispatchEvent(new Event('backend-offline'));
+  }
 
   // FIX 3: Agar token invalid/expire hai (401 ya 403), toh auto-logout karo
   if (response.status === 401 || response.status === 403) {
