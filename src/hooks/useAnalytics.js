@@ -37,10 +37,9 @@ export const useAnalytics = () => {
           referrer: document.referrer,
           session_id: generateSessionId(),
           device_type: getDeviceType()
-        });
+        }, { timeout: 5000 }); // 5 second timeout
       } catch (error) {
         // Silently fail if tracking fails, to not disrupt user experience
-        console.error('Analytics tracking failed:', error);
       }
     };
 
