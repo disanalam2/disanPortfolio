@@ -144,20 +144,6 @@ const Navbar = () => {
             )}
           </li>
 
-          {/* Email Automation Link - Only for admin */}
-          {isAdmin && (
-            <li>
-              <NavLink 
-                to="/email-automation"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={({ isActive }) => (isActive ? 'active' : undefined)}
-                style={{ color: '#3b82f6', fontWeight: 'bold' }}
-              >
-                Email Automation
-              </NavLink>
-            </li>
-          )}
-
           {/* Logout Button - Only show jab admin logged in ho */}
           {isAdmin && (
             <li>
