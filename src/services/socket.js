@@ -6,6 +6,7 @@ const SOCKET_URL = 'https://api.disanalam.me';
 const socket = io(SOCKET_URL, {
   autoConnect: true,
   withCredentials: true,
+  transports: ['websocket'],
 });
 
 socket.on('connect', () => {
