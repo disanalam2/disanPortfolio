@@ -146,7 +146,7 @@ const BlogPost = () => {
                   {blog.affiliate_image && (
                     <img src={blog.affiliate_image} alt="Amazon Product" style={{ maxWidth: '200px', borderRadius: '8px' }} />
                   )}
-                  <a href={blog.affiliate_link} target="_blank" rel="noopener noreferrer" className="cta-btn" style={{ display: 'inline-block' }}>
+                  <a href={blog.affiliate_link} target="_blank" rel="noopener noreferrer sponsored nofollow" className="cta-btn" style={{ display: 'inline-block' }}>
                     Check it out on Amazon
                   </a>
                 </div>

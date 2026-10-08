@@ -172,7 +172,7 @@ const BlogsArchive = () => {
               {displayData.find(b => b.affiliate_link).affiliate_image && (
                 <img src={displayData.find(b => b.affiliate_link).affiliate_image} alt="Amazon Product" style={{ maxWidth: '150px', borderRadius: '8px' }} />
               )}
-              <a href={displayData.find(b => b.affiliate_link).affiliate_link} target="_blank" rel="noopener noreferrer" className="cta-btn" style={{ display: 'inline-block' }}>
+              <a href={displayData.find(b => b.affiliate_link).affiliate_link} target="_blank" rel="noopener noreferrer sponsored nofollow" className="cta-btn" style={{ display: 'inline-block' }}>
                 Recommended on Amazon
               </a>
             </div>
