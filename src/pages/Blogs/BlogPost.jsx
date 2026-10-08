@@ -214,8 +214,8 @@ const BlogPost = () => {
                   {blog.affiliate_image && (
                     <img src={blog.affiliate_image} alt="Amazon Product" style={{ maxWidth: '200px', borderRadius: '8px' }} />
                   )}
-                  <a href={blog.affiliate_link} target="_blank" rel="noopener noreferrer sponsored nofollow" className="cta-btn" style={{ display: 'inline-block' }}>
-                    Check it out on Amazon
+                  <a href={blog.affiliate_link} target="_blank" rel="noopener noreferrer sponsored nofollow" className="amz-btn">
+                    Check on Amazon
                   </a>
                 </div>
               )}

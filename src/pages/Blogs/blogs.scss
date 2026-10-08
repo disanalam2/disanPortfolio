@@ -330,6 +330,7 @@
     font-size: 1.05rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -407,5 +408,25 @@
     &:hover {
       background: #e68a00;
     }
+  }
+}
+
+.amz-btn {
+  display: inline-block;
+  background: #ff9900;
+  color: #111 !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #e68a00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
   }
 }
