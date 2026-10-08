@@ -107,6 +107,21 @@ const BlogPost = () => {
               </span>
             )}
           </button>
+
+          {/* Sticky Featured Product Sidebar */}
+          {blog.affiliate_link && (
+            <div className="sidebar-featured-product">
+              <span className="featured-badge">Featured Gear</span>
+              <a href={blog.affiliate_link} target="_blank" rel="noopener noreferrer sponsored">
+                {blog.affiliate_image ? (
+                  <img src={blog.affiliate_image} alt="Featured Gear" />
+                ) : (
+                  <div className="placeholder-icon">🛒</div>
+                )}
+                <span className="featured-cta">Check on Amazon</span>
+              </a>
+            </div>
+          )}
         </aside>
 
         <article className="blog-container">
@@ -135,7 +150,31 @@ const BlogPost = () => {
                 Disclaimer: As an Amazon Associate, I earn from qualifying purchases.
               </p>
             )}
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown 
+              remarkPlugins={[remarkGfm]}
+              components={{
+                a: ({node, ...props}) => {
+                  const href = props.href || '';
+                  const isAmazon = /amazon\.(com|in)|amzn\.to/i.test(href);
+                  
+                  if (isAmazon) {
+                    return (
+                      <a href={href} target="_blank" rel="noopener noreferrer sponsored" className="amazon-product-card">
+                        <div className="amz-icon">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" width="40" />
+                        </div>
+                        <div className="amz-details">
+                          <span className="amz-title">{props.children || "Recommended Gear / Book"}</span>
+                          <span className="amz-cta">View on Amazon ➔</span>
+                        </div>
+                      </a>
+                    );
+                  }
+                  
+                  return <a {...props} target="_blank" rel="noopener noreferrer" />;
+                }
+              }}
+            >
               {blog.content}
             </ReactMarkdown>
           </div>

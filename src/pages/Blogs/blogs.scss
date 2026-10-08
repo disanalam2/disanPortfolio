@@ -270,3 +270,142 @@
     padding-bottom: 20px;
   }
 }
+
+/* Amazon Affiliate Styles */
+.amazon-product-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-hover);
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-decoration: none !important;
+  color: var(--text-primary) !important;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  &::before {
+    content: 'AMAZON PICK';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff9900;
+    color: #000;
+    font-size: 0.55rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-bottom-left-radius: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: #ff9900;
+    box-shadow: 0 8px 20px rgba(255, 153, 0, 0.15);
+    background: rgba(255, 153, 0, 0.05);
+  }
+
+  .amz-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .amz-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .amz-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .amz-cta {
+    color: #ff9900;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+}
+
+.sidebar-featured-product {
+  margin-top: 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 20px 15px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(var(--accent-color-rgb), 0.25);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .placeholder-icon {
+    font-size: 3.5rem;
+    margin: 10px 0;
+  }
+
+  .featured-cta {
+    display: inline-block;
+    background: #ff9900;
+    color: #111;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    width: 100%;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #e68a00;
+    }
+  }
+}
