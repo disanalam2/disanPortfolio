@@ -59,19 +59,43 @@ const BlogPost = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": blog.title,
-    "image": blog.thumbnail,
-    "datePublished": blog.created_at,
-    "dateModified": blog.updated_at || blog.created_at,
-    "author": [{
-      "@type": "Person",
-      "name": "Disan Alam",
-      "url": "https://disanalam.me"
-    }]
-  };
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": blog.title,
+      "image": blog.thumbnail,
+      "datePublished": blog.created_at,
+      "dateModified": blog.updated_at || blog.created_at,
+      "author": {
+        "@type": "Person",
+        "name": "Disan Alam",
+        "url": "https://disanalam.me"
+      }
+    }
+  ];
+
+  // Dynamically inject Review schema if this is an affiliate/review post
+  if (blog.affiliate_link) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Product",
+        "name": "Recommended Tech Gear",
+        "image": blog.affiliate_image || blog.thumbnail
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Disan Alam"
+      }
+    });
+  }
 
   return (
     <PageLayout className="blog-post-section">
@@ -80,7 +104,7 @@ const BlogPost = () => {
         description={blog.summary} 
         url={`blogs/${blog.slug}`}
         image={blog.thumbnail}
-        schema={articleSchema}
+        schema={schemas}
       />
       
       <div className="blog-layout-wrapper">
