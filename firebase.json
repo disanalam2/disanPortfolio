@@ -19,6 +19,10 @@
           {
             "key": "Cache-Control",
             "value": "no-cache, no-store, must-revalidate"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       },
@@ -28,6 +32,10 @@
           {
             "key": "Cache-Control",
             "value": "max-age=31536000"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       }
