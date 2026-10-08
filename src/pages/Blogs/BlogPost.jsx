@@ -134,6 +134,25 @@ const BlogPost = () => {
               {blog.content}
             </ReactMarkdown>
           </div>
+
+          {blog.affiliate_link && (
+            <div className="affiliate-ad-container" style={{ margin: '30px 0', padding: '20px', background: 'var(--glass-bg)', borderRadius: '12px', border: '1px solid var(--accent-color)', textAlign: 'center' }}>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-color-secondary)', marginBottom: '10px' }}>Sponsored</p>
+              {/* Check if it's raw HTML like an iframe or just a link */}
+              {blog.affiliate_link.trim().startsWith('<') ? (
+                <div dangerouslySetInnerHTML={{ __html: blog.affiliate_link }} style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden' }} />
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
+                  {blog.affiliate_image && (
+                    <img src={blog.affiliate_image} alt="Amazon Product" style={{ maxWidth: '200px', borderRadius: '8px' }} />
+                  )}
+                  <a href={blog.affiliate_link} target="_blank" rel="noopener noreferrer" className="cta-btn" style={{ display: 'inline-block' }}>
+                    Check it out on Amazon
+                  </a>
+                </div>
+              )}
+            </div>
+          )}
         </article>
       </div>
 

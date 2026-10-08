@@ -39,7 +39,9 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
     summary: blog?.summary || '',
     content: blog?.content || '',
     thumbnail: blog?.thumbnail || '',
-    scheduledFor: formatDateTime(blog?.scheduledFor)
+    scheduledFor: formatDateTime(blog?.scheduledFor),
+    affiliate_link: blog?.affiliate_link || '',
+    affiliate_image: blog?.affiliate_image || ''
   });
 
   let initialSafeDate = blog?.scheduledFor || null;
@@ -96,6 +98,40 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
       const data = await response.json();
       if (data.success) {
         setFormData({ ...formData, thumbnail: data.url });
+      } else {
+        alert("Upload Failed: " + data.message);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Error uploading file");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleAffiliateImageChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+
+    let token = sessionStorage.getItem('adminToken');
+    if (token) token = token.replace(/^"(.*)"$/, '$1');
+
+    try {
+      const response = await fetch(`${BASE_URL}/upload`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: uploadData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setFormData({ ...formData, affiliate_image: data.url });
       } else {
         alert("Upload Failed: " + data.message);
       }
@@ -168,6 +204,20 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
       <div className="form-group" style={{ marginBottom: '15px' }}>
         <label>Markdown Content</label>
         <textarea name="content" value={formData.content} onChange={handleChange} placeholder="# Heading\nWrite your markdown content here..." required rows="10" style={{ width: '100%', padding: '10px', borderRadius: '6px', fontFamily: 'monospace' }} />
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '15px' }}>
+        <label>Amazon Affiliate HTML/Link (Advertisement)</label>
+        <textarea name="affiliate_link" value={formData.affiliate_link} onChange={handleChange} placeholder="<iframe... or https://amzn.to/..." rows="3" style={{ width: '100%', padding: '10px', borderRadius: '6px', fontFamily: 'monospace' }} />
+      </div>
+
+      <div className="form-group" style={{ marginBottom: '15px' }}>
+        <label>Amazon Affiliate Product Photo (Optional)</label>
+        <small style={{ color: 'var(--text-color-secondary)', display: 'block', marginBottom: '5px' }}>Upload an image if you provided a plain amzn.to link and want a photo to show above the button.</small>
+        {formData.affiliate_image && (
+            <img src={formData.affiliate_image} alt="Affiliate Ad Preview" style={{ maxWidth: '150px', height: 'auto', display: 'block', borderRadius: '8px', marginBottom: '10px' }} />
+        )}
+        <input type="file" accept="image/*" onChange={handleAffiliateImageChange} disabled={uploading} />
       </div>
 
       <div className="form-actions" style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>

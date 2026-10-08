@@ -161,6 +161,25 @@ const BlogsArchive = () => {
       />
       <SectionTitle title="Articles & Insights" />
       
+      {/* Extract one affiliate link from the blogs to display as a featured ad on the main page */}
+      {displayData?.find(b => b.affiliate_link)?.affiliate_link && !isEditingPage && (
+        <div className="main-page-ad-container" style={{ margin: '0 auto 40px auto', maxWidth: '800px', padding: '20px', background: 'var(--glass-bg)', borderRadius: '12px', border: '1px dashed var(--accent-color)', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-color-secondary)', marginBottom: '10px' }}>Sponsored</p>
+          {displayData.find(b => b.affiliate_link).affiliate_link.trim().startsWith('<') ? (
+            <div dangerouslySetInnerHTML={{ __html: displayData.find(b => b.affiliate_link).affiliate_link }} style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden' }} />
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
+              {displayData.find(b => b.affiliate_link).affiliate_image && (
+                <img src={displayData.find(b => b.affiliate_link).affiliate_image} alt="Amazon Product" style={{ maxWidth: '150px', borderRadius: '8px' }} />
+              )}
+              <a href={displayData.find(b => b.affiliate_link).affiliate_link} target="_blank" rel="noopener noreferrer" className="cta-btn" style={{ display: 'inline-block' }}>
+                Recommended on Amazon
+              </a>
+            </div>
+          )}
+        </div>
+      )}
+      
       {displayData?.length === 0 && !isEditingPage && (
         <p className="empty-state">No articles published yet. Check back soon!</p>
       )}
