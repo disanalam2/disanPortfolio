@@ -130,6 +130,11 @@ const BlogPost = () => {
           </header>
 
           <div className="markdown-content">
+            {blog.affiliate_link && (
+              <p style={{ fontStyle: 'italic', fontSize: '0.9rem', color: 'var(--text-color-secondary)', marginBottom: '20px', padding: '10px', background: 'var(--glass-bg)', borderRadius: '6px', borderLeft: '3px solid var(--accent-color)' }}>
+                Disclaimer: As an Amazon Associate, I earn from qualifying purchases.
+              </p>
+            )}
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {blog.content}
             </ReactMarkdown>

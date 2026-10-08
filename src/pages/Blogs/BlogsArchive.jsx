@@ -75,7 +75,7 @@ const BlogsArchive = () => {
       title: "New Blog", 
       slug: `new-blog-${Date.now()}`, 
       summary: "Summary here...", 
-      content: "## Hello World", 
+      content: "## Hello World\n\nWhen I debug INP or Core Web Vitals for heavy React apps, local build speeds matter a lot. I personally use the [MacBook Air M3](https://amzn.to/...) to ensure my Chrome DevTools don't lag during performance profiling.", 
       thumbnail: "", 
       scheduledFor: scheduledDateISO 
     };
