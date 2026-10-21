@@ -3,7 +3,24 @@ import { useLocation } from 'react-router-dom';
 import { useWrite } from '../../hooks/Write';
 import InputField from '../../components/form/InputField';
 import TextAreaField from '../../components/form/TextAreaField';
+import CustomSelect from '../../components/ui/CustomSelect';
 import { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
+
+const preferenceOptions = [
+  { value: 'email', label: 'Email' },
+  { value: 'whatsapp', label: 'WhatsApp' },
+  { value: 'telegram', label: 'Telegram' }
+];
+
+const subjectOptions = [
+  { value: 'Free Technical Performance & SEO Audit', label: 'Free Technical Performance & SEO Audit' },
+  { value: 'Free System Architecture & Automation Audit', label: 'Free System Architecture & Automation Audit' },
+  { value: 'Free Sales Funnel, UX & Tracking Audit', label: 'Free Sales Funnel, UX & Tracking Audit' },
+  { value: 'Website Rebuild & Tech Stack Modernization', label: 'Website Rebuild & Tech Stack Modernization' },
+  { value: 'Enterprise Custom Web App (New Build)', label: 'Enterprise Custom Web App (New Build)' },
+  { value: 'Complete Digital Infrastructure Overhaul (Full Transformation)', label: 'Complete Digital Infrastructure Overhaul (Full Transformation)' },
+  { value: 'Other', label: 'Other / Custom Inquiry' }
+];
 
 
 const getFlagEmoji = (countryCode) => {
@@ -115,11 +132,14 @@ const ContactForm = () => {
         <div className="form-row">
           <div className="form-group">
             <label className="input-label">How should I reply to you? *</label>
-            <select name="preference" value={formData.preference} onChange={handleChange} className="form-select" required aria-label="Contact Preference">
-              <option value="email">Email</option>
-              <option value="whatsapp">WhatsApp</option>
-              <option value="telegram">Telegram</option>
-            </select>
+            <CustomSelect 
+              name="preference" 
+              value={formData.preference} 
+              onChange={handleChange} 
+              options={preferenceOptions}
+              ariaLabel="Contact Preference"
+              required
+            />
           </div>
 
           {formData.preference === 'whatsapp' && (
@@ -170,15 +190,14 @@ const ContactForm = () => {
         <div className="form-row">
           <div className="form-group">
             <label className="input-label">Subject *</label>
-            <select name="subject" value={formData.subject} onChange={handleChange} className="form-select" required aria-label="Subject">
-              <option value="Free Technical Performance & SEO Audit">Free Technical Performance & SEO Audit</option>
-              <option value="Free System Architecture & Automation Audit">Free System Architecture & Automation Audit</option>
-              <option value="Free Sales Funnel, UX & Tracking Audit">Free Sales Funnel, UX & Tracking Audit</option>
-              <option value="Website Rebuild & Tech Stack Modernization">Website Rebuild & Tech Stack Modernization</option>
-              <option value="Enterprise Custom Web App (New Build)">Enterprise Custom Web App (New Build)</option>
-              <option value="Complete Digital Infrastructure Overhaul (Full Transformation)">Complete Digital Infrastructure Overhaul (Full Transformation)</option>
-              <option value="Other">Other / Custom Inquiry</option>
-            </select>
+            <CustomSelect 
+              name="subject" 
+              value={formData.subject} 
+              onChange={handleChange} 
+              options={subjectOptions}
+              ariaLabel="Subject"
+              required
+            />
           </div>
 
           {formData.subject !== 'Enterprise Custom Web App (New Build)' && (
