@@ -87,10 +87,10 @@ const Education = () => {
         description="Discover Disan Alam's educational background, degrees, and academic achievements in the field of Computer Science and Engineering." 
         url="education"
       />
-      <SectionTitle title="My Education" />
-      <div className="section-header">
-        <p>Academic background, degrees, and institutions that built my foundation.</p>
-      </div>
+      <SectionTitle 
+        title="My Education" 
+        subtitle="Academic background, degrees, and institutions that built my foundation."
+      />
 
       {displayData?.length === 0 && !isEditingPage && <p className="empty-state">No education added yet.</p>}
 

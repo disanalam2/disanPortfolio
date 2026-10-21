@@ -1,10 +1,10 @@
 import { io } from 'socket.io-client';
 
-const SOCKET_URL = 'https://api.disanalam.me';
-// const SOCKET_URL = 'http://localhost:5000'; // For local development
+const API_ENDPOINT = import.meta.env.VITE_API_URL || 'https://api.disanalam.me/api';
+const SOCKET_URL = API_ENDPOINT.replace(/\/api\/?$/, '');
 
 const socket = io(SOCKET_URL, {
-  autoConnect: true,
+  autoConnect: false,
   withCredentials: true,
   transports: ['websocket'],
 });

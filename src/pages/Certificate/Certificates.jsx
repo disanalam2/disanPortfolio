@@ -91,10 +91,10 @@ const Certificates = () => {
         description="View Disan Alam's verified certifications from top institutions in Web Development, Cybersecurity, and Software Engineering." 
         url="certificate"
       />
-      <SectionTitle title="My Certificates" />
-      <div className="section-header">
-        <p>Verified credentials and training that show the tools, frameworks, and workflows I use every day.</p>
-      </div>
+      <SectionTitle 
+        title="My Certificates" 
+        subtitle="Verified credentials and training that show the tools, frameworks, and workflows I use every day."
+      />
 
       {displayData?.length === 0 && !isEditingPage && <p style={{textAlign: "center", color: "#9ca3af"}}>No certificates added yet.</p>}
 

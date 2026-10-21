@@ -128,7 +128,10 @@ const Projects = () => {
         keywords={dynamicKeywords}
         schema={projectListSchema}
       />
-      <SectionTitle title="My Projects" />
+      <SectionTitle 
+        title="My Projects" 
+        subtitle="Production-grade web apps, security-focused architectures, and client platforms."
+      />
       {displayData?.length === 0 && !isEditingPage && (
         <p className="empty-state">No projects found.</p>
       )}

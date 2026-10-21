@@ -90,119 +90,111 @@ const ContactForm = () => {
 
   return (
     <div className="contact-container">
-      <p className="contact-text text-center">
-        Have a question or want to work together? Leave your details and I'll get back to you as soon as possible.
-      </p>
-
       <form className="contact-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <InputField type="text" name="name" placeholder="Your Name *" value={formData.name} onChange={handleChange} required />
+        <div className="form-row">
+          <div className="form-group">
+            <label className="input-label">Your Name *</label>
+            <InputField type="text" name="name" placeholder="John Doe" value={formData.name} onChange={handleChange} required />
+          </div>
+
+          <div className="form-group">
+            <label className="input-label">Your Email *</label>
+            <InputField type="email" name="email" placeholder="john@example.com" value={formData.email} onChange={handleChange} required />
+          </div>
         </div>
 
-        <div className="form-group">
-          <InputField type="email" name="email" placeholder="Your Email *" value={formData.email} onChange={handleChange} required />
-        </div>
+        <div className="form-row">
+          <div className="form-group">
+            <label className="input-label">How should I reply to you? *</label>
+            <select name="preference" value={formData.preference} onChange={handleChange} className="form-select" required aria-label="Contact Preference">
+              <option value="email">Email</option>
+              <option value="whatsapp">WhatsApp</option>
+              <option value="telegram">Telegram</option>
+            </select>
+          </div>
 
-        <div className="form-group">
-          <label className="input-label">How should I reply to you? *</label>
-          <select name="preference" value={formData.preference} onChange={handleChange} className="form-select" required aria-label="Contact Preference">
-            <option value="email">Email</option>
-            <option value="whatsapp">WhatsApp</option>
-            <option value="telegram">Telegram</option>
-          </select>
-        </div>
-
-        {formData.preference === 'whatsapp' && (
-          <div className="form-group split-phone-wrapper">
-            <label className="input-label">WhatsApp Number *</label>
-            <div className="split-phone-container">
-              <select 
-                className="form-select country-select"
-                value={selectedCountry}
-                onChange={(e) => setSelectedCountry(e.target.value)}
-                aria-label="Country Code"
-              >
-                {getCountries().map(country => (
-                  <option key={country} value={country}>
-                    {getFlagEmoji(country)} +{getCountryCallingCode(country)}
-                  </option>
-                ))}
-              </select>
-              <div className="local-number-input">
-                <InputField
-                  type="tel"
-                  name="localNumber"
-                  placeholder="Your Number *"
-                  value={localNumber}
-                  onChange={(e) => setLocalNumber(e.target.value)}
-                  required
-                />
+          {formData.preference === 'whatsapp' && (
+            <div className="form-group split-phone-wrapper">
+              <label className="input-label">WhatsApp Number *</label>
+              <div className="split-phone-container">
+                <select 
+                  className="form-select country-select"
+                  value={selectedCountry}
+                  onChange={(e) => setSelectedCountry(e.target.value)}
+                  aria-label="Country Code"
+                >
+                  {getCountries().map(country => (
+                    <option key={country} value={country}>
+                      {getFlagEmoji(country)} +{getCountryCallingCode(country)}
+                    </option>
+                  ))}
+                </select>
+                <div className="local-number-input">
+                  <InputField
+                    type="tel"
+                    name="localNumber"
+                    placeholder="Your Phone Number *"
+                    value={localNumber}
+                    onChange={(e) => setLocalNumber(e.target.value)}
+                    required
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {formData.preference === 'telegram' && (
-          <div className="form-group">
-            <label className="input-label">Telegram Username / Link *</label>
-            <InputField 
-              type="text" 
-              name="contactHandle" 
-              placeholder="Your Telegram Link (t.me/...) *" 
-              value={formData.contactHandle} 
-              onChange={handleChange} 
-              required 
-            />
-          </div>
-        )}
-
-        <div className="form-group">
-          <label className="input-label">Subject *</label>
-          <select name="subject" value={formData.subject} onChange={handleChange} className="form-select" required aria-label="Subject">
-            <option value="Free Technical Performance & SEO Audit">Free Technical Performance & SEO Audit</option>
-            <option value="Free System Architecture & Automation Audit">Free System Architecture & Automation Audit</option>
-            <option value="Free Sales Funnel, UX & Tracking Audit">Free Sales Funnel, UX & Tracking Audit</option>
-            <option value="Website Rebuild & Tech Stack Modernization">Website Rebuild & Tech Stack Modernization</option>
-            <option value="Enterprise Custom Web App (New Build)">Enterprise Custom Web App (New Build)</option>
-            <option value="Complete Digital Infrastructure Overhaul (Full Transformation)">Complete Digital Infrastructure Overhaul (Full Transformation)</option>
-          </select>
+          {formData.preference === 'telegram' && (
+            <div className="form-group">
+              <label className="input-label">Telegram Username / Link *</label>
+              <InputField 
+                type="text" 
+                name="contactHandle" 
+                placeholder="t.me/username" 
+                value={formData.contactHandle} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+          )}
         </div>
 
-        {formData.subject !== 'Enterprise Custom Web App (New Build)' && (
+        <div className="form-row">
           <div className="form-group">
-            <InputField 
-              type="url" 
-              name="websiteUrl" 
-              placeholder="Website URL *" 
-              value={formData.websiteUrl} 
-              onChange={handleChange} 
-              required
-            />
+            <label className="input-label">Subject *</label>
+            <select name="subject" value={formData.subject} onChange={handleChange} className="form-select" required aria-label="Subject">
+              <option value="Free Technical Performance & SEO Audit">Free Technical Performance & SEO Audit</option>
+              <option value="Free System Architecture & Automation Audit">Free System Architecture & Automation Audit</option>
+              <option value="Free Sales Funnel, UX & Tracking Audit">Free Sales Funnel, UX & Tracking Audit</option>
+              <option value="Website Rebuild & Tech Stack Modernization">Website Rebuild & Tech Stack Modernization</option>
+              <option value="Enterprise Custom Web App (New Build)">Enterprise Custom Web App (New Build)</option>
+              <option value="Complete Digital Infrastructure Overhaul (Full Transformation)">Complete Digital Infrastructure Overhaul (Full Transformation)</option>
+            </select>
           </div>
-        )}
 
-        <div className="form-group">
-          <TextAreaField name="message" placeholder="Project Details *" rows="4" value={formData.message} onChange={handleChange} required />
+          {formData.subject !== 'Enterprise Custom Web App (New Build)' && (
+            <div className="form-group">
+              <label className="input-label">Website URL *</label>
+              <InputField 
+                type="url" 
+                name="websiteUrl" 
+                placeholder="https://yourwebsite.com" 
+                value={formData.websiteUrl} 
+                onChange={handleChange} 
+                required
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="form-group full-width-field">
+          <label className="input-label">Project Details *</label>
+          <TextAreaField name="message" placeholder="Describe your project, timeline, and goals..." rows="4" value={formData.message} onChange={handleChange} required />
         </div>
 
         <button type="submit" className="submit-btn primary-btn" disabled={isWriting}>
           {isWriting ? 'Sending...' : 'Submit Request'}
         </button>
       </form>
-
-      <div className="direct-contact-divider">
-        <p>Or reach out directly via</p>
-        <div className="direct-links-group">
-          <a
-            href="#!"
-            onClick={(e) => { e.preventDefault(); window.open("https://api.whatsapp.com/send?phone=918789047170", '_blank'); }}
-            className="social-pill wa"
-          >
-            WhatsApp
-          </a>
-          <a href="mailto:disanalamofficial@gmail.com" className="social-pill email">Email</a>
-        </div>
-      </div>
     </div>
   );
 };

@@ -1,38 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const BackendStatusBanner = () => {
   const [isOffline, setIsOffline] = useState(false);
 
   useEffect(() => {
-    // 1. Axios interceptor for components using axios
-    const interceptor = axios.interceptors.response.use(
-      (response) => {
-        if (isOffline) setIsOffline(false);
-        return response;
-      },
-      (error) => {
-        if (
-          error.message === 'Network Error' || 
-          error.code === 'ERR_NETWORK' ||
-          (error.response && error.response.status >= 500)
-        ) {
-          setIsOffline(true);
-        }
-        return Promise.reject(error);
-      }
-    );
-
-    // 2. Custom event listener for native fetch (used in api.js)
+    // Custom event listener for native fetch (dispatched in api.js) and browser network state
     const handleOfflineEvent = () => setIsOffline(true);
+    const handleOnlineEvent = () => setIsOffline(false);
+
     window.addEventListener('backend-offline', handleOfflineEvent);
+    window.addEventListener('online', handleOnlineEvent);
+    window.addEventListener('offline', handleOfflineEvent);
 
     return () => {
-      axios.interceptors.response.eject(interceptor);
       window.removeEventListener('backend-offline', handleOfflineEvent);
+      window.removeEventListener('online', handleOnlineEvent);
+      window.removeEventListener('offline', handleOfflineEvent);
     };
-  }, [isOffline]);
+  }, []);
 
   return (
     <AnimatePresence>

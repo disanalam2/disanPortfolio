@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 import { BASE_URL } from '../services/api';
 
 const generateSessionId = () => {
@@ -27,18 +26,20 @@ export const useAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Only track in production or if you want to track locally, you can remove the check
-    // if (process.env.NODE_ENV !== 'production') return;
-
     const trackPageView = async () => {
       try {
-        await axios.post(`${BASE_URL}/web-analytics/track`, {
-          page_path: location.pathname + location.search,
-          referrer: document.referrer,
-          session_id: generateSessionId(),
-          device_type: getDeviceType()
-        }, { timeout: 5000 }); // 5 second timeout
-      } catch (error) {
+        await fetch(`${BASE_URL}/web-analytics/track`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            page_path: location.pathname + location.search,
+            referrer: document.referrer,
+            session_id: generateSessionId(),
+            device_type: getDeviceType()
+          }),
+          keepalive: true
+        });
+      } catch {
         // Silently fail if tracking fails, to not disrupt user experience
       }
     };

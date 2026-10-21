@@ -159,7 +159,10 @@ const BlogsArchive = () => {
         url="blogs"
         keywords={dynamicKeywords}
       />
-      <SectionTitle title="Articles & Insights" />
+      <SectionTitle 
+        title="Articles & Insights" 
+        subtitle="Deep dives into web engineering, cybersecurity, and full-stack architecture."
+      />
       
       {/* Extract one affiliate link from the blogs to display as a featured ad on the main page */}
       {displayData?.find(b => b.affiliate_link)?.affiliate_link && !isEditingPage && (

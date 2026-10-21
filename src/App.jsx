@@ -9,6 +9,7 @@ import Loader from './components/common/Loader';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import { useAnalytics } from './hooks/useAnalytics';
 import BackendStatusBanner from './components/common/BackendStatusBanner';
+import BrandBackground from './components/common/BrandBackground';
 
 // Lazy loaded pages
 const AboutContainer = lazy(() => import('./pages/About/AboutContainer'));
@@ -21,8 +22,6 @@ const Contact = lazy(() => import('./pages/Contact/Contact'));
 const BlogsArchive = lazy(() => import('./pages/Blogs/BlogsArchive'));
 const BlogPost = lazy(() => import('./pages/Blogs/BlogPost'));
 const Login = lazy(() => import('./pages/Admin/Login'));
-const UnsubscribeSuccess = lazy(() => import('./pages/UnsubscribeSuccess'));
-const ProposalPitch = lazy(() => import('./pages/ProposalPitch'));
 
 import './styles/main.scss'; // Assuming main.scss handles the global variables and layout classes
 
@@ -42,6 +41,8 @@ function App() {
 
   return (
     <div className="app-layout">
+      {/* Architectural 'DA' Brand & Cyber Technical Background Layer */}
+      <BrandBackground />
       <BackendStatusBanner />
       <Navbar />
       <main className="main-content">
@@ -59,8 +60,6 @@ function App() {
                 <Route path="/blogs" element={<BlogsArchive />} />
                 <Route path="/blogs/:slug" element={<BlogPost />} />
                 <Route path="/admin" element={<Login />} />
-                <Route path="/unsubscribe-success" element={<UnsubscribeSuccess />} />
-                <Route path="/proposal/:uuid" element={<ProposalPitch />} />
               </Routes>
             </Suspense>
           </AnimatePresence>

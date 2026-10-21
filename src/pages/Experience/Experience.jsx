@@ -87,10 +87,10 @@ const Experience = () => {
         description="View Disan Alam's professional experience, work history, and roles as a Full-Stack Web Developer, building and maintaining production-grade applications." 
         url="experience"
       />
-      <SectionTitle title="My Experience" />
-      <div className="section-header">
-        <p>Roles, projects, and hands-on work that demonstrate how I build real products.</p>
-      </div>
+      <SectionTitle 
+        title="My Experience" 
+        subtitle="Roles, projects, and hands-on work that demonstrate how I build real products."
+      />
 
       {displayData?.length === 0 && !isEditingPage && <p className="empty-state">No experience added yet.</p>}
 

@@ -72,7 +72,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar" aria-label="Main navigation">
-      <div className="nav-container container">
+      <div className="nav-container">
         <div className="logo">
           <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
             <img src={logoUrl || "/disan-alam.webp"} alt="Disan Alam Logo" decoding="async" width="40" height="40" style={{objectFit: 'cover', borderRadius: '50%'}} />

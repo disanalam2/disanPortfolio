@@ -109,7 +109,10 @@ const Skills = () => {
         url="skills"
         keywords={dynamicKeywords}
       />
-      <SectionTitle title="My Skills" />
+      <SectionTitle 
+        title="My Skills" 
+        subtitle="Core technologies, frameworks, and engineering competencies."
+      />
       {displayData?.length === 0 && !isEditing && <p className="empty-state">No skills added yet.</p>}
 
       <div className="skills-container">

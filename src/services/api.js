@@ -6,9 +6,6 @@ export const apiCall = async (endpoint, options = {}) => {
   let token = sessionStorage.getItem('adminToken');
   
   const headers = {
-    'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0',
     ...(options.headers || {}),
   };
 

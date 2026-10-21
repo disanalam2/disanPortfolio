@@ -1,0 +1,211 @@
+/* ==========================================================================
+   ALABASTER MINT & CYBER EMERALD DESIGN TOKENS & UTILITIES
+   Theme: Alabaster Mint & Cyber Emerald (Daylight Studio / High-Trust Security)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+:root {
+  /* Canvas & Ambience */
+  --bg-base: #F4F8F7;
+  --bg-glow-center: rgba(16, 185, 129, 0.14);
+  --bg-glow-corner: rgba(14, 124, 102, 0.08);
+  --circuit-stroke: rgba(20, 143, 119, 0.18);
+
+  /* Translucent Glass Layers */
+  --glass-surface: rgba(255, 255, 255, 0.68);
+  --glass-inner: rgba(255, 255, 255, 0.88);
+  --glass-solid: #FFFFFF;
+  --glass-border: rgba(20, 143, 119, 0.16);
+  --glass-border-subtle: rgba(20, 143, 119, 0.12);
+  --glass-shine: rgba(255, 255, 255, 0.95);
+
+  /* Typography Colors */
+  --text-primary: #14181B;     /* Obsidian Charcoal */
+  --text-teal: #0E7C66;        /* Cyber Emerald Teal */
+  --text-muted: #4A5568;       /* Slate Graphite */
+  --accent-mint: #10B981;      /* Mint Neon Pulse */
+
+  /* Strict Engineered Radius (No Pills) */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-card: 10px;
+
+  /* Fast Snappy Motion */
+  --transition-fast: all 150ms ease;
+}
+
+/* Base Body Application */
+body {
+  background-color: var(--bg-base);
+  background-image: 
+    radial-gradient(circle at 42% 50%, var(--bg-glow-center) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, var(--bg-glow-corner) 0%, transparent 40%),
+    radial-gradient(rgba(14, 124, 102, 0.07) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Translucent Glass Container */
+.glass-panel {
+  background: var(--glass-surface);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-top: 1px solid var(--glass-shine);
+  border-radius: var(--radius-card);
+  box-shadow: 
+    0 20px 40px -15px rgba(14, 124, 102, 0.10),
+    0 4px 12px rgba(0, 0, 0, 0.03);
+  padding: 24px;
+  transition: var(--transition-fast);
+}
+
+/* Inner Nested Tech Stack Cards */
+.tech-item-card {
+  background: var(--glass-inner);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-mint);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.15);
+  }
+}
+
+/* Typography Utility Classes */
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  line-height: 1.1;
+}
+
+.role-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tagline-text {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* Glowing Mint Dot */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent-mint);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-mint);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Buttons (Strict Anti-Pill, 6px Radius) */
+.btn-primary {
+  background: var(--text-primary);
+  color: #FFFFFF;
+  border: 1px solid var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+
+  &:hover {
+    background: var(--text-teal);
+    border-color: var(--text-teal);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(14, 124, 102, 0.25);
+  }
+}
+
+.btn-glass {
+  background: var(--glass-inner);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+
+  &:hover {
+    background: #FFFFFF;
+    border-color: var(--accent-mint);
+    color: var(--text-teal);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+  }
+}
+
+/* Tech Chip / Badge */
+.tech-chip {
+  background: var(--glass-inner);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 5px 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+/* SVG Circuit Container */
+.circuit-bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--circuit-stroke);
+    stroke-width: 1.5;
+    fill: none;
+  }
+}

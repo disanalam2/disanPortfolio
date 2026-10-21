@@ -1,28 +1,72 @@
-
+// ==========================================================================
+// MASTER DESIGN TOKENS — ALABASTER MINT & CYBER EMERALD
+// High-Trust Daylight Studio + Physical Glassmorphism Architecture
+// ==========================================================================
 
 :root {
-  // Colors - Premium Charcoal Background with Neon Blue Accents
-  --bg-color: #121212;      
-  --nav-bg: rgba(18, 18, 18, 0.85); 
-  --card-bg: rgba(30, 30, 30, 0.6);
-  --card-border: rgba(0, 243, 255, 0.12);
-  --text-primary: #f8fafc;
-  --text-secondary: #a1a1aa;
-  
-  // Accents
-  --accent-color: #00f3ff; 
-  --accent-secondary: #3b82f6; // Deep blue for secondary accent
-  --gradient-primary: linear-gradient(135deg, #00f3ff 0%, #3b82f6 100%);
-  --accent-glow: rgba(0, 243, 255, 0.25);
-  
-  // Typography & Transitions
-  --font-main: 'Inter', sans-serif;
-  --font-heading: 'Poppins', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --transition-smooth: all 0.3s ease-in-out;
+  // Canvas & Background
+  --bg-color: #F4F8F7;
+  --bg-base: #F4F8F7;
+  --bg-glow-center: rgba(16, 185, 129, 0.14);
+  --bg-glow-corner: rgba(14, 124, 102, 0.08);
+  --circuit-stroke: rgba(20, 143, 119, 0.18);
 
-  // Smart Overlay & Text Variables for Theme Toggling
-  --overlay-color: 255, 255, 255;
-  --text-color-rgb: 255, 255, 255;
-  --shadow-color: rgba(0, 0, 0, 0.4);
+  // Light Surfaces & Defined Subtle Borders (1px solid rgba(15, 23, 42, 0.08))
+  --nav-bg: transparent; 
+  --card-bg: transparent;
+  --card-inner: transparent;
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-border-subtle: rgba(15, 23, 42, 0.06);
+  --glass-shine: transparent;
+  --glass-bg: transparent;
+  --glass-hover: rgba(16, 185, 129, 0.50);
+
+  // Typography Hierarchy
+  --text-primary: #14181B;      // Obsidian Charcoal (Headings)
+  --text-secondary: #4A5568;    // Slate Graphite (Body & Tagline)
+  --text-muted: #718096;        // Muted / Metadata
+
+  // Accents & Brand Signals
+  --accent-color: #0E7C66;      // Cyber Emerald Teal (Role Subtitle / Accent)
+  --accent-secondary: #10B981;  // Mint Neon Pulse (Glowing Dot / Active)
+  --gradient-primary: linear-gradient(135deg, #0E7C66 0%, #10B981 100%);
+  --accent-glow: rgba(16, 185, 129, 0.20);
+  
+  // Typography Stacks
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  // Motion (Snappy 150ms ease)
+  --transition-smooth: all 150ms ease;
+  --transition-fast: all 150ms ease;
+
+  // Strict Engineered Radii (Anti-Pill)
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-card: 10px;
+
+  // Smart Overlay & Shadows
+  --overlay-color: 244, 248, 247;
+  --text-color-rgb: 20, 24, 27;
+  --shadow-color: rgba(14, 124, 102, 0.10);
+  --shadow-card: none;
+}
+
+// Dark Mode Fallback (If Explicitly Toggled)
+[data-theme="dark"] {
+  --bg-color: #0D1117;
+  --bg-base: #0D1117;
+  --nav-bg: rgba(13, 17, 23, 0.85);
+  --card-bg: rgba(22, 27, 34, 0.70);
+  --card-inner: rgba(33, 38, 45, 0.85);
+  --card-border: rgba(16, 185, 129, 0.20);
+  --text-primary: #F0F6FC;
+  --text-secondary: #8B949E;
+  --accent-color: #10B981;
+  --accent-glow: rgba(16, 185, 129, 0.30);
+  --overlay-color: 13, 17, 23;
+  --text-color-rgb: 240, 246, 252;
+  --shadow-color: rgba(0, 0, 0, 0.50);
 }
