@@ -59,7 +59,7 @@ const Services = () => {
         'Continuous codebase maintenance, refactoring & minor feature additions',
         '24/7 server health monitoring, PM2 process supervision & log audits',
         'Routine security updates, dependency patches & Security Group audits',
-        'We assume engineering responsibility while client retains cloud governance',
+        '100% client-owned source code — we manage updates while client retains cloud governance',
         'Dedicated WhatsApp / Email engineering channel with priority bug turnaround'
       ]
     },
@@ -84,6 +84,7 @@ const Services = () => {
         '24/7 High-Availability AWS Cloud Hosting fully provisioned & managed by us',
         'Automated daily database backups with point-in-time restoration capability',
         'Automated zero-downtime SSL certificate renewals & domain routing',
+        '100% client-owned source code & IP — turnkey hosting and continuous SLA management',
         'Lowest upfront capital expenditure — launch fast without capital strain',
         'Priority Developer Support: content updates, performance tuning & technical guidance'
       ]
@@ -96,6 +97,12 @@ const Services = () => {
       optA: 'As per project scope',
       optB: 'As per project scope',
       optC: 'As per project scope'
+    },
+    {
+      feature: 'Core Tech & Integrations',
+      optA: 'Next.js, Node.js, AWS & Payment Gateway',
+      optB: 'Next.js, Node.js, AWS & Payment Gateway',
+      optC: 'Next.js, Node.js, AWS & Payment Gateway'
     },
     {
       feature: 'Upfront Build Investment',
@@ -117,9 +124,9 @@ const Services = () => {
     },
     {
       feature: 'Source Code Ownership',
-      optA: '100% Full Handover',
-      optB: 'Shared / Maintained by Developer',
-      optC: 'Developer Managed & Maintained'
+      optA: '100% Client Owned (Full Handover)',
+      optB: '100% Client Owned (Maintained by Us)',
+      optC: '100% Client Owned (Fully Managed by Us)'
     },
     {
       feature: 'Server & Database Operations',
@@ -130,7 +137,7 @@ const Services = () => {
     {
       feature: 'SSL Renewals & Cloud Backups',
       optA: 'Client responsible',
-      optB: 'Configured with Client',
+      optB: 'Routine Backups & Renewals (Managed by Us)',
       optC: 'Automated Daily & Managed 24/7'
     },
     {
