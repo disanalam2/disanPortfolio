@@ -13,6 +13,9 @@ const preferenceOptions = [
 ];
 
 const subjectOptions = [
+  { value: 'Frontend & Landing Page Engineering', label: 'Frontend & Landing Page Engineering (from ₹10,000)' },
+  { value: 'Full-Stack Web App & API Integration', label: 'Full-Stack Web App & API Integration (from ₹25,000)' },
+  { value: 'Custom Enterprise Build & Managed Retainer', label: 'Custom Enterprise Build & Managed Retainer' },
   { value: 'Free Technical Performance & SEO Audit', label: 'Free Technical Performance & SEO Audit' },
   { value: 'Free System Architecture & Automation Audit', label: 'Free System Architecture & Automation Audit' },
   { value: 'Free Sales Funnel, UX & Tracking Audit', label: 'Free Sales Funnel, UX & Tracking Audit' },
@@ -20,6 +23,15 @@ const subjectOptions = [
   { value: 'Enterprise Custom Web App (New Build)', label: 'Enterprise Custom Web App (New Build)' },
   { value: 'Complete Digital Infrastructure Overhaul (Full Transformation)', label: 'Complete Digital Infrastructure Overhaul (Full Transformation)' },
   { value: 'Other', label: 'Other / Custom Inquiry' }
+];
+
+const servicesWithOptionalUrl = [
+  'Frontend & Landing Page Engineering',
+  'Full-Stack Web App & API Integration',
+  'Custom Enterprise Build & Managed Retainer',
+  'Enterprise Custom Web App (New Build)',
+  'Complete Digital Infrastructure Overhaul (Full Transformation)',
+  'Other'
 ];
 
 
@@ -45,7 +57,7 @@ const ContactForm = () => {
     email: '', 
     preference: 'email',
     contactHandle: '', 
-    subject: location.state?.subject || 'Free Technical Performance & SEO Audit',
+    subject: location.state?.subject || new URLSearchParams(location.search).get('subject') || 'Free Technical Performance & SEO Audit',
     websiteUrl: '',
     message: ''
   });
@@ -200,21 +212,24 @@ const ContactForm = () => {
             />
           </div>
 
-          {formData.subject !== 'Enterprise Custom Web App (New Build)' && (
-            <div className="form-group">
-              <label className="input-label">
-                Website URL {formData.subject === 'Other' ? '(Optional)' : '*'}
-              </label>
-              <InputField 
-                type="url" 
-                name="websiteUrl" 
-                placeholder="https://yourwebsite.com" 
-                value={formData.websiteUrl} 
-                onChange={handleChange} 
-                required={formData.subject !== 'Other'}
-              />
-            </div>
-          )}
+          {(() => {
+            const isOptional = servicesWithOptionalUrl.includes(formData.subject);
+            return (
+              <div className="form-group">
+                <label className="input-label">
+                  Website URL {isOptional ? '(Optional)' : '*'}
+                </label>
+                <InputField 
+                  type="url" 
+                  name="websiteUrl" 
+                  placeholder="https://yourwebsite.com" 
+                  value={formData.websiteUrl} 
+                  onChange={handleChange} 
+                  required={!isOptional}
+                />
+              </div>
+            );
+          })()}
         </div>
 
         {formData.subject === 'Other' && (
