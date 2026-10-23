@@ -23,12 +23,23 @@ const BlogsArchive = lazy(() => import('./pages/Blogs/BlogsArchive'));
 const BlogPost = lazy(() => import('./pages/Blogs/BlogPost'));
 const Login = lazy(() => import('./pages/Admin/Login'));
 
+// Legal & Statutory Compliance Pages (Gateway Approval & Freelancing)
+const PrivacyPolicy = lazy(() => import('./pages/Legal/PrivacyPolicy'));
+const TermsConditions = lazy(() => import('./pages/Legal/TermsConditions'));
+const RefundPolicy = lazy(() => import('./pages/Legal/RefundPolicy'));
+const DeliveryPolicy = lazy(() => import('./pages/Legal/DeliveryPolicy'));
+
 import './styles/main.scss'; // Assuming main.scss handles the global variables and layout classes
 
 function App() {
   const location = useLocation();
   
   useAnalytics();
+
+  // Instant scroll-to-top on route change so user starts at the top of pages (especially from footer links)
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname]);
 
   // Track page views on route change (Legacy Gtag)
   useEffect(() => {
@@ -60,6 +71,13 @@ function App() {
                 <Route path="/blogs" element={<BlogsArchive />} />
                 <Route path="/blogs/:slug" element={<BlogPost />} />
                 <Route path="/admin" element={<Login />} />
+
+                {/* Legal & Compliance Routes (Payment Gateways & Freelancing) */}
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-and-conditions" element={<TermsConditions />} />
+                <Route path="/refund-policy" element={<RefundPolicy />} />
+                <Route path="/delivery-policy" element={<DeliveryPolicy />} />
+                <Route path="/shipping-policy" element={<DeliveryPolicy />} />
               </Routes>
             </Suspense>
           </AnimatePresence>

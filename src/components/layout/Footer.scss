@@ -1,0 +1,256 @@
+// ==========================================================================
+// FOOTER COMPONENT STYLES — ALABASTER MINT & CYBER EMERALD
+// Designed for Enterprise Trust, Legal Compliance & Seamless Mobile Layout
+// ==========================================================================
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.site-footer {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-top: 1px solid rgba(20, 143, 119, 0.18);
+  padding: 3rem 1.5rem 1.75rem 1.5rem;
+  z-index: 20;
+
+  @include respond-to('mobile') {
+    padding: 2.25rem 1rem 1.5rem 1rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // Top Multi-Column Grid
+  .footer-main-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+
+    @include respond-to('tablet') {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @include respond-to('mobile') {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  // Column 1: Brand & Identity
+  .footer-col-brand {
+    .brand-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+
+      .brand-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: var(--accent-secondary);
+        box-shadow: 0 0 8px var(--accent-secondary);
+      }
+
+      .brand-name {
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        letter-spacing: -0.02em;
+        text-decoration: none;
+      }
+    }
+
+    .brand-role {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .brand-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0 0 1rem 0;
+      max-width: 380px;
+    }
+
+    .brand-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+  }
+
+  // Headings for Columns
+  .footer-col-heading {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 1.1rem 0;
+    position: relative;
+    padding-bottom: 0.5rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(--accent-secondary);
+      border-radius: 2px;
+    }
+  }
+
+  // Column 2: Legal & Compliance Links
+  .footer-col-links {
+    .footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+
+      li {
+        a {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          color: var(--text-secondary);
+          text-decoration: none;
+          font-size: 0.93rem;
+          font-weight: 500;
+          transition: var(--transition-fast);
+          padding: 2px 0;
+
+          .link-bullet {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            transition: transform 0.2s ease;
+          }
+
+          &:hover {
+            color: var(--accent-color);
+            transform: translateX(3px);
+
+            .link-bullet {
+              color: var(--accent-secondary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Column 3: Trust & Compliance Badges
+  .footer-col-trust {
+    .trust-badges-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+
+      .trust-badge-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 0.6rem 0.85rem;
+        background: rgba(255, 255, 255, 0.65);
+        border: 1px solid rgba(20, 143, 119, 0.14);
+        border-radius: var(--radius-md);
+        font-size: 0.82rem;
+        line-height: 1.45;
+        color: var(--text-secondary);
+
+        .badge-icon {
+          flex-shrink: 0;
+          font-size: 1rem;
+        }
+
+        strong {
+          color: var(--text-primary);
+          font-weight: 650;
+        }
+      }
+    }
+
+    .footer-hire-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 650;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition-fast);
+
+      &:hover {
+        color: var(--accent-secondary);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Horizontal Divider Line
+  .footer-divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(20, 143, 119, 0) 0%,
+      rgba(20, 143, 119, 0.25) 50%,
+      rgba(20, 143, 119, 0) 100%
+    );
+    margin-bottom: 1.75rem;
+  }
+
+  // Bottom Sub-Footer Bar
+  .footer-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+
+    @include respond-to('tablet') {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .footer-copyright {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+
+      .copy-sub {
+        display: block;
+        font-size: 0.78rem;
+        margin-top: 0.2rem;
+        color: rgba(74, 85, 104, 0.75);
+      }
+    }
+  }
+}

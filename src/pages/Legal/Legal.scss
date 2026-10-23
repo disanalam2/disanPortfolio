@@ -1,0 +1,456 @@
+// ==========================================================================
+// LEGAL & COMPLIANCE PAGES STYLES — ALABASTER MINT & CYBER EMERALD
+// Designed for High Trust, Razorpay/Cashfree Gateway Compliance, and Readability
+// ==========================================================================
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.legal-section-wrapper {
+  padding-top: 1.5rem;
+  padding-bottom: 4rem;
+  min-height: 80vh;
+
+  .legal-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+
+    @include respond-to('mobile') {
+      padding: 0 1rem;
+    }
+  }
+
+  // Top Compliance HUD Status Bar
+  .legal-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(20, 143, 119, 0.18);
+    border-radius: var(--radius-lg);
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--accent-secondary);
+        box-shadow: 0 0 8px var(--accent-secondary);
+        animation: pulseEmerald 2s infinite ease-in-out;
+      }
+    }
+
+    .status-meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    }
+  }
+
+  // Quick Switcher Tab Bar
+  .legal-tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(20, 143, 119, 0.2);
+      border-radius: 4px;
+    }
+
+    .legal-tab-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.15rem;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--text-secondary);
+      border: 1px solid rgba(20, 143, 119, 0.12);
+
+      &:hover {
+        background: rgba(16, 185, 129, 0.08);
+        color: var(--accent-color);
+        border-color: rgba(16, 185, 129, 0.3);
+      }
+
+      &.active {
+        background: rgba(16, 185, 129, 0.16);
+        color: #065F46;
+        border-color: var(--accent-secondary);
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+      }
+    }
+  }
+
+  // Main Policy Glass Card
+  .legal-glass-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(20, 143, 119, 0.18);
+    border-radius: var(--radius-card);
+    box-shadow: 
+      0 20px 45px -15px rgba(14, 124, 102, 0.12),
+      0 4px 16px rgba(0, 0, 0, 0.03);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+
+    @include respond-to('tablet') {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .policy-header {
+      border-bottom: 1px solid rgba(20, 143, 119, 0.15);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+
+      .policy-badge {
+        display: inline-block;
+        padding: 0.3rem 0.75rem;
+        background: rgba(16, 185, 129, 0.12);
+        color: #0E7C66;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: var(--radius-sm);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+      }
+
+      h1 {
+        font-size: 2.1rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        font-family: var(--font-heading);
+        margin: 0 0 0.5rem 0;
+        line-height: 1.25;
+
+        @include respond-to('mobile') {
+          font-size: 1.65rem;
+        }
+      }
+
+      .policy-intro {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+        margin: 0;
+      }
+    }
+
+    // Policy Article Content
+    .policy-content {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.75;
+
+      section {
+        margin-bottom: 2.25rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      h2 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: var(--font-heading);
+        margin: 1.75rem 0 0.75rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .section-num {
+          color: var(--accent-color);
+          font-family: var(--font-mono);
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 650;
+        color: var(--text-primary);
+        margin: 1.25rem 0 0.5rem 0;
+      }
+
+      p {
+        margin: 0 0 1rem 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      ul, ol {
+        margin: 0.75rem 0 1.25rem 1.5rem;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.5rem;
+          line-height: 1.65;
+
+          strong {
+            color: var(--text-primary);
+          }
+        }
+      }
+    }
+
+    // Security & Compliance Callout Box (Emerald Tint)
+    .callout-box {
+      margin: 1.5rem 0;
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--accent-secondary);
+      background: rgba(16, 185, 129, 0.08);
+      border-top: 1px solid rgba(20, 143, 119, 0.15);
+      border-right: 1px solid rgba(20, 143, 119, 0.15);
+      border-bottom: 1px solid rgba(20, 143, 119, 0.15);
+
+      &.statutory-callout {
+        border-left-color: #0284C7;
+        background: rgba(2, 132, 199, 0.07);
+        border-color: rgba(2, 132, 199, 0.18);
+        border-left-color: #0284C7;
+
+        .callout-title {
+          color: #0369A1;
+        }
+      }
+
+      .callout-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #065F46;
+        margin: 0 0 0.5rem 0;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.94rem;
+        line-height: 1.65;
+        color: #1F2937;
+      }
+
+      ul {
+        margin: 0.5rem 0 0 1.25rem;
+        padding: 0;
+      }
+    }
+
+    // Data Table for Clarity
+    .policy-table-wrapper {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border: 1px solid rgba(20, 143, 119, 0.15);
+      border-radius: var(--radius-md);
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        text-align: left;
+
+        th {
+          background: rgba(16, 185, 129, 0.12);
+          color: #0E7C66;
+          font-weight: 700;
+          font-family: var(--font-heading);
+          padding: 0.85rem 1rem;
+          border-bottom: 1px solid rgba(20, 143, 119, 0.15);
+          white-space: nowrap;
+        }
+
+        td {
+          padding: 0.85rem 1rem;
+          border-bottom: 1px solid rgba(20, 143, 119, 0.08);
+          color: var(--text-secondary);
+          vertical-align: top;
+          line-height: 1.5;
+
+          strong {
+            color: var(--text-primary);
+          }
+        }
+
+        tr:last-child td {
+          border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+          background: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+
+  // Grievance Officer Card
+  .grievance-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(20, 143, 119, 0.22);
+    border-radius: var(--radius-card);
+    padding: 1.75rem 2rem;
+    box-shadow: 0 10px 30px -10px rgba(14, 124, 102, 0.1);
+
+    @include respond-to('mobile') {
+      padding: 1.25rem;
+    }
+
+    .grievance-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(20, 143, 119, 0.12);
+      padding-bottom: 0.75rem;
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: var(--font-heading);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .compliance-law {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--accent-color);
+        background: rgba(16, 185, 129, 0.1);
+        padding: 0.25rem 0.6rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+    }
+
+    .grievance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+
+      .grievance-item {
+        .item-label {
+          font-size: 0.75rem;
+          font-family: var(--font-mono);
+          text-transform: uppercase;
+          color: var(--text-muted);
+          margin-bottom: 0.25rem;
+          letter-spacing: 0.05em;
+        }
+
+        .item-value {
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: var(--text-primary);
+
+          a {
+            color: var(--accent-color);
+            text-decoration: none;
+            word-break: break-all;
+
+            &:hover {
+              text-decoration: underline;
+              color: var(--accent-secondary);
+            }
+          }
+        }
+      }
+    }
+
+    .grievance-note {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(20, 143, 119, 0.15);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  }
+
+  // Bottom Quick Contact Bar
+  .legal-footer-contact {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+
+    a {
+      color: var(--accent-color);
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@keyframes pulseEmerald {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
