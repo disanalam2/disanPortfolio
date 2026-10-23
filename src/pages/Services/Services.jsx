@@ -26,7 +26,7 @@ const Services = () => {
       priceNote: 'One-Time Build • Milestone Delivery',
       serverBillTitle: 'Cloud / Server Bill',
       serverBillDesc: "Client's own AWS account (Direct billing, zero markup).",
-      turnaround: '2–3 Weeks',
+      turnaround: 'As per project scope',
       subjectValue: 'Option A: One-Time Handover (Full Ownership)',
       buttonText: 'Choose Option A (Full Ownership)',
       featured: false,
@@ -50,13 +50,13 @@ const Services = () => {
       priceNote: 'Initial Build + Monthly Maintenance Retainer',
       serverBillTitle: 'Cloud / Server Bill',
       serverBillDesc: "Client pays their own AWS usage invoice directly via attached card.",
-      turnaround: '2–4 Weeks Build + Monthly',
+      turnaround: 'As per project scope + Monthly Maintenance',
       subjectValue: 'Option B: Standard Maintenance (Tech Partner)',
       buttonText: 'Choose Option B (Tech Partner)',
       featured: false,
       deliverables: [
-        'Full-Stack Web Application build at an optimized entry investment',
-        'Continuous Codebase Maintenance, refactoring & minor feature additions',
+        'Includes everything in Option A (React/Next.js, Node.js & Razorpay/Cashfree) + dedicated maintenance',
+        'Continuous codebase maintenance, refactoring & minor feature additions',
         '24/7 server health monitoring, PM2 process supervision & log audits',
         'Routine security updates, dependency patches & Security Group audits',
         'We assume engineering responsibility while client retains cloud governance',
@@ -75,12 +75,12 @@ const Services = () => {
       priceNote: 'Lowest Upfront Capital + All-Inclusive Retainer',
       serverBillTitle: 'Cloud / Server Bill',
       serverBillDesc: '100% All-Inclusive! Covers AWS EC2 compute, database backups, SSL renewals & developer fees.',
-      turnaround: '1–3 Weeks Build + All-Inclusive SLA',
+      turnaround: 'As per project scope + All-Inclusive SLA',
       subjectValue: 'Option C: Fully Managed & Hosted (Zero-Headache)',
       buttonText: 'Choose Option C (Zero-Headache)',
       featured: true,
       deliverables: [
-        'Complete custom Full-Stack Web Application tailored to business requirements',
+        'Includes everything in Option B (Full-Stack build, Payment Gateways & maintenance) + 100% managed hosting',
         '24/7 High-Availability AWS Cloud Hosting fully provisioned & managed by us',
         'Automated daily database backups with point-in-time restoration capability',
         'Automated zero-downtime SSL certificate renewals & domain routing',
@@ -91,6 +91,12 @@ const Services = () => {
   ];
 
   const comparisonRows = [
+    {
+      feature: 'Development & Build Timeline',
+      optA: 'As per project scope',
+      optB: 'As per project scope',
+      optC: 'As per project scope'
+    },
     {
       feature: 'Upfront Build Investment',
       optA: '₹ 25,000 (One-Time)',
