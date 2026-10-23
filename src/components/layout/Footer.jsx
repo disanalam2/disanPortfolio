@@ -61,6 +61,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/services">
+                  <span className="link-bullet">›</span>
+                  <span>Engineering Services & Pricing</span>
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact">
                   <span className="link-bullet">›</span>
                   <span>Contact & Grievance Desk</span>

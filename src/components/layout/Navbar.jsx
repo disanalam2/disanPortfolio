@@ -8,7 +8,7 @@ const Navbar = () => {
   const { isAdmin, logout } = useAuth();
   const navigate = useNavigate();
 
-  const navItems = ['About', 'Skills', 'Projects', 'Blogs', 'Education', 'Experience', 'Certificate', 'Contact'];
+  const navItems = ['About', 'Services', 'Skills', 'Projects', 'Blogs', 'Education', 'Experience', 'Certificate', 'Contact'];
 
   const handleLogout = () => {
     logout();

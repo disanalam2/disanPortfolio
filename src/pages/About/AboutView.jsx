@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/ui/Button';
 import Card from '../../components/ui/Card';
-import ServicesPricing from './ServicesPricing';
 import { useLiveTelemetry } from '../../hooks/useLiveTelemetry';
 import { useGitHubPulse } from '../../hooks/useGitHubPulse';
 
@@ -251,9 +250,6 @@ const AboutView = ({ aboutData = {}, experienceData = [], projectsData = [], ski
           </a>
         </Card>
       </div>
-
-      {/* Freelance Engineering Services & Starting Pricing in INR (₹) */}
-      <ServicesPricing />
     </div>
   );
 };

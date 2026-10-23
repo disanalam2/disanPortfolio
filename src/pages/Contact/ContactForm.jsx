@@ -13,9 +13,9 @@ const preferenceOptions = [
 ];
 
 const subjectOptions = [
-  { value: 'Frontend & Landing Page Engineering', label: 'Frontend & Landing Page Engineering (from ₹10,000)' },
-  { value: 'Full-Stack Web App & API Integration', label: 'Full-Stack Web App & API Integration (from ₹25,000)' },
-  { value: 'Custom Enterprise Build & Managed Retainer', label: 'Custom Enterprise Build & Managed Retainer' },
+  { value: 'Option A: One-Time Handover (Full Ownership)', label: 'Option A: One-Time Handover (Full Ownership) — ₹25,000' },
+  { value: 'Option B: Standard Maintenance (Tech Partner)', label: 'Option B: Standard Maintenance (Tech Partner) — ₹18,000 + ₹2,500/mo' },
+  { value: 'Option C: Fully Managed & Hosted (Zero-Headache)', label: 'Option C: Fully Managed & Hosted (Zero-Headache) — ₹15,000 + ₹5,000/mo' },
   { value: 'Free Technical Performance & SEO Audit', label: 'Free Technical Performance & SEO Audit' },
   { value: 'Free System Architecture & Automation Audit', label: 'Free System Architecture & Automation Audit' },
   { value: 'Free Sales Funnel, UX & Tracking Audit', label: 'Free Sales Funnel, UX & Tracking Audit' },
@@ -26,9 +26,9 @@ const subjectOptions = [
 ];
 
 const servicesWithOptionalUrl = [
-  'Frontend & Landing Page Engineering',
-  'Full-Stack Web App & API Integration',
-  'Custom Enterprise Build & Managed Retainer',
+  'Option A: One-Time Handover (Full Ownership)',
+  'Option B: Standard Maintenance (Tech Partner)',
+  'Option C: Fully Managed & Hosted (Zero-Headache)',
   'Enterprise Custom Web App (New Build)',
   'Complete Digital Infrastructure Overhaul (Full Transformation)',
   'Other'

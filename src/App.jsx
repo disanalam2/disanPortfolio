@@ -13,6 +13,7 @@ import BrandBackground from './components/common/BrandBackground';
 
 // Lazy loaded pages
 const AboutContainer = lazy(() => import('./pages/About/AboutContainer'));
+const Services = lazy(() => import('./pages/Services/Services'));
 const Projects = lazy(() => import('./pages/Projects/Projects'));
 const Skills = lazy(() => import('./pages/Skills/Skills'));
 const Experience = lazy(() => import('./pages/Experience/Experience'));
@@ -62,6 +63,7 @@ function App() {
             <Suspense fallback={<Loader message="Loading Page..." />}>
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<AboutContainer />} />
+                <Route path="/services" element={<Services />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/experience" element={<Experience />} />
