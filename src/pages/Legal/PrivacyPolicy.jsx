@@ -123,7 +123,7 @@ const PrivacyPolicy = () => {
             <ul>
               <li><strong>Payment Aggregators (Razorpay / Cashfree):</strong> Solely to process authenticated payment transactions initiated by the client.</li>
               <li><strong>Statutory Tax Authorities:</strong> When legally mandated for statutory tax filings or complying with lawful government subpoenas under applicable Indian laws.</li>
-              <li><strong>Cloud Infrastructure Providers:</strong> Standard enterprise hosting (e.g., Vercel, AWS, VPS) solely for staging/production deployment authorized by the client in writing.</li>
+              <li><strong>Cloud Infrastructure Providers:</strong> Standard enterprise hosting (e.g., Google Firebase, AWS, Vercel, VPS) solely for frontend/backend staging and production deployment authorized by the client in writing.</li>
             </ul>
           </section>
 
