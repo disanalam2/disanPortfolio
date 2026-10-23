@@ -24,7 +24,7 @@ const Contact = () => {
         >
           WhatsApp
         </a>
-        <a href="mailto:disanalamofficial@gmail.com" className="social-pill email">
+        <a href="mailto:admin@disanalam.me" className="social-pill email">
           Email
         </a>
       </div>

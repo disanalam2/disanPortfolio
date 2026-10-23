@@ -137,7 +137,7 @@ const DeliveryPolicy = () => {
               If you have any questions regarding access to your repository, deployment credentials, or invoice PDF, please contact us directly:
             </p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:disanalamofficial@gmail.com">disanalamofficial@gmail.com</a> / <a href="mailto:admin@disanalam.me">admin@disanalam.me</a></li>
+              <li><strong>Official Support Email:</strong> <a href="mailto:admin@disanalam.me">admin@disanalam.me</a></li>
               <li><strong>Direct Portal:</strong> Submit an inquiry via the <a href="/contact">Contact Page</a> for immediate technical assistance.</li>
             </ul>
           </section>

@@ -108,7 +108,7 @@ const RefundPolicy = () => {
               If you notice any billing discrepancy, duplicate charge, or clerical error on your invoice or payment receipt:
             </p>
             <ul>
-              <li>Notify us in writing within <strong>7 calendar days</strong> of transaction date by emailing <a href="mailto:admin@disanalam.me">admin@disanalam.me</a> or <a href="mailto:disanalamofficial@gmail.com">disanalamofficial@gmail.com</a>.</li>
+              <li>Notify us in writing within <strong>7 calendar days</strong> of transaction date by emailing <a href="mailto:admin@disanalam.me">admin@disanalam.me</a>.</li>
               <li>Include your full name, invoice number, payment gateway transaction reference ID (from Razorpay/Cashfree), and the date of deduction.</li>
               <li>Upon verification, duplicate charges are immediately reversed to the originating bank account/UPI ID within 5 to 7 working days.</li>
             </ul>

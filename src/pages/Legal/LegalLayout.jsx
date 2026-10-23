@@ -68,14 +68,7 @@ const LegalLayout = ({ children, activePolicy }) => {
             </div>
 
             <div className="grievance-item">
-              <div className="item-label">Official Email</div>
-              <div className="item-value">
-                <a href="mailto:disanalamofficial@gmail.com">disanalamofficial@gmail.com</a>
-              </div>
-            </div>
-
-            <div className="grievance-item">
-              <div className="item-label">Alternate Desk</div>
+              <div className="item-label">Official Grievance Email</div>
               <div className="item-value">
                 <a href="mailto:admin@disanalam.me">admin@disanalam.me</a>
               </div>
