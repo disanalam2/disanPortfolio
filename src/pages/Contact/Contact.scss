@@ -40,6 +40,20 @@
         transition: var(--transition-fast);
         border: 1px solid transparent;
 
+        &.phone {
+          background: rgba(14, 124, 102, 0.10);
+          color: #0E7C66;
+          border-color: rgba(14, 124, 102, 0.30);
+
+          &:hover {
+            background: #0E7C66;
+            color: #FFFFFF;
+            border-color: #0E7C66;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(14, 124, 102, 0.25);
+          }
+        }
+
         &.wa {
           background: rgba(16, 185, 129, 0.12);
           color: #065F46;

@@ -65,8 +65,8 @@ const PrivacyPolicy = () => {
                   </tr>
                   <tr>
                     <td><strong>Tax Identifiers (If Applicable)</strong></td>
-                    <td>Permanent Account Number (PAN) / Goods and Services Tax Identification Number (GSTIN)</td>
-                    <td>Collected strictly for raising valid GST invoices and tax compliance under Indian regulations.</td>
+                    <td>Permanent Account Number (PAN) / GSTIN (if provided by corporate clients)</td>
+                    <td>Collected solely for issuing statutory invoices / bill of supply (and GST invoices, where applicable) and maintaining statutory tax compliance under Indian regulations.</td>
                   </tr>
                   <tr>
                     <td><strong>Technical & Audit Logs</strong></td>
@@ -87,7 +87,7 @@ const PrivacyPolicy = () => {
             <ul>
               <li><strong>Project Scoping & Delivery:</strong> Reviewing project specifications, preparing architecture blueprints, and executing development milestones.</li>
               <li><strong>Electronic Contract Execution:</strong> Executing legally enforceable Statements of Work (SoW), digital agreements, and service level agreements.</li>
-              <li><strong>Accounting & Invoicing:</strong> Generating statutory tax invoices, payment receipts, and ledger maintenance in compliance with Indian Income Tax and GST laws.</li>
+              <li><strong>Accounting & Invoicing:</strong> Generating statutory invoices / bill of supply (and GST invoices, where applicable), payment receipts, and ledger maintenance in compliance with Indian taxation laws.</li>
               <li><strong>Direct Client Communication:</strong> Transmitting milestone deliverables, deployment credentials, preview URLs, and maintenance notices.</li>
             </ul>
           </section>
@@ -122,7 +122,7 @@ const PrivacyPolicy = () => {
             <p>Data may only be shared with external entities in the following limited circumstances:</p>
             <ul>
               <li><strong>Payment Aggregators (Razorpay / Cashfree):</strong> Solely to process authenticated payment transactions initiated by the client.</li>
-              <li><strong>Statutory Tax Authorities:</strong> When legally mandated for filing annual income tax returns, GST returns, or complying with lawful government subpoenas under applicable Indian laws.</li>
+              <li><strong>Statutory Tax Authorities:</strong> When legally mandated for statutory tax filings or complying with lawful government subpoenas under applicable Indian laws.</li>
               <li><strong>Cloud Infrastructure Providers:</strong> Standard enterprise hosting (e.g., Vercel, AWS, VPS) solely for staging/production deployment authorized by the client in writing.</li>
             </ul>
           </section>

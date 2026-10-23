@@ -24,7 +24,11 @@ const Footer = () => {
             </p>
             <div className="brand-location">
               <span aria-hidden="true">📍</span>
-              <span>Ranchi, Jharkhand, India — 834001</span>
+              <span>Azad Basti, Ranchi, Jharkhand, India — 834001</span>
+            </div>
+            <div className="brand-contact-info" style={{ marginTop: '0.45rem', display: 'flex', gap: '0.85rem', flexWrap: 'wrap', fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+              <span>📞 <a href="tel:+918789047170" style={{ color: 'inherit', textDecoration: 'none' }}>+91-8789047170</a></span>
+              <span>✉️ <a href="mailto:admin@disanalam.me" style={{ color: 'inherit', textDecoration: 'none' }}>admin@disanalam.me</a></span>
             </div>
           </div>
 

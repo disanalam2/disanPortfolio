@@ -15,6 +15,12 @@ const Contact = () => {
       <span className="direct-label">Or reach out directly via</span>
       <div className="direct-links-group">
         <a
+          href="tel:+918789047170"
+          className="social-pill phone"
+        >
+          Call
+        </a>
+        <a
           href="#!"
           onClick={(e) => {
             e.preventDefault();

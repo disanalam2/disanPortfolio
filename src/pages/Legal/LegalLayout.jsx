@@ -22,7 +22,7 @@ const LegalLayout = ({ children, activePolicy }) => {
             <span>Statutory Compliance & Legal Policies</span>
           </div>
           <div className="status-meta">
-            <span>🏛️ Jurisdiction: Ranchi, Jharkhand (India)</span>
+            <span>🏛️ Address: Azad Basti, Ranchi, Jharkhand (India)</span>
             <span>📅 Effective: October 2026</span>
           </div>
         </div>
@@ -75,8 +75,15 @@ const LegalLayout = ({ children, activePolicy }) => {
             </div>
 
             <div className="grievance-item">
-              <div className="item-label">Registered City / Address</div>
-              <div className="item-value">Ranchi, Jharkhand, India - 834001</div>
+              <div className="item-label">Official Phone / WhatsApp</div>
+              <div className="item-value">
+                <a href="tel:+918789047170">+91-8789047170</a>
+              </div>
+            </div>
+
+            <div className="grievance-item">
+              <div className="item-label">Registered Operational Address</div>
+              <div className="item-value">Azad Basti, Ranchi, Jharkhand, India — 834001</div>
             </div>
 
             <div className="grievance-item">
