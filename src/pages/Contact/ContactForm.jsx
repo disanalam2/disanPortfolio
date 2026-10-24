@@ -13,9 +13,9 @@ const preferenceOptions = [
 ];
 
 const subjectOptions = [
-  { value: 'Option A: One-Time Handover (Full Ownership)', label: 'Option A: One-Time Handover (Full Ownership) — ₹25,000' },
-  { value: 'Option B: Standard Maintenance (Tech Partner)', label: 'Option B: Standard Maintenance (Tech Partner) — ₹18,000 + ₹2,500/mo' },
-  { value: 'Option C: Fully Managed & Hosted (Zero-Headache)', label: 'Option C: Fully Managed & Hosted (Zero-Headache) — ₹15,000 + ₹5,000/mo' },
+  { value: 'Option A: One-Time Handover (Full Ownership)', label: 'Option A: One-Time Handover (Full Ownership) — ₹30,000' },
+  { value: 'Option B: Standard Maintenance (Tech Partner)', label: 'Option B: Standard Maintenance (Tech Partner) — ₹25,000 + ₹2,500/mo' },
+  { value: 'Option C: Fully Managed & Hosted (Zero-Headache)', label: 'Option C: Fully Managed & Hosted (Zero-Headache) — ₹20,000 + ₹5,000/mo' },
   { value: 'Free Technical Performance & SEO Audit', label: 'Free Technical Performance & SEO Audit' },
   { value: 'Free System Architecture & Automation Audit', label: 'Free System Architecture & Automation Audit' },
   { value: 'Free Sales Funnel, UX & Tracking Audit', label: 'Free Sales Funnel, UX & Tracking Audit' },

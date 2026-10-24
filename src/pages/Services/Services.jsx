@@ -22,7 +22,7 @@ const Services = () => {
       title: 'One-Time Handover',
       subtitle: 'The "Full Ownership" Model',
       description: 'Engineered for self-sufficient teams and enterprises needing a turnkey, production-ready system with complete code and cloud autonomy.',
-      initialPrice: '₹ 25,000',
+      initialPrice: '₹ 30,000',
       priceNote: 'One-Time Build • Milestone Delivery',
       serverBillTitle: 'Cloud / Server Bill',
       serverBillDesc: "Client's own AWS account (Direct billing, zero markup).",
@@ -45,7 +45,7 @@ const Services = () => {
       title: 'Standard Maintenance',
       subtitle: 'The "Tech Partner" Model',
       description: 'Ideal for growing businesses seeking an accessible upfront build investment paired with dedicated ongoing code maintenance and technical vigilance.',
-      initialPrice: '₹ 18,000',
+      initialPrice: '₹ 25,000',
       monthlyPrice: '+ ₹ 2,500 / month',
       priceNote: 'Initial Build + Monthly Maintenance Retainer',
       serverBillTitle: 'Cloud / Server Bill',
@@ -70,7 +70,7 @@ const Services = () => {
       title: 'Fully Managed & Hosted',
       subtitle: 'The "Zero-Headache" Model',
       description: 'Turnkey peace of mind for non-technical founders — we handle custom development, cloud infrastructure, databases, and 24/7 uptime without you ever touching an AWS dashboard.',
-      initialPrice: '₹ 15,000',
+      initialPrice: '₹ 20,000',
       monthlyPrice: '+ ₹ 5,000 / month',
       priceNote: 'Lowest Upfront Capital + All-Inclusive Retainer',
       serverBillTitle: 'Cloud / Server Bill',
@@ -106,9 +106,9 @@ const Services = () => {
     },
     {
       feature: 'Upfront Build Investment',
-      optA: '₹ 25,000 (One-Time)',
-      optB: '₹ 18,000 (Reduced Initial)',
-      optC: '₹ 15,000 (Lowest Entry)'
+      optA: '₹ 30,000 (One-Time)',
+      optB: '₹ 25,000 (Reduced Initial)',
+      optC: '₹ 20,000 (Lowest Entry)'
     },
     {
       feature: 'Monthly Retainer Fee',
