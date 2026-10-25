@@ -147,8 +147,9 @@ const AboutContainer = () => {
     <PageLayout className="about-page">
       <SEO 
         title="Disan Alam | Full-Stack Systems Architect & AI Business Solutions" 
-        description="Disan Alam is a Full-Stack Systems Architect and AI Solutions Consultant. Deep industry discovery, bespoke web engineering, Agentic AI workflows, custom RAG integrations, and AWS cloud systems." 
+        description="Portfolio of Disan Alam: Full-Stack Systems Architect, AI Solutions Consultant, and 2nd-year B.Tech CSE (Cyber Security) undergraduate at HIT. Deep industry discovery, bespoke web apps, Agentic AI, and AWS systems." 
         url="https://www.disanalam.me/"
+        keywords="Disan Alam, Full Stack Systems Architect, AI Business Solutions, Agentic AI, Custom RAG, React Developer, Next.js, Node.js, Express, AWS Cloud, Ranchi, India"
       />
       <SectionTitle 
         title="About Me" 

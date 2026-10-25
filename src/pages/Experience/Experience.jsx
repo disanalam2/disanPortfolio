@@ -83,9 +83,10 @@ const Experience = () => {
   return (
     <PageLayout className="experience-section">
       <SEO 
-        title="Experience | Disan Alam" 
-        description="View Disan Alam's professional experience, work history, and roles as a Full-Stack Web Developer, building and maintaining production-grade applications." 
+        title="Experience | Disan Alam - Web Developer & Systems Architect" 
+        description="View Disan Alam's professional engineering experience: Web Developer at GDG on Campus (HIT), architecting GDG Management Portal, and building full-stack web and AI systems." 
         url="https://www.disanalam.me/experience"
+        keywords="Disan Alam Experience, GDG on Campus HIT, Web Developer, Full Stack Engineer, Systems Architect, Work History"
       />
       <SectionTitle 
         title="My Experience" 

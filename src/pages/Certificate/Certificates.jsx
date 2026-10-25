@@ -87,9 +87,10 @@ const Certificates = () => {
   return (
     <PageLayout className="certificate-section">
       <SEO 
-        title="Certificates | Disan Alam" 
-        description="View Disan Alam's verified certifications from top institutions in Web Development, Cybersecurity, and Software Engineering." 
+        title="Verified Certifications | Disan Alam - IBM & Web Engineering" 
+        description="View Disan Alam's verified credentials: IBM Software Engineering, IBM Web Development (HTML/CSS/JS), and Cybersecurity training." 
         url="https://www.disanalam.me/certificate"
+        keywords="Disan Alam Certificates, IBM Certified Web Developer, Software Engineering Coursera, Verified Credentials, Cyber Security"
       />
       <SectionTitle 
         title="My Certificates" 

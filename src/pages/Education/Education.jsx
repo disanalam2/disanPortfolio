@@ -83,9 +83,10 @@ const Education = () => {
   return (
     <PageLayout className="education-section">
       <SEO 
-        title="Education | Disan Alam" 
-        description="Discover Disan Alam's educational background, degrees, and academic achievements in the field of Computer Science and Engineering." 
+        title="Education | Disan Alam - B.Tech CSE (Cyber Security) at HIT" 
+        description="Academic foundation of Disan Alam, 2nd-Year B.Tech undergraduate in Computer Science & Engineering (Cyber Security) at Haldia Institute of Technology (2025–2029)." 
         url="https://www.disanalam.me/education"
+        keywords="Disan Alam Education, Haldia Institute of Technology, B.Tech CSE Cyber Security, Computer Science Student, HIT Haldia, Academic Foundation"
       />
       <SectionTitle 
         title="My Education" 

@@ -41,8 +41,9 @@ const Contact = () => {
     <PageLayout className="contact-section">
       <SEO 
         title={isAdmin ? "Messages Inbox | Disan Alam" : "Initiate a Project & Get In Touch | Disan Alam"} 
-        description="Hire Disan Alam for Custom Website Development, Speed Optimization, or Tech Stack Modernization. Contact now for a free technical SEO and performance audit." 
+        description="Collaborate with Disan Alam for bespoke web applications, Agentic AI workflows, and cloud architecture. Book a discovery call or claim a free technical performance & SEO audit." 
         url="https://www.disanalam.me/contact"
+        keywords="Hire Disan Alam, Contact Full Stack Developer, Tech Partner India, Free Technical Audit, Web Development Ranchi, Agentic AI Consultant"
       />
       <SectionTitle 
         title={isAdmin ? "Messages Inbox" : "Get In Touch"} 

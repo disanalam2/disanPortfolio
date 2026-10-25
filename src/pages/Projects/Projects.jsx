@@ -122,8 +122,8 @@ const Projects = () => {
   return (
     <PageLayout className="projects-section">
       <SEO 
-        title="Projects | Disan Alam" 
-        description="Check out Disan Alam's portfolio of real-world projects, including scalable web applications, enterprise platforms, modern UIs, and full-stack solutions." 
+        title="Projects & Systems Architecture Portfolio | Disan Alam" 
+        description="Explore production platforms engineered by Disan Alam: GDG Management Portal, AI Healthcare Suite (Clinical Voice Scriber & Virtual Receptionist), Chaivik Tea Portal, and enterprise web applications." 
         url="https://www.disanalam.me/projects"
         keywords={dynamicKeywords}
         schema={projectListSchema}

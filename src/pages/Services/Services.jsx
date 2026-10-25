@@ -154,12 +154,53 @@ const Services = () => {
     }
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Full-Stack Web Systems & AI Business Solutions",
+    "provider": {
+      "@type": "Person",
+      "name": "Disan Alam",
+      "url": "https://www.disanalam.me"
+    },
+    "description": "Custom web application engineering, autonomous Agentic AI workflows, custom RAG knowledge bases, and cloud architecture across 3 transparent engagement models.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Engineering & AI Solutions Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Option A: One-Time Handover (Full Ownership)",
+          "price": "30000.00",
+          "priceCurrency": "INR",
+          "description": "Full-stack development, AWS deployment, payment gateway integration, 100% source code ownership, and 15 days free bug support."
+        },
+        {
+          "@type": "Offer",
+          "name": "Option B: Standard Maintenance (Tech Partner)",
+          "price": "25000.00",
+          "priceCurrency": "INR",
+          "description": "Full-stack development + ₹2,500/month continuous codebase maintenance, server health monitoring, and security patching."
+        },
+        {
+          "@type": "Offer",
+          "name": "Option C: Fully Managed & Hosted (Zero-Headache)",
+          "price": "20000.00",
+          "priceCurrency": "INR",
+          "description": "Turnkey web solution including custom development, 24/7 AWS EC2 cloud hosting, managed database, automated backups, and priority support for ₹5,000/month."
+        }
+      ]
+    }
+  };
+
   return (
     <PageLayout className="services-page">
       <SEO 
         title="Engineering Services & AI Business Solutions | Disan Alam"
-        description="Explore Full-Stack Web Systems, Agentic AI, Custom RAG, and Managed Retainer packages by Disan Alam. Transparent milestone pricing in INR (₹) with 100% client source code ownership."
+        description="Explore Full-Stack Web Systems, Agentic AI, Custom RAG, and Managed Retainer packages by Disan Alam. Transparent milestone pricing starting from ₹20,000 to ₹30,000 with 100% client source code ownership."
         url="https://www.disanalam.me/services"
+        keywords="Disan Alam Services, Full Stack Systems Architect, AI Business Solutions, Agentic AI, Custom RAG, Web Development Pricing, One-Time Handover ₹30000, Tech Partner ₹25000, Fully Managed Retainer ₹20000, React Developer, Node.js, AWS Cloud, Ranchi, India"
+        schema={serviceSchema}
       />
 
       {/* Page Header */}

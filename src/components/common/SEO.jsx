@@ -1,5 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+
+const updateOrCreateMeta = (attrName, attrValue, content) => {
+  if (!content || typeof document === 'undefined') return;
+  let element = document.querySelector(`meta[${attrName}="${attrValue}"]`);
+  if (element) {
+    element.setAttribute('content', content);
+  } else {
+    element = document.createElement('meta');
+    element.setAttribute(attrName, attrValue);
+    element.setAttribute('content', content);
+    document.head.appendChild(element);
+  }
+};
+
+const updateOrCreateLink = (rel, href) => {
+  if (!href || typeof document === 'undefined') return;
+  let element = document.querySelector(`link[rel="${rel}"]`);
+  if (element) {
+    element.setAttribute('href', href);
+  } else {
+    element = document.createElement('link');
+    element.setAttribute('rel', rel);
+    element.setAttribute('href', href);
+    document.head.appendChild(element);
+  }
+};
 
 const SEO = ({ 
   title = "Disan Alam | Full-Stack Systems Architect & AI Business Solutions", 
@@ -9,6 +35,27 @@ const SEO = ({
   image = "https://www.disanalam.me/og-image.jpg",
   schema = null
 }) => {
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    if (title) document.title = title;
+    updateOrCreateMeta('name', 'description', description);
+    updateOrCreateMeta('name', 'keywords', keywords);
+    updateOrCreateMeta('name', 'title', title);
+    updateOrCreateLink('canonical', url);
+
+    // Open Graph
+    updateOrCreateMeta('property', 'og:title', title);
+    updateOrCreateMeta('property', 'og:description', description);
+    updateOrCreateMeta('property', 'og:url', url);
+    updateOrCreateMeta('property', 'og:image', image);
+
+    // Twitter
+    updateOrCreateMeta('name', 'twitter:title', title);
+    updateOrCreateMeta('name', 'twitter:description', description);
+    updateOrCreateMeta('name', 'twitter:url', url);
+    updateOrCreateMeta('name', 'twitter:image', image);
+  }, [title, description, keywords, url, image]);
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
