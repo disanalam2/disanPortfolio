@@ -46,25 +46,31 @@ Disan Alam does NOT just build generic website templates. His approach is rooted
 ---
 
 ## 5. Structured Freelance Engagement & Pricing Models (INR)
-All options guarantee 100% Client-Owned Source Code, milestone-based delivery, and direct AWS root access:
+All options guarantee transparent milestone-based delivery, rock-solid engineering, and professional contracts:
 
-### Option A: One-Time Handover (The "Full Ownership" Model)
+### Option A: Bespoke Freelance Build (The "Classic Freelance" Model)
+- **Model Type:** Standard Bespoke Freelancing Project
 - **Upfront Build:** ₹30,000 (One-Time Milestone Delivery)
-- **Monthly Fee:** ₹0 / month
-- **Server / Cloud Bill:** Client pays AWS directly.
-- **Includes:** Full-stack development, AWS EC2 production deployment, payment gateway integration, 100% source code handover, AWS root credentials handover, and 15 days of post-launch bug support.
+- **Monthly Fee:** ₹0 / month (Zero recurring developer retainer)
+- **Server / Hosting Bill:** Client's choice of server or hosting provider.
+- **Source Code:** 100% Client-Owned. Complete source code repository and digital assets handed over upon final milestone.
+- **Includes:** Custom full-stack web engineering (React/Next.js, Node.js/Express, MySQL/MongoDB), payment gateway integration (Razorpay/Cashfree) with secure webhooks, deployment to client's preferred server, and 15 days of complimentary post-launch bug support.
 
-### Option B: Standard Maintenance (The "Tech Partner" Model)
+### Option B: Dedicated AWS Setup & Tech Partner (The "Dedicated Cloud" Model)
+- **Model Type:** Dedicated Cloud Infrastructure in Client's Name + Ongoing Maintenance
 - **Upfront Build:** ₹25,000 (Initial Build)
-- **Monthly Retainer:** ₹2,500 / month
-- **Server / Cloud Bill:** Client pays AWS directly.
-- **Includes:** Everything in Option A + continuous codebase maintenance, refactoring, minor feature additions, 24/7 server health monitoring (PM2), routine security patching, and dedicated developer support.
+- **Monthly Retainer:** ₹2,500 / month (Ongoing Codebase Maintenance & Monitoring)
+- **Server / AWS Bill:** Dedicated AWS account created directly under the client's own name. Client pays actual raw AWS usage bill directly to AWS with zero developer markup.
+- **Source Code & Infrastructure:** 100% Client-Owned. Source code and dedicated AWS cloud root account belong completely to the client.
+- **Includes:** Complete full-stack web engineering, dedicated AWS architecture setup (EC2, PM2, Nginx, SSL, IAM), continuous codebase maintenance, refactoring, 24/7 server health monitoring, PM2 process supervision, AWS security audits, and dedicated priority support.
 
-### Option C: Fully Managed & Hosted (The "Zero-Headache" Model)
+### Option C: Managed Multi-Tenant Solution (The "Turnkey SaaS" Model)
+- **Model Type:** Turnkey Multi-Tenant Software Solution (SaaS Model)
 - **Upfront Build:** ₹20,000 (Lowest Entry Capital)
 - **Monthly Retainer:** ₹5,000 / month (All-Inclusive Retainer)
-- **Server / Cloud Bill:** Zero AWS Bill! Covered inside the ₹5,000/mo retainer.
-- **Includes:** Everything in Option B + turnkey 24/7 AWS EC2 cloud hosting, daily automated database backups with point-in-time recovery, automated SSL renewals, domain routing, and priority SLA developer support.
+- **Server / AWS Bill:** Zero AWS Bill! 100% covered inside the ₹5,000/mo retainer (Disan manages and pays all AWS cloud and database costs).
+- **Platform Access:** Complete multi-tenant operational software access with zero cloud setup overhead for non-technical founders.
+- **Includes:** Turnkey multi-tenant software solution tailored to business workflows, high-availability cloud infrastructure hosted & fully managed by Disan, automated daily database backups with point-in-time recovery, zero-downtime SSL renewals, domain routing, platform updates, and priority SLA developer support.
 
 ---
 

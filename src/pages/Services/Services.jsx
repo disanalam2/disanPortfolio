@@ -23,75 +23,74 @@ const Services = () => {
   const serviceTiers = [
     {
       id: 'option-a',
-      badge: 'OPTION A • FULL OWNERSHIP',
-      title: 'One-Time Handover',
-      subtitle: 'The "Full Ownership" Model',
-      description: 'Engineered for self-sufficient teams and enterprises needing a turnkey, production-ready system with complete code and cloud autonomy.',
+      badge: 'OPTION A • FREELANCE BUILD',
+      title: 'Bespoke Freelance Build',
+      subtitle: 'The "Classic Freelance" Model',
+      description: 'Standard bespoke freelancing project. Custom full-stack web application engineered to your specifications and handed over with 100% full source code upon milestone delivery.',
       initialPrice: '₹ 30,000',
       priceNote: 'One-Time Build • Milestone Delivery',
-      serverBillTitle: 'Cloud / Server Bill',
-      serverBillDesc: "Client's own AWS account (Direct billing, zero markup).",
+      serverBillTitle: 'Hosting / Cloud',
+      serverBillDesc: "Client's choice of server or hosting (Zero monthly developer fees).",
       turnaround: 'As per project scope',
-      subjectValue: 'Option A: One-Time Handover (Full Ownership)',
-      buttonText: 'Choose Option A (Full Ownership)',
+      subjectValue: 'Option A: Bespoke Freelance Build',
+      buttonText: 'Choose Option A (Freelance Build)',
       featured: false,
       deliverables: [
-        'Complete Full-Stack Web Development (Next.js/React + Node.js/Express)',
-        'Production Deployment on client AWS cloud (EC2, Nginx, SSL, PM2)',
-        'Payment Gateway integration (Razorpay / Cashfree) with webhooks',
-        '100% full source code ownership transferred upon final milestone',
-        'Complete AWS root & IAM administrator credentials handover',
+        'Complete Custom Full-Stack Web Development (Next.js/React + Node.js/Express)',
+        'Payment Gateway integration (Razorpay / Cashfree) with secure webhooks',
+        '100% full source code & asset repository transferred to client upon final milestone',
+        'Production deployment to client’s preferred server or hosting environment',
         '15 Days of Complimentary Post-Launch Bug Support included'
       ]
     },
     {
       id: 'option-b',
-      badge: 'OPTION B • TECH PARTNER',
-      title: 'Standard Maintenance',
-      subtitle: 'The "Tech Partner" Model',
-      description: 'Ideal for growing businesses seeking an accessible upfront build investment paired with dedicated ongoing code maintenance and technical vigilance.',
+      badge: 'OPTION B • DEDICATED AWS',
+      title: 'Dedicated AWS Setup & Tech Partner',
+      subtitle: 'The "Dedicated Cloud" Model',
+      description: 'We engineer your solution and architect a dedicated, isolated AWS cloud infrastructure registered directly in YOUR name. I handle all development, continuous maintenance, and monitoring—you only pay the actual AWS bill directly.',
       initialPrice: '₹ 25,000',
       monthlyPrice: '+ ₹ 2,500 / month',
       priceNote: 'Initial Build + Monthly Maintenance Retainer',
       serverBillTitle: 'Cloud / Server Bill',
-      serverBillDesc: "Client pays their own AWS usage invoice directly via attached card.",
+      serverBillDesc: "Dedicated AWS Account in Client's Name (Client pays raw AWS bill directly with zero markup).",
       turnaround: 'As per project scope + Monthly Maintenance',
-      subjectValue: 'Option B: Standard Maintenance (Tech Partner)',
-      buttonText: 'Choose Option B (Tech Partner)',
+      subjectValue: 'Option B: Dedicated AWS Setup & Tech Partner',
+      buttonText: 'Choose Option B (Dedicated AWS)',
       featured: false,
       deliverables: [
-        'Includes everything in Option A (React/Next.js, Node.js & Razorpay/Cashfree) + dedicated maintenance',
-        'Continuous codebase maintenance, refactoring & minor feature additions',
-        '24/7 server health monitoring, PM2 process supervision & log audits',
-        'Routine security updates, dependency patches & Security Group audits',
-        '100% client-owned source code — we manage updates while client retains cloud governance',
+        'Complete Full-Stack Web Engineering with 100% client-owned source code',
+        'Dedicated AWS Cloud Setup registered under client’s name (EC2, PM2, Nginx, SSL, IAM)',
+        'Continuous codebase maintenance, refactoring & ongoing technical vigilance',
+        '24/7 server health monitoring, PM2 process supervision & AWS security audits',
+        'Client pays actual AWS usage directly—complete cloud transparency and ownership',
         'Dedicated WhatsApp / Email engineering channel with priority bug turnaround'
       ]
     },
     {
       id: 'option-c',
-      badge: 'OPTION C • ZERO HEADACHE',
+      badge: 'OPTION C • MANAGED SAAS',
       popularRibbon: 'RECOMMENDED',
-      title: 'Fully Managed & Hosted',
-      subtitle: 'The "Zero-Headache" Model',
-      description: 'Turnkey peace of mind for non-technical founders — we handle custom development, cloud infrastructure, databases, and 24/7 uptime without you ever touching an AWS dashboard.',
+      title: 'Managed Multi-Tenant Solution',
+      subtitle: 'The "Turnkey SaaS" Model',
+      description: 'Zero cloud complexity. We provide a complete multi-tenant software solution hosted on our managed high-availability cloud. We manage all AWS infrastructure, databases, scaling, and backups—you simply use the software.',
       initialPrice: '₹ 20,000',
       monthlyPrice: '+ ₹ 5,000 / month',
-      priceNote: 'Lowest Upfront Capital + All-Inclusive Retainer',
+      priceNote: 'Lowest Onboarding Capital + All-Inclusive Retainer',
       serverBillTitle: 'Cloud / Server Bill',
-      serverBillDesc: '100% All-Inclusive! Covers AWS EC2 compute, database backups, SSL renewals & developer fees.',
+      serverBillDesc: 'Zero AWS Bill! 100% covered inside the ₹5,000/mo retainer (EC2, databases, backups, SSL).',
       turnaround: 'As per project scope + All-Inclusive SLA',
-      subjectValue: 'Option C: Fully Managed & Hosted (Zero-Headache)',
-      buttonText: 'Choose Option C (Zero-Headache)',
+      subjectValue: 'Option C: Managed Multi-Tenant Solution (Turnkey SaaS)',
+      buttonText: 'Choose Option C (Managed SaaS)',
       featured: true,
       deliverables: [
-        'Includes everything in Option B (Full-Stack build, Payment Gateways & maintenance) + 100% managed hosting',
-        '24/7 High-Availability AWS Cloud Hosting fully provisioned & managed by us',
-        'Automated daily database backups with point-in-time restoration capability',
-        'Automated zero-downtime SSL certificate renewals & domain routing',
-        '100% client-owned source code & IP — turnkey hosting and continuous SLA management',
-        'Lowest upfront capital expenditure — launch fast without capital strain',
-        'Priority Developer Support: content updates, performance tuning & technical guidance'
+        'Turnkey multi-tenant software solution tailored to your operational workflows',
+        'High-availability cloud infrastructure fully provisioned, hosted & managed by Disan',
+        'Zero AWS account management required—we handle all server bills & provisioning',
+        'Automated daily database backups with point-in-time recovery capability',
+        'Automated zero-downtime SSL certificate renewals & custom domain routing',
+        'Lowest upfront capital expenditure with continuous platform updates & SLA support',
+        'Priority Developer Support: feature enhancements, operational tuning & technical guidance'
       ]
     }
   ];
@@ -102,6 +101,12 @@ const Services = () => {
       optA: 'As per project scope',
       optB: 'As per project scope',
       optC: 'As per project scope'
+    },
+    {
+      feature: 'Model Architecture',
+      optA: 'Bespoke Freelance Delivery',
+      optB: 'Dedicated AWS Cloud Partner',
+      optC: 'Turnkey Multi-Tenant SaaS'
     },
     {
       feature: 'Core Tech & Integrations',
@@ -123,39 +128,45 @@ const Services = () => {
     },
     {
       feature: 'Cloud Server & AWS Bill',
-      optA: 'Client pays AWS directly',
-      optB: 'Client pays AWS directly',
-      optC: 'Included in Retainer (Zero AWS Bill)'
+      optA: 'Client choice (Zero developer monthly fee)',
+      optB: 'Client pays raw AWS bill directly in own name',
+      optC: 'Zero AWS Bill! Included in ₹5,000 retainer'
     },
     {
-      feature: 'Source Code Ownership',
-      optA: '100% Client Owned (Full Handover)',
-      optB: '100% Client Owned (Maintained by Us)',
-      optC: '100% Client Owned (Fully Managed by Us)'
+      feature: 'AWS Cloud Infrastructure',
+      optA: 'Deployed to client’s server/hosting',
+      optB: 'Dedicated AWS setup registered in client’s name',
+      optC: 'Managed multi-tenant cloud by Disan'
+    },
+    {
+      feature: 'Source Code & Platform Access',
+      optA: '100% Client Owned (Full Code Handover)',
+      optB: '100% Client Owned (Dedicated AWS Account)',
+      optC: 'Managed Multi-Tenant Solution Access (Turnkey SaaS)'
     },
     {
       feature: 'Server & Database Operations',
       optA: 'Managed by Client',
-      optB: 'Monitored by Developer',
+      optB: 'Monitored & Maintained by Developer on Client AWS',
       optC: '100% Managed & Maintained by Us'
     },
     {
       feature: 'SSL Renewals & Cloud Backups',
       optA: 'Client responsible',
-      optB: 'Routine Backups & Renewals (Managed by Us)',
+      optB: 'Managed on client AWS by Developer',
       optC: 'Automated Daily & Managed 24/7'
     },
     {
       feature: 'Post-Launch Support',
       optA: '15 Days Free Bug Support',
-      optB: 'Ongoing Monthly Support',
+      optB: 'Ongoing Dedicated Monthly Support',
       optC: '24/7 Priority SLA Support'
     },
     {
       feature: 'Best Suited For',
-      optA: 'Self-reliant technical teams',
-      optB: 'Startups wanting a tech partner',
-      optC: 'Non-technical founders & businesses'
+      optA: 'Clients needing standard freelancing build',
+      optB: 'Businesses wanting dedicated AWS in their name',
+      optC: 'Non-technical founders wanting turnkey software'
     }
   ];
 
@@ -165,16 +176,16 @@ const Services = () => {
       a: "Disan Alam is a Full-Stack Systems Architect, AI Business Solutions Consultant, and 2nd-year B.Tech CSE (Cyber Security) undergraduate at Haldia Institute of Technology based in Ranchi, Jharkhand. He specializes in bespoke web application engineering (React, Next.js, Node.js), Agentic AI workflows, custom RAG integrations, and AWS cloud deployments for businesses globally."
     },
     {
-      q: "Who owns the source code and intellectual property (IP)?",
-      a: "In all three engagement models (Option A, Option B, and Option C), 100% of the source code, repository, and intellectual property belongs strictly to the client. Full root credentials and codebases are handed over upon milestone completion—we never hold IP hostage."
+      q: "What is the difference between Option A, Option B, and Option C?",
+      a: "Option A is classic freelancing: custom development with full source code handover starting at ₹30,000 (₹0/month). Option B is a dedicated cloud tech partner model (₹25,000 build + ₹2,500/month) where we set up a dedicated AWS account in YOUR name, handle all maintenance, and you pay the raw AWS bill directly. Option C is a turnkey multi-tenant software solution (₹20,000 build + ₹5,000/month) hosted entirely on our managed cloud with zero AWS bills or setup hassle for you."
     },
     {
-      q: "What is the starting price for freelance web development and systems architecture?",
-      a: "Transparent packages start at ₹30,000 for Option A (One-Time Full Ownership build), ₹25,000 (+ ₹2,500/month) for Option B (Tech Partner continuous maintenance), and ₹20,000 (+ ₹5,000/month) for Option C (Fully Managed & Hosted turnkey application with zero AWS cloud bills)."
+      q: "Who owns the source code and how does cloud ownership work?",
+      a: "In Option A (Freelance) and Option B (Dedicated AWS), 100% of the source code belongs strictly to the client. In Option B, the AWS infrastructure is registered in your own name. In Option C, we provide a managed multi-tenant software solution (like a SaaS platform) where we manage the shared cloud and backups so you never have to deal with AWS dashboards."
     },
     {
-      q: "What does the 'Zero-Headache' Managed Hosting model (Option C) include?",
-      a: "Option C includes full custom development, 24/7 AWS EC2 cloud hosting bills covered with zero markup, daily automated database backups with point-in-time recovery, automated zero-downtime SSL renewals, domain routing, and priority developer SLA support for an all-inclusive ₹5,000/month retainer."
+      q: "What does the Multi-Tenant Managed Solution (Option C) include?",
+      a: "Option C provides a complete multi-tenant software solution for ₹20,000 upfront + an all-inclusive ₹5,000/month retainer. You never pay a separate AWS bill—server compute, automated database backups, zero-downtime SSL renewals, and platform updates are all handled by us."
     },
     {
       q: "Can I hire Disan Alam for local IT consulting and web development in Ranchi, Jharkhand?",
@@ -205,24 +216,24 @@ const Services = () => {
           "itemListElement": [
             {
               "@type": "Offer",
-              "name": "Option A: One-Time Handover (Full Ownership)",
+              "name": "Option A: Bespoke Freelance Build",
               "price": "30000.00",
               "priceCurrency": "INR",
-              "description": "Full-stack development, AWS deployment, payment gateway integration, 100% source code ownership, and 15 days free bug support."
+              "description": "Standard freelancing build, payment gateway integration, 100% source code ownership handover, and 15 days free bug support."
             },
             {
               "@type": "Offer",
-              "name": "Option B: Standard Maintenance (Tech Partner)",
+              "name": "Option B: Dedicated AWS Setup & Tech Partner",
               "price": "25000.00",
               "priceCurrency": "INR",
-              "description": "Full-stack development + ₹2,500/month continuous codebase maintenance, server health monitoring, and security patching."
+              "description": "Custom full-stack build + dedicated AWS cloud setup in client's name + ₹2,500/month continuous maintenance. Client pays raw AWS bill directly."
             },
             {
               "@type": "Offer",
-              "name": "Option C: Fully Managed & Hosted (Zero-Headache)",
+              "name": "Option C: Managed Multi-Tenant Solution (Turnkey SaaS)",
               "price": "20000.00",
               "priceCurrency": "INR",
-              "description": "Turnkey web solution including custom development, 24/7 AWS EC2 cloud hosting, managed database, automated backups, and priority support for ₹5,000/month."
+              "description": "Turnkey multi-tenant software solution including all 24/7 AWS cloud hosting bills, managed database, automated backups, and priority support for ₹5,000/month."
             }
           ]
         }

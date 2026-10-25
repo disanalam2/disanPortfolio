@@ -103,9 +103,9 @@
       <section>
         <h2>Transparent Engagement Models & Pricing (INR)</h2>
         <ul>
-          <li><strong>Option A: One-Time Handover (Full Ownership) — ₹30,000</strong>: Full-stack build, payment gateway integration, live AWS EC2 deployment, 100% source code ownership handover, and 15 days free bug support.</li>
-          <li><strong>Option B: Standard Maintenance (Tech Partner) — ₹25,000 + ₹2,500/month</strong>: Full-stack build paired with continuous codebase maintenance, server health monitoring (PM2), security patches, and routine backups. 100% client owned.</li>
-          <li><strong>Option C: Fully Managed & Hosted (Zero-Headache) — ₹20,000 + ₹5,000/month</strong>: Turnkey web application with all AWS EC2 hosting bills, database costs, automated backups, SSL renewals, and priority support included in the monthly fee. 100% client owned.</li>
+          <li><strong>Option A: Bespoke Freelance Build (Classic Freelancing) — ₹30,000</strong>: Standard freelancing project, full-stack build, payment gateway integration, deployment to client's choice of server/hosting, 100% source code ownership handover, and 15 days free bug support.</li>
+          <li><strong>Option B: Dedicated AWS Setup & Tech Partner (Dedicated Cloud) — ₹25,000 + ₹2,500/month</strong>: Full-stack build paired with a dedicated AWS cloud environment architected in client's own name. Continuous codebase maintenance, server health monitoring, security patches, and routine backups. Client pays actual AWS bill directly with zero markup.</li>
+          <li><strong>Option C: Managed Multi-Tenant Solution (Turnkey SaaS) — ₹20,000 + ₹5,000/month</strong>: Complete multi-tenant software solution hosted on our managed high-availability cloud. All AWS hosting, database costs, automated backups, SSL renewals, and priority support included in the monthly retainer (zero AWS bills for client).</li>
         </ul>
       </section>
       <section>
@@ -255,69 +255,69 @@
             {
               "@type": "Offer",
               "@id": "https://www.disanalam.me/services#option-a",
-              "name": "Option A: One-Time Handover (Full Ownership)",
+              "name": "Option A: Bespoke Freelance Build",
               "price": "30000.00",
               "priceCurrency": "INR",
-              "description": "₹30,000 one-time fee. Complete full-stack web development (React/Next.js, Node.js, MySQL/MongoDB, Payment Gateway), live AWS deployment, 100% source code & server handover, and 15 days free bug support. Client pays AWS bill directly.",
+              "description": "₹30,000 one-time fee. Classic freelancing project. Complete full-stack web development (React/Next.js, Node.js, MySQL/MongoDB, Payment Gateway), 100% source code & asset repository handover upon milestone delivery, and 15 days free bug support. Deployed to client's choice of hosting.",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Option A: One-Time Handover (Full Ownership Model)",
-                "serviceType": "Full-Stack Web Development & Cloud Deployment"
+                "name": "Option A: Bespoke Freelance Build (Classic Freelance Model)",
+                "serviceType": "Full-Stack Web Development & Milestone Delivery"
               }
             },
             {
               "@type": "Offer",
               "@id": "https://www.disanalam.me/services#option-b",
-              "name": "Option B: Standard Maintenance (Tech Partner)",
+              "name": "Option B: Dedicated AWS Setup & Tech Partner",
               "price": "25000.00",
               "priceCurrency": "INR",
-              "description": "₹25,000 build + ₹2,500/month continuous maintenance. Includes full-stack development, server health monitoring, security patches, routine backups, and SSL renewals. 100% client owned.",
+              "description": "₹25,000 initial build + ₹2,500/month continuous maintenance. Dedicated AWS cloud setup registered directly in client's own name. Developer handles all continuous maintenance and monitoring; client pays actual raw AWS bill directly with zero markup.",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Option B: Standard Maintenance (Tech Partner Model)",
-                "serviceType": "Web Engineering & Continuous Maintenance"
+                "name": "Option B: Dedicated AWS Setup & Tech Partner (Dedicated Cloud Model)",
+                "serviceType": "Dedicated Cloud Architecture & Continuous Maintenance"
               },
               "priceSpecification": [
                 {
                   "@type": "UnitPriceSpecification",
                   "price": "25000.00",
                   "priceCurrency": "INR",
-                  "name": "Initial Build"
+                  "name": "Initial Build & Dedicated AWS Architecture"
                 },
                 {
                   "@type": "UnitPriceSpecification",
                   "price": "2500.00",
                   "priceCurrency": "INR",
                   "unitText": "MONTH",
-                  "name": "Monthly Code Maintenance & Monitoring"
+                  "name": "Monthly Code Maintenance & AWS Supervision"
                 }
               ]
             },
             {
               "@type": "Offer",
               "@id": "https://www.disanalam.me/services#option-c",
-              "name": "Option C: Fully Managed & Hosted (Zero-Headache)",
+              "name": "Option C: Managed Multi-Tenant Solution (Turnkey SaaS)",
               "price": "20000.00",
               "priceCurrency": "INR",
-              "description": "₹20,000 build + ₹5,000/month all-inclusive retainer. Turnkey full-stack application with all AWS EC2 hosting, database costs, SSL renewals, automated backups, and priority support covered. 100% client owned.",
+              "description": "₹20,000 initial build + ₹5,000/month all-inclusive retainer. Turnkey multi-tenant software solution hosted on our managed high-availability cloud. All AWS hosting, database costs, automated backups, and SSL renewals covered with zero AWS account setup or bills for client.",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Option C: Fully Managed & Hosted (Zero-Headache Model)",
-                "serviceType": "Fully Managed Web Application & Cloud Hosting"
+                "name": "Option C: Managed Multi-Tenant Solution (Turnkey SaaS Model)",
+                "serviceType": "Managed Multi-Tenant Software Solution & Cloud Operations"
               },
               "priceSpecification": [
                 {
                   "@type": "UnitPriceSpecification",
                   "price": "20000.00",
                   "priceCurrency": "INR",
-                  "name": "Initial Build"
+                  "name": "Initial Build & Tenant Onboarding"
                 },
                 {
                   "@type": "UnitPriceSpecification",
                   "price": "5000.00",
                   "priceCurrency": "INR",
                   "unitText": "MONTH",
-                  "name": "All-Inclusive Monthly Retainer & AWS Hosting Bill"
+                  "name": "All-Inclusive Retainer (Includes AWS Cloud Hosting & Backups)"
                 }
               ]
             }
@@ -456,7 +456,7 @@
             "name": "What engineering and business solutions does Disan Alam offer?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Disan Alam provides holistic business transformation: deep operational discovery, custom full-stack web applications (React, Next.js, Node.js), Agentic AI & RAG automation, AWS cloud architecture, and structured engagement models (Option A: Full Ownership, Option B: Tech Partner, Option C: Fully Managed Retainer)."
+              "text": "Disan Alam provides holistic business transformation: deep operational discovery, custom full-stack web applications (React, Next.js, Node.js), Agentic AI & RAG automation, AWS cloud architecture, and 3 structured engagement models: Option A (Bespoke Freelance Build), Option B (Dedicated AWS Setup & Tech Partner), and Option C (Managed Multi-Tenant Solution)."
             }
           },
           {
@@ -464,15 +464,15 @@
             "name": "What are the starting prices for web development services?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Transparent packages start at ₹30,000 for One-Time Full Ownership builds, ₹25,000 (+ ₹2,500/mo) for Tech Partner maintenance, and ₹20,000 (+ ₹5,000/mo) for Fully Managed & Hosted web applications with zero cloud hosting bills."
+              "text": "Transparent packages start at ₹30,000 for Option A (Bespoke Freelance Build with 100% code handover), ₹25,000 (+ ₹2,500/mo) for Option B (Dedicated AWS Setup in client's name with client paying raw AWS bill), and ₹20,000 (+ ₹5,000/mo) for Option C (Turnkey Multi-Tenant Software Solution with zero AWS hosting bills)."
             }
           },
           {
             "@type": "Question",
-            "name": "Who owns the source code in Disan Alam's service models?",
+            "name": "Who owns the source code and how does cloud ownership work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In all three options (Option A, Option B, and Option C), the source code is 100% owned by the client. Intellectual property (IP) is never held hostage."
+              "text": "In Option A (Freelance) and Option B (Dedicated AWS), 100% of the source code belongs strictly to the client. In Option B, the AWS infrastructure is registered in your own name with you paying the AWS bill directly. In Option C, Disan provides a turnkey multi-tenant software solution hosted on Disan's managed cloud with zero AWS complexity for the client."
             }
           },
           {
