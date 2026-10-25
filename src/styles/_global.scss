@@ -300,12 +300,21 @@ body::after {
   }
 
   .menu-icon {
-    display: none; cursor: pointer; z-index: 1001;
-    span { display: block; width: 28px; height: 3px; margin: 5px auto; background-color: var(--text-primary); transition: var(--transition-smooth); border-radius: 999px; }
+    display: none; 
+    cursor: pointer; 
+    z-index: 1001;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    span { display: block; width: 28px; height: 3px; margin: 4px auto; background-color: var(--text-primary); transition: var(--transition-smooth); border-radius: 999px; }
     &.open {
-      .bar1 { transform: rotate(-45deg) translate(-5px, 6px); }
+      .bar1 { transform: rotate(-45deg) translate(-5px, 5px); }
       .bar2 { opacity: 0; }
-      .bar3 { transform: rotate(45deg) translate(-5px, -6px); }
+      .bar3 { transform: rotate(45deg) translate(-5px, -5px); }
     }
   }
 
@@ -406,16 +415,36 @@ body::after {
 @media (max-width: 1080px) {
   .navbar {
     width: 95%; height: 70px;
-    .menu-icon { display: block; }
+    .menu-icon { display: flex; }
     .nav-links {
       position: fixed; top: 0; right: -100%; height: 100vh; width: 85%; max-width: 400px;
       background-color: var(--nav-bg); backdrop-filter: blur(24px);
-      flex-direction: column; justify-content: center; align-items: center; gap: 2rem; 
+      flex-direction: column; justify-content: center; align-items: center; gap: 1.25rem; 
       padding: 2.5rem 1.8rem; transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); 
       box-shadow: -12px 0 40px var(--shadow-color);
       &.active { right: 0; }
-      li a { font-size: 1.4rem; color: var(--text-primary); }
-      .nav-resume-btn { font-size: 1.1rem; padding: 12px 28px; }
+      li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        a { 
+          font-size: 1.35rem; 
+          color: var(--text-primary); 
+          min-height: 48px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px 20px;
+        }
+      }
+      .nav-resume-btn { 
+        font-size: 1.05rem; 
+        padding: 12px 28px; 
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }
@@ -442,10 +471,10 @@ body::after {
 
 .social-links {
   display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-  a { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: rgba(var(--overlay-color), 0.08); transition: transform 0.25s, background-color 0.25s; 
+  a { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; min-width: 48px; min-height: 48px; border-radius: 50%; background: rgba(var(--overlay-color), 0.08); transition: transform 0.25s, background-color 0.25s; 
       &:hover { transform: translateY(-2px); background: rgba(56, 189, 248, 0.18); svg { fill: var(--accent-color); } }
   }
-  svg { width: 1.2rem; height: 1.2rem; fill: var(--text-secondary); transition: 0.25s; }
+  svg { width: 1.35rem; height: 1.35rem; fill: var(--text-secondary); transition: 0.25s; }
 }
 
 // Global Admin Bottom Bar
