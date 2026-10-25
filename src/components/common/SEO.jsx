@@ -33,6 +33,7 @@ const SEO = ({
   keywords = "Disan Alam, Full Stack Systems Architect, AI Business Solutions, Agentic AI, Custom RAG, Business Process Automation, React Developer, Next.js, Node.js, Express.js, AWS Cloud, Ranchi, India", 
   url = "https://www.disanalam.me/",
   image = "https://www.disanalam.me/og-image.jpg",
+  robots = "index, follow",
   schema = null
 }) => {
   useEffect(() => {
@@ -41,6 +42,7 @@ const SEO = ({
     updateOrCreateMeta('name', 'description', description);
     updateOrCreateMeta('name', 'keywords', keywords);
     updateOrCreateMeta('name', 'title', title);
+    updateOrCreateMeta('name', 'robots', robots);
     updateOrCreateLink('canonical', url);
 
     // Open Graph
@@ -54,7 +56,7 @@ const SEO = ({
     updateOrCreateMeta('name', 'twitter:description', description);
     updateOrCreateMeta('name', 'twitter:url', url);
     updateOrCreateMeta('name', 'twitter:image', image);
-  }, [title, description, keywords, url, image]);
+  }, [title, description, keywords, url, image, robots]);
 
   return (
     <Helmet>
@@ -63,6 +65,7 @@ const SEO = ({
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      <meta name="robots" content={robots} />
       
       {/* Canonical Link */}
       {url ? <link rel="canonical" href={url} /> : null}

@@ -30,6 +30,9 @@ const TermsConditions = lazy(() => import('./pages/Legal/TermsConditions'));
 const RefundPolicy = lazy(() => import('./pages/Legal/RefundPolicy'));
 const DeliveryPolicy = lazy(() => import('./pages/Legal/DeliveryPolicy'));
 
+// 404 Catch-All Fallback Page
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
+
 import './styles/main.scss'; // Assuming main.scss handles the global variables and layout classes
 
 function App() {
@@ -81,6 +84,9 @@ function App() {
                 <Route path="/refund-policy" element={<RefundPolicy />} />
                 <Route path="/delivery-policy" element={<DeliveryPolicy />} />
                 <Route path="/shipping-policy" element={<DeliveryPolicy />} />
+
+                {/* 404 Catch-All Fallback Route */}
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
           </AnimatePresence>
