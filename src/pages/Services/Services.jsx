@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageLayout from '../../components/layout/PageLayout';
 import SectionTitle from '../../components/ui/SectionTitle';
@@ -8,6 +8,11 @@ import './Services.scss';
 
 const Services = () => {
   const navigate = useNavigate();
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
 
   const handleSelectService = (subjectValue) => {
     navigate('/contact', {
@@ -154,43 +159,87 @@ const Services = () => {
     }
   ];
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Full-Stack Web Systems & AI Business Solutions",
-    "provider": {
-      "@type": "Person",
-      "name": "Disan Alam",
-      "url": "https://www.disanalam.me"
+  const faqItems = [
+    {
+      q: "Who is Disan Alam and what web engineering & AI services does he provide?",
+      a: "Disan Alam is a Full-Stack Systems Architect, AI Business Solutions Consultant, and 2nd-year B.Tech CSE (Cyber Security) undergraduate at Haldia Institute of Technology based in Ranchi, Jharkhand. He specializes in bespoke web application engineering (React, Next.js, Node.js), Agentic AI workflows, custom RAG integrations, and AWS cloud deployments for businesses globally."
     },
-    "description": "Custom web application engineering, autonomous Agentic AI workflows, custom RAG knowledge bases, and cloud architecture across 3 transparent engagement models.",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Web Engineering & AI Solutions Packages",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "Option A: One-Time Handover (Full Ownership)",
-          "price": "30000.00",
-          "priceCurrency": "INR",
-          "description": "Full-stack development, AWS deployment, payment gateway integration, 100% source code ownership, and 15 days free bug support."
-        },
-        {
-          "@type": "Offer",
-          "name": "Option B: Standard Maintenance (Tech Partner)",
-          "price": "25000.00",
-          "priceCurrency": "INR",
-          "description": "Full-stack development + ₹2,500/month continuous codebase maintenance, server health monitoring, and security patching."
-        },
-        {
-          "@type": "Offer",
-          "name": "Option C: Fully Managed & Hosted (Zero-Headache)",
-          "price": "20000.00",
-          "priceCurrency": "INR",
-          "description": "Turnkey web solution including custom development, 24/7 AWS EC2 cloud hosting, managed database, automated backups, and priority support for ₹5,000/month."
-        }
-      ]
+    {
+      q: "Who owns the source code and intellectual property (IP)?",
+      a: "In all three engagement models (Option A, Option B, and Option C), 100% of the source code, repository, and intellectual property belongs strictly to the client. Full root credentials and codebases are handed over upon milestone completion—we never hold IP hostage."
+    },
+    {
+      q: "What is the starting price for freelance web development and systems architecture?",
+      a: "Transparent packages start at ₹30,000 for Option A (One-Time Full Ownership build), ₹25,000 (+ ₹2,500/month) for Option B (Tech Partner continuous maintenance), and ₹20,000 (+ ₹5,000/month) for Option C (Fully Managed & Hosted turnkey application with zero AWS cloud bills)."
+    },
+    {
+      q: "What does the 'Zero-Headache' Managed Hosting model (Option C) include?",
+      a: "Option C includes full custom development, 24/7 AWS EC2 cloud hosting bills covered with zero markup, daily automated database backups with point-in-time recovery, automated zero-downtime SSL renewals, domain routing, and priority developer SLA support for an all-inclusive ₹5,000/month retainer."
+    },
+    {
+      q: "Can I hire Disan Alam for local IT consulting and web development in Ranchi, Jharkhand?",
+      a: "Yes. Disan Alam operates from Azad Basti, Ranchi, Jharkhand (834001) for local business discovery, IT consulting, and in-person architecture sessions, while actively serving clients across India and internationally."
+    },
+    {
+      q: "How does the milestone-based payment and development process work?",
+      a: "Projects operate under legally binding electronic contracts (Section 10A IT Act 2000). Work is broken into agreed deliverables and milestone payments processed securely via RBI-authorized aggregators (Razorpay, Cashfree, UPI, Bank Transfer). You only approve payments upon verifying completed deliverables."
     }
+  ];
+
+  const servicePageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.disanalam.me/services#service",
+        "name": "Full-Stack Web Systems & AI Business Solutions",
+        "provider": {
+          "@type": "Person",
+          "name": "Disan Alam",
+          "url": "https://www.disanalam.me"
+        },
+        "description": "Custom web application engineering, autonomous Agentic AI workflows, custom RAG knowledge bases, and cloud architecture across 3 transparent engagement models.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Web Engineering & AI Solutions Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Option A: One-Time Handover (Full Ownership)",
+              "price": "30000.00",
+              "priceCurrency": "INR",
+              "description": "Full-stack development, AWS deployment, payment gateway integration, 100% source code ownership, and 15 days free bug support."
+            },
+            {
+              "@type": "Offer",
+              "name": "Option B: Standard Maintenance (Tech Partner)",
+              "price": "25000.00",
+              "priceCurrency": "INR",
+              "description": "Full-stack development + ₹2,500/month continuous codebase maintenance, server health monitoring, and security patching."
+            },
+            {
+              "@type": "Offer",
+              "name": "Option C: Fully Managed & Hosted (Zero-Headache)",
+              "price": "20000.00",
+              "priceCurrency": "INR",
+              "description": "Turnkey web solution including custom development, 24/7 AWS EC2 cloud hosting, managed database, automated backups, and priority support for ₹5,000/month."
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.disanalam.me/services#faq",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.a
+          }
+        }))
+      }
+    ]
   };
 
   return (
@@ -200,7 +249,7 @@ const Services = () => {
         description="Explore Full-Stack Web Systems, Agentic AI, Custom RAG, and Managed Retainer packages by Disan Alam. Transparent milestone pricing starting from ₹20,000 to ₹30,000 with 100% client source code ownership."
         url="https://www.disanalam.me/services"
         keywords="Disan Alam Services, Full Stack Systems Architect, AI Business Solutions, Agentic AI, Custom RAG, Web Development Pricing, One-Time Handover ₹30000, Tech Partner ₹25000, Fully Managed Retainer ₹20000, React Developer, Node.js, AWS Cloud, Ranchi, India"
-        schema={serviceSchema}
+        schema={servicePageSchema}
       />
 
       {/* Page Header */}
@@ -395,6 +444,50 @@ const Services = () => {
             <h4>Ranchi Jurisdiction</h4>
             <p>Official operational desk at Azad Basti, Ranchi, Jharkhand — 834001 under Indian commercial contract laws.</p>
           </div>
+        </div>
+      </div>
+
+      {/* Direct RAG & Human FAQ Accordion Section */}
+      <div className="services-faq-section">
+        <div className="faq-header">
+          <div className="faq-badge">FREQUENTLY ASKED QUESTIONS</div>
+          <h3 className="faq-title">Frequently Asked Questions</h3>
+          <p className="faq-subtitle">
+            Direct, transparent answers regarding engagement models, source code ownership, cloud infrastructure, and project workflows.
+          </p>
+        </div>
+
+        <div className="faq-accordion-list">
+          {faqItems.map((faq, index) => {
+            const isOpen = openFaqIndex === index;
+            return (
+              <div 
+                key={index} 
+                className={`faq-item ${isOpen ? 'open' : ''}`}
+              >
+                <button 
+                  type="button" 
+                  className="faq-question-btn"
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <span className="faq-question-text">{faq.q}</span>
+                  <span className="faq-toggle-icon" aria-hidden="true">
+                    {isOpen ? '−' : '+'}
+                  </span>
+                </button>
+                {isOpen && (
+                  <div 
+                    id={`faq-answer-${index}`} 
+                    className="faq-answer-wrap"
+                  >
+                    <p className="faq-answer-text">{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 

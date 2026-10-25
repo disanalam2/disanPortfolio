@@ -588,6 +588,134 @@
     }
   }
 
+  // Direct RAG & Human FAQ Section
+  .services-faq-section {
+    margin-bottom: 3.5rem;
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 2.25rem;
+
+      .faq-badge {
+        display: inline-block;
+        font-family: var(--font-mono, monospace);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-color, #0E7C66);
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(20, 143, 119, 0.20);
+        padding: 0.35rem 0.85rem;
+        border-radius: var(--radius-sm, 4px);
+        margin-bottom: 0.75rem;
+      }
+
+      .faq-title {
+        font-family: var(--font-heading);
+        font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+        font-weight: 800;
+        color: var(--text-primary, #14181B);
+        margin: 0 0 0.5rem 0;
+        letter-spacing: -0.015em;
+      }
+
+      .faq-subtitle {
+        font-size: 0.94rem;
+        color: var(--text-secondary, #4A5568);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.55;
+      }
+    }
+
+    .faq-accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 920px;
+      margin: 0 auto;
+
+      .faq-item {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(20, 143, 119, 0.16);
+        border-radius: var(--radius-md, 8px);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        overflow: hidden;
+
+        &:hover {
+          border-color: rgba(20, 143, 119, 0.35);
+          background: rgba(255, 255, 255, 0.90);
+        }
+
+        &.open {
+          border-color: var(--accent-color, #0E7C66);
+          background: #FFFFFF;
+          box-shadow: 0 4px 18px rgba(16, 185, 129, 0.10);
+
+          .faq-toggle-icon {
+            color: var(--accent-secondary, #10B981);
+            transform: rotate(180deg);
+          }
+        }
+
+        .faq-question-btn {
+          width: 100%;
+          min-height: 52px;
+          padding: 1.1rem 1.4rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+          text-align: left;
+          font-family: var(--font-heading);
+          font-size: 1.02rem;
+          font-weight: 700;
+          color: var(--text-primary, #14181B);
+          transition: color 0.15s ease;
+
+          &:hover {
+            color: var(--accent-color, #0E7C66);
+          }
+
+          .faq-question-text {
+            flex: 1;
+            line-height: 1.45;
+          }
+
+          .faq-toggle-icon {
+            font-family: var(--font-mono, monospace);
+            font-size: 1.4rem;
+            line-height: 1;
+            font-weight: 700;
+            color: var(--accent-color, #0E7C66);
+            flex-shrink: 0;
+            transition: transform 0.2s ease, color 0.2s ease;
+          }
+        }
+
+        .faq-answer-wrap {
+          padding: 0 1.4rem 1.25rem 1.4rem;
+          animation: fadeUp 0.2s ease;
+
+          .faq-answer-text {
+            margin: 0;
+            font-size: 0.92rem;
+            color: var(--text-secondary, #4A5568);
+            line-height: 1.65;
+            border-top: 1px dashed rgba(20, 143, 119, 0.14);
+            padding-top: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+
   // Bottom Discovery Consultation Callout
   .services-bottom-cta {
     display: flex;
