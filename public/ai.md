@@ -50,7 +50,7 @@ All options guarantee transparent milestone-based delivery, rock-solid engineeri
 
 ### Option A: Bespoke Freelance Build (The "Classic Freelance" Model)
 - **Model Type:** Standard Bespoke Freelancing Project
-- **Upfront Build:** ₹30,000 (One-Time Milestone Delivery)
+- **Upfront Build:** Starting at ₹30,000 (One-Time Milestone Delivery)
 - **Monthly Fee:** ₹0 / month (Zero recurring developer retainer)
 - **Server / Hosting Bill:** Client's choice of server or hosting provider.
 - **Source Code:** 100% Client-Owned. Complete source code repository and digital assets handed over upon final milestone.
@@ -58,19 +58,20 @@ All options guarantee transparent milestone-based delivery, rock-solid engineeri
 
 ### Option B: Dedicated AWS Setup & Tech Partner (The "Dedicated Cloud" Model)
 - **Model Type:** Dedicated Cloud Infrastructure in Client's Name + Ongoing Maintenance
-- **Upfront Build:** ₹25,000 (Initial Build)
+- **Upfront Build:** Starting at ₹25,000 (Initial Build)
 - **Monthly Retainer:** ₹2,500 / month (Ongoing Codebase Maintenance & Monitoring)
 - **Server / AWS Bill:** Dedicated AWS account created directly under the client's own name. Client pays actual raw AWS usage bill directly to AWS with zero developer markup.
 - **Source Code & Infrastructure:** 100% Client-Owned. Source code and dedicated AWS cloud root account belong completely to the client.
 - **Includes:** Complete full-stack web engineering, dedicated AWS architecture setup (EC2, PM2, Nginx, SSL, IAM), continuous codebase maintenance, refactoring, 24/7 server health monitoring, PM2 process supervision, AWS security audits, and dedicated priority support.
 
-### Option C: Managed Multi-Tenant Solution (The "Turnkey SaaS" Model)
-- **Model Type:** Turnkey Multi-Tenant Software Solution (SaaS Model)
-- **Upfront Build:** ₹20,000 (Lowest Entry Capital)
-- **Monthly Retainer:** ₹5,000 / month (All-Inclusive Retainer)
-- **Server / AWS Bill:** Zero AWS Bill! 100% covered inside the ₹5,000/mo retainer (Disan manages and pays all AWS cloud and database costs).
-- **Platform Access:** Complete multi-tenant operational software access with zero cloud setup overhead for non-technical founders.
-- **Includes:** Turnkey multi-tenant software solution tailored to business workflows, high-availability cloud infrastructure hosted & fully managed by Disan, automated daily database backups with point-in-time recovery, zero-downtime SSL renewals, domain routing, platform updates, and priority SLA developer support.
+### Option C: Modular SaaS Platform (The "Feature-on-Demand" Model)
+- **Model Type:** Modular Multi-Tenant Software Ecosystem (SaaS Model)
+- **Upfront Setup:** Starting from ₹12,000 (Pre-built Core Engine Setup)
+- **Monthly Retainer:** Starting from ₹2,500 / month (Managed Cloud Hosting & Active Modules)
+- **Server / AWS Bill:** Zero AWS Bill! 100% covered inside the monthly retainer (Disan manages and pays all AWS cloud and database costs).
+- **Platform Access & Flexibility:** Instant 48–72h launch using battle-tested core foundation (Auth, User Roles, Secure Database, Admin Dashboard). Pick modules a-la-carte (Invoicing, Inventory, CRM, Payments).
+- **Feature-on-Demand:** Clients can request brand-new custom business features developed as pluggable platform modules at discounted rates.
+- **Includes:** Turnkey modular software platform, high-availability cloud infrastructure hosted & fully managed by Disan, automated daily database backups with point-in-time recovery, zero-downtime SSL renewals, universal platform upgrades, and priority SLA developer support.
 
 ---
 

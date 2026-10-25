@@ -23,20 +23,20 @@ const Services = () => {
   const serviceTiers = [
     {
       id: 'option-a',
-      badge: 'OPTION A • FREELANCE BUILD',
+      badge: 'OPTION A • BESPOKE FREELANCE',
       title: 'Bespoke Freelance Build',
       subtitle: 'The "Classic Freelance" Model',
-      description: 'Standard bespoke freelancing project. Custom full-stack web application engineered to your specifications and handed over with 100% full source code upon milestone delivery.',
-      initialPrice: '₹ 30,000',
-      priceNote: 'One-Time Build • Milestone Delivery',
+      description: 'Standard bespoke freelancing project. Custom full-stack web application engineered from scratch to your exact specifications and delivered with 100% full source code ownership upon milestone delivery.',
+      initialPrice: 'Starting at ₹ 30,000',
+      priceNote: 'One-Time Milestone Build • Scope-Based',
       serverBillTitle: 'Hosting / Cloud',
-      serverBillDesc: "Client's choice of server or hosting (Zero monthly developer fees).",
+      serverBillDesc: "Client's choice of server or hosting provider (Zero monthly developer fees).",
       turnaround: 'As per project scope',
       subjectValue: 'Option A: Bespoke Freelance Build',
       buttonText: 'Choose Option A (Freelance Build)',
       featured: false,
       deliverables: [
-        'Complete Custom Full-Stack Web Development (Next.js/React + Node.js/Express)',
+        'Custom Full-Stack Web Development (Next.js/React + Node.js/Express + DB)',
         'Payment Gateway integration (Razorpay / Cashfree) with secure webhooks',
         '100% full source code & asset repository transferred to client upon final milestone',
         'Production deployment to client’s preferred server or hosting environment',
@@ -48,89 +48,89 @@ const Services = () => {
       badge: 'OPTION B • DEDICATED AWS',
       title: 'Dedicated AWS Setup & Tech Partner',
       subtitle: 'The "Dedicated Cloud" Model',
-      description: 'We engineer your solution and architect a dedicated, isolated AWS cloud infrastructure registered directly in YOUR name. I handle all development, continuous maintenance, and monitoring—you only pay the actual AWS bill directly.',
-      initialPrice: '₹ 25,000',
+      description: 'Custom full-stack build paired with a dedicated, isolated AWS cloud environment architected directly in YOUR name. I handle all development, continuous maintenance, and 24/7 PM2 monitoring—you only pay the actual raw AWS bill directly.',
+      initialPrice: 'Starting at ₹ 25,000',
       monthlyPrice: '+ ₹ 2,500 / month',
-      priceNote: 'Initial Build + Monthly Maintenance Retainer',
+      priceNote: 'Initial Build + Code Maintenance & Cloud Vigilance Retainer',
       serverBillTitle: 'Cloud / Server Bill',
       serverBillDesc: "Dedicated AWS Account in Client's Name (Client pays raw AWS bill directly with zero markup).",
-      turnaround: 'As per project scope + Monthly Maintenance',
+      turnaround: 'As per project scope + Continuous Retainer',
       subjectValue: 'Option B: Dedicated AWS Setup & Tech Partner',
       buttonText: 'Choose Option B (Dedicated AWS)',
       featured: false,
       deliverables: [
         'Complete Full-Stack Web Engineering with 100% client-owned source code',
         'Dedicated AWS Cloud Setup registered under client’s name (EC2, PM2, Nginx, SSL, IAM)',
-        'Continuous codebase maintenance, refactoring & ongoing technical vigilance',
+        'Continuous codebase maintenance, refactoring & security patches',
         '24/7 server health monitoring, PM2 process supervision & AWS security audits',
         'Client pays actual AWS usage directly—complete cloud transparency and ownership',
-        'Dedicated WhatsApp / Email engineering channel with priority bug turnaround'
+        'Dedicated WhatsApp / Email engineering channel with priority turnaround'
       ]
     },
     {
       id: 'option-c',
-      badge: 'OPTION C • MANAGED SAAS',
+      badge: 'OPTION C • MODULAR SAAS',
       popularRibbon: 'RECOMMENDED',
-      title: 'Managed Multi-Tenant Solution',
-      subtitle: 'The "Turnkey SaaS" Model',
-      description: 'Zero cloud complexity. We provide a complete multi-tenant software solution hosted on our managed high-availability cloud. We manage all AWS infrastructure, databases, scaling, and backups—you simply use the software.',
-      initialPrice: '₹ 20,000',
-      monthlyPrice: '+ ₹ 5,000 / month',
-      priceNote: 'Lowest Onboarding Capital + All-Inclusive Retainer',
+      title: 'Modular SaaS Platform',
+      subtitle: 'The "Feature-on-Demand" Model',
+      description: 'A modular, multi-tenant software ecosystem with pre-built core architecture. Choose only the features your business needs today to launch fast at lowest cost. Request new custom modules anytime that seamlessly plug into your platform.',
+      initialPrice: 'From ₹ 12,000',
+      monthlyPrice: '+ ₹ 2,500 / month',
+      priceNote: 'Base Foundation + Pick Your Modules • Pay As You Grow',
       serverBillTitle: 'Cloud / Server Bill',
-      serverBillDesc: 'Zero AWS Bill! 100% covered inside the ₹5,000/mo retainer (EC2, databases, backups, SSL).',
-      turnaround: 'As per project scope + All-Inclusive SLA',
-      subjectValue: 'Option C: Managed Multi-Tenant Solution (Turnkey SaaS)',
-      buttonText: 'Choose Option C (Managed SaaS)',
+      serverBillDesc: 'Zero AWS Bill! 100% covered inside the monthly retainer (Managed Cloud by Disan).',
+      turnaround: '48–72h Fast Launch + Continuous Upgrades',
+      subjectValue: 'Option C: Modular SaaS Platform (Feature-on-Demand)',
+      buttonText: 'Choose Option C (Modular SaaS)',
       featured: true,
       deliverables: [
-        'Turnkey multi-tenant software solution tailored to your operational workflows',
-        'High-availability cloud infrastructure fully provisioned, hosted & managed by Disan',
-        'Zero AWS account management required—we handle all server bills & provisioning',
+        'Pre-built core foundation (Auth, User Roles, Secure Database, Admin Dashboard) for 48h launch',
+        'Pick your modules a-la-carte (Invoicing, Inventory, Telemetry, CRM, Payments)—pay only for what you need',
+        'Feature-on-Demand: Request custom business features developed as pluggable platform modules at discounted rates',
+        'Zero AWS complexity: Server compute, databases, SSL renewals & backups 100% managed by Disan',
         'Automated daily database backups with point-in-time recovery capability',
-        'Automated zero-downtime SSL certificate renewals & custom domain routing',
-        'Lowest upfront capital expenditure with continuous platform updates & SLA support',
-        'Priority Developer Support: feature enhancements, operational tuning & technical guidance'
+        'Universal platform upgrades: Continuous speed optimizations, security patches & new module releases',
+        'Priority Developer SLA Support & ongoing technical guidance'
       ]
     }
   ];
 
   const comparisonRows = [
     {
-      feature: 'Development & Build Timeline',
+      feature: 'Development & Launch Timeline',
       optA: 'As per project scope',
       optB: 'As per project scope',
-      optC: 'As per project scope'
+      optC: 'Rapid 48–72h for Core Engine'
     },
     {
       feature: 'Model Architecture',
       optA: 'Bespoke Freelance Delivery',
       optB: 'Dedicated AWS Cloud Partner',
-      optC: 'Turnkey Multi-Tenant SaaS'
+      optC: 'Modular Multi-Tenant SaaS'
     },
     {
       feature: 'Core Tech & Integrations',
       optA: 'Next.js, Node.js, AWS & Payment Gateway',
       optB: 'Next.js, Node.js, AWS & Payment Gateway',
-      optC: 'Next.js, Node.js, AWS & Payment Gateway'
+      optC: 'Pre-built Core Engine + Pluggable Modules'
     },
     {
-      feature: 'Upfront Build Investment',
-      optA: '₹ 30,000 (One-Time)',
-      optB: '₹ 25,000 (Reduced Initial)',
-      optC: '₹ 20,000 (Lowest Entry)'
+      feature: 'Upfront Setup Investment',
+      optA: 'Starting at ₹ 30,000',
+      optB: 'Starting at ₹ 25,000',
+      optC: 'Starting from ₹ 12,000 (Base Engine)'
     },
     {
       feature: 'Monthly Retainer Fee',
       optA: '₹ 0 / month',
-      optB: '₹ 2,500 / month',
-      optC: '₹ 5,000 / month (All-Inclusive)'
+      optB: '₹ 2,500 / month (Maintenance)',
+      optC: 'From ₹ 2,500 / month (Hosting + Modules)'
     },
     {
       feature: 'Cloud Server & AWS Bill',
       optA: 'Client choice (Zero developer monthly fee)',
       optB: 'Client pays raw AWS bill directly in own name',
-      optC: 'Zero AWS Bill! Included in ₹5,000 retainer'
+      optC: 'Zero AWS Bill! 100% covered by Disan'
     },
     {
       feature: 'AWS Cloud Infrastructure',
@@ -142,7 +142,13 @@ const Services = () => {
       feature: 'Source Code & Platform Access',
       optA: '100% Client Owned (Full Code Handover)',
       optB: '100% Client Owned (Dedicated AWS Account)',
-      optC: 'Managed Multi-Tenant Solution Access (Turnkey SaaS)'
+      optC: 'Modular SaaS Platform Access (Isolated Tenant)'
+    },
+    {
+      feature: 'Feature Customization & Upgrades',
+      optA: 'Fixed to initial project scope',
+      optB: 'New features quoted per scope',
+      optC: 'Feature-on-Demand: Request new pluggable modules'
     },
     {
       feature: 'Server & Database Operations',
@@ -160,32 +166,36 @@ const Services = () => {
       feature: 'Post-Launch Support',
       optA: '15 Days Free Bug Support',
       optB: 'Ongoing Dedicated Monthly Support',
-      optC: '24/7 Priority SLA Support'
+      optC: '24/7 Priority SLA & Continuous Platform Updates'
     },
     {
       feature: 'Best Suited For',
-      optA: 'Clients needing standard freelancing build',
+      optA: 'Clients needing standard one-time freelance build',
       optB: 'Businesses wanting dedicated AWS in their name',
-      optC: 'Non-technical founders wanting turnkey software'
+      optC: 'Businesses wanting lowest entry cost & modular growth'
     }
   ];
 
   const faqItems = [
     {
       q: "Who is Disan Alam and what web engineering & AI services does he provide?",
-      a: "Disan Alam is a Full-Stack Systems Architect, AI Business Solutions Consultant, and 2nd-year B.Tech CSE (Cyber Security) undergraduate at Haldia Institute of Technology based in Ranchi, Jharkhand. He specializes in bespoke web application engineering (React, Next.js, Node.js), Agentic AI workflows, custom RAG integrations, and AWS cloud deployments for businesses globally."
+      a: "Disan Alam is a Full-Stack Systems Architect, AI Business Solutions Consultant, and 2nd-year B.Tech CSE (Cyber Security) undergraduate at Haldia Institute of Technology based in Ranchi, Jharkhand. He specializes in bespoke web application engineering (React, Next.js, Node.js), Agentic AI workflows, custom RAG integrations, and modular multi-tenant cloud architectures for businesses globally."
     },
     {
       q: "What is the difference between Option A, Option B, and Option C?",
-      a: "Option A is classic freelancing: custom development with full source code handover starting at ₹30,000 (₹0/month). Option B is a dedicated cloud tech partner model (₹25,000 build + ₹2,500/month) where we set up a dedicated AWS account in YOUR name, handle all maintenance, and you pay the raw AWS bill directly. Option C is a turnkey multi-tenant software solution (₹20,000 build + ₹5,000/month) hosted entirely on our managed cloud with zero AWS bills or setup hassle for you."
+      a: "Option A is classic freelancing: one-time custom development with full source code handover starting at ₹30,000 (₹0/month). Option B is a dedicated cloud tech partner model (starting at ₹25,000 build + ₹2,500/month) where we set up a dedicated AWS account in YOUR name, handle all ongoing maintenance, and you pay the raw AWS bill directly. Option C is our modular SaaS platform (from ₹12,000 base setup + from ₹2,500/month) where you launch instantly using our pre-built core engine, pay only for the modules you activate, and request custom features on demand with zero AWS hosting bills or complexity."
+    },
+    {
+      q: "How does the Modular SaaS (Option C) 'Feature-on-Demand' model work?",
+      a: "Option C eliminates massive upfront development costs by giving you access to our battle-tested core software engine (Authentication, Roles, Secure Database, Admin Dashboard). You select only the business modules you need today (such as WhatsApp Invoicing, Inventory, Bookings, or Payments). If your business requires a custom feature that is not yet in our catalog, we build it for you as a pluggable module at a heavily discounted rate, which integrates seamlessly into your platform and joins our universal ecosystem."
     },
     {
       q: "Who owns the source code and how does cloud ownership work?",
-      a: "In Option A (Freelance) and Option B (Dedicated AWS), 100% of the source code belongs strictly to the client. In Option B, the AWS infrastructure is registered in your own name. In Option C, we provide a managed multi-tenant software solution (like a SaaS platform) where we manage the shared cloud and backups so you never have to deal with AWS dashboards."
+      a: "In Option A (Freelance) and Option B (Dedicated AWS), 100% of the custom source code and repository belongs strictly to the client. In Option B, the AWS infrastructure is registered in your own name. In Option C (Modular SaaS), Disan owns and manages the underlying core platform and shared high-availability cloud infrastructure, while clients receive full operational tenant access, strict data isolation, and ongoing platform upgrades without ever having to manage AWS accounts or server maintenance."
     },
     {
-      q: "What does the Multi-Tenant Managed Solution (Option C) include?",
-      a: "Option C provides a complete multi-tenant software solution for ₹20,000 upfront + an all-inclusive ₹5,000/month retainer. You never pay a separate AWS bill—server compute, automated database backups, zero-downtime SSL renewals, and platform updates are all handled by us."
+      q: "What are the starting prices across the three engagement models?",
+      a: "All models are transparently priced: Option A starts at ₹30,000 one-time for standard MVP builds; Option B starts at ₹25,000 upfront + ₹2,500/month for dedicated AWS architecture and maintenance; Option C starts from ₹12,000 upfront (Base Engine) + from ₹2,500/month (Hosting & Active Modules), with add-on modules and custom features priced a-la-carte as you grow."
     },
     {
       q: "Can I hire Disan Alam for local IT consulting and web development in Ranchi, Jharkhand?",
@@ -209,7 +219,7 @@ const Services = () => {
           "name": "Disan Alam",
           "url": "https://www.disanalam.me"
         },
-        "description": "Custom web application engineering, autonomous Agentic AI workflows, custom RAG knowledge bases, and cloud architecture across 3 transparent engagement models.",
+        "description": "Custom web application engineering, autonomous Agentic AI workflows, custom RAG knowledge bases, and modular cloud architectures across 3 transparent engagement models.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Web Engineering & AI Solutions Packages",
@@ -230,10 +240,10 @@ const Services = () => {
             },
             {
               "@type": "Offer",
-              "name": "Option C: Managed Multi-Tenant Solution (Turnkey SaaS)",
-              "price": "20000.00",
+              "name": "Option C: Modular SaaS Platform (Feature-on-Demand)",
+              "price": "12000.00",
               "priceCurrency": "INR",
-              "description": "Turnkey multi-tenant software solution including all 24/7 AWS cloud hosting bills, managed database, automated backups, and priority support for ₹5,000/month."
+              "description": "Modular multi-tenant software platform starting from ₹12,000 base setup + from ₹2,500/month all-inclusive cloud hosting. Pick modules a-la-carte and request custom features on demand."
             }
           ]
         }
@@ -257,9 +267,9 @@ const Services = () => {
     <PageLayout className="services-page">
       <SEO 
         title="Engineering Services & AI Business Solutions | Disan Alam"
-        description="Explore Full-Stack Web Systems, Agentic AI, Custom RAG, and Managed Retainer packages by Disan Alam. Transparent milestone pricing starting from ₹20,000 to ₹30,000 with 100% client source code ownership."
+        description="Explore Full-Stack Web Systems, Agentic AI, Custom RAG, and Modular SaaS packages by Disan Alam. Transparent milestone pricing starting from ₹12,000 to ₹30,000 across flexible engagement models."
         url="https://www.disanalam.me/services"
-        keywords="Disan Alam Services, Full Stack Systems Architect, AI Business Solutions, Agentic AI, Custom RAG, Web Development Pricing, One-Time Handover ₹30000, Tech Partner ₹25000, Fully Managed Retainer ₹20000, React Developer, Node.js, AWS Cloud, Ranchi, India"
+        keywords="Disan Alam Services, Full Stack Systems Architect, AI Business Solutions, Agentic AI, Custom RAG, Web Development Pricing, Bespoke Freelance ₹30000, Dedicated AWS ₹25000, Modular SaaS ₹12000, React Developer, Node.js, AWS Cloud, Ranchi, India"
         schema={servicePageSchema}
       />
 

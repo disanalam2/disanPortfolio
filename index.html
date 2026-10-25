@@ -103,9 +103,9 @@
       <section>
         <h2>Transparent Engagement Models & Pricing (INR)</h2>
         <ul>
-          <li><strong>Option A: Bespoke Freelance Build (Classic Freelancing) — ₹30,000</strong>: Standard freelancing project, full-stack build, payment gateway integration, deployment to client's choice of server/hosting, 100% source code ownership handover, and 15 days free bug support.</li>
-          <li><strong>Option B: Dedicated AWS Setup & Tech Partner (Dedicated Cloud) — ₹25,000 + ₹2,500/month</strong>: Full-stack build paired with a dedicated AWS cloud environment architected in client's own name. Continuous codebase maintenance, server health monitoring, security patches, and routine backups. Client pays actual AWS bill directly with zero markup.</li>
-          <li><strong>Option C: Managed Multi-Tenant Solution (Turnkey SaaS) — ₹20,000 + ₹5,000/month</strong>: Complete multi-tenant software solution hosted on our managed high-availability cloud. All AWS hosting, database costs, automated backups, SSL renewals, and priority support included in the monthly retainer (zero AWS bills for client).</li>
+          <li><strong>Option A: Bespoke Freelance Build (Classic Freelancing) — Starting at ₹30,000</strong>: Standard freelancing project, full-stack build, payment gateway integration, deployment to client's choice of server/hosting, 100% source code ownership handover, and 15 days free bug support.</li>
+          <li><strong>Option B: Dedicated AWS Setup & Tech Partner (Dedicated Cloud) — Starting at ₹25,000 + ₹2,500/month</strong>: Full-stack build paired with a dedicated AWS cloud environment architected in client's own name. Continuous codebase maintenance, server health monitoring, security patches, and routine backups. Client pays actual AWS bill directly with zero markup.</li>
+          <li><strong>Option C: Modular SaaS Platform (Feature-on-Demand) — From ₹12,000 + From ₹2,500/month</strong>: Modular multi-tenant software ecosystem with pre-built core foundation (Auth, DB, Dashboard). Launch in 48–72h, pick modules a-la-carte, and request custom features on demand. Fully managed cloud with zero AWS complexity or bills for client.</li>
         </ul>
       </section>
       <section>
@@ -296,28 +296,28 @@
             {
               "@type": "Offer",
               "@id": "https://www.disanalam.me/services#option-c",
-              "name": "Option C: Managed Multi-Tenant Solution (Turnkey SaaS)",
-              "price": "20000.00",
+              "name": "Option C: Modular SaaS Platform (Feature-on-Demand)",
+              "price": "12000.00",
               "priceCurrency": "INR",
-              "description": "₹20,000 initial build + ₹5,000/month all-inclusive retainer. Turnkey multi-tenant software solution hosted on our managed high-availability cloud. All AWS hosting, database costs, automated backups, and SSL renewals covered with zero AWS account setup or bills for client.",
+              "description": "Starting from ₹12,000 base foundation setup + from ₹2,500/month all-inclusive cloud retainer. Modular multi-tenant software platform with pre-built core engine. Pick modules a-la-carte and request custom features on demand with zero AWS bills.",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Option C: Managed Multi-Tenant Solution (Turnkey SaaS Model)",
-                "serviceType": "Managed Multi-Tenant Software Solution & Cloud Operations"
+                "name": "Option C: Modular SaaS Platform (Feature-on-Demand Model)",
+                "serviceType": "Modular Multi-Tenant Software Platform & Managed Cloud"
               },
               "priceSpecification": [
                 {
                   "@type": "UnitPriceSpecification",
-                  "price": "20000.00",
+                  "price": "12000.00",
                   "priceCurrency": "INR",
-                  "name": "Initial Build & Tenant Onboarding"
+                  "name": "Base Core Foundation Setup"
                 },
                 {
                   "@type": "UnitPriceSpecification",
-                  "price": "5000.00",
+                  "price": "2500.00",
                   "priceCurrency": "INR",
                   "unitText": "MONTH",
-                  "name": "All-Inclusive Retainer (Includes AWS Cloud Hosting & Backups)"
+                  "name": "Base Managed Cloud Retainer & Active Modules"
                 }
               ]
             }
@@ -456,7 +456,7 @@
             "name": "What engineering and business solutions does Disan Alam offer?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Disan Alam provides holistic business transformation: deep operational discovery, custom full-stack web applications (React, Next.js, Node.js), Agentic AI & RAG automation, AWS cloud architecture, and 3 structured engagement models: Option A (Bespoke Freelance Build), Option B (Dedicated AWS Setup & Tech Partner), and Option C (Managed Multi-Tenant Solution)."
+              "text": "Disan Alam provides holistic business transformation: deep operational discovery, custom full-stack web applications (React, Next.js, Node.js), Agentic AI & RAG automation, AWS cloud architecture, and 3 structured engagement models: Option A (Bespoke Freelance Build), Option B (Dedicated AWS Setup & Tech Partner), and Option C (Modular SaaS Platform)."
             }
           },
           {
@@ -464,7 +464,15 @@
             "name": "What are the starting prices for web development services?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Transparent packages start at ₹30,000 for Option A (Bespoke Freelance Build with 100% code handover), ₹25,000 (+ ₹2,500/mo) for Option B (Dedicated AWS Setup in client's name with client paying raw AWS bill), and ₹20,000 (+ ₹5,000/mo) for Option C (Turnkey Multi-Tenant Software Solution with zero AWS hosting bills)."
+              "text": "Transparent packages start at ₹30,000 for Option A (Bespoke Freelance Build with 100% code handover), ₹25,000 (+ ₹2,500/mo) for Option B (Dedicated AWS Setup in client's name with client paying raw AWS bill), and from ₹12,000 (+ from ₹2,500/mo) for Option C (Modular SaaS Platform with pre-built core engine and a-la-carte modules)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Modular SaaS (Option C) Feature-on-Demand model work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Option C gives you rapid 48-72h launch using our pre-built core foundation (Auth, User Roles, Secure Database, Admin Dashboard). You pay only for the modules you activate (Invoicing, Inventory, CRM, Payments). If you need custom features not in our catalog, we develop them as pluggable modules at discounted rates, with all cloud hosting and backups fully managed by Disan."
             }
           },
           {
@@ -472,7 +480,7 @@
             "name": "Who owns the source code and how does cloud ownership work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In Option A (Freelance) and Option B (Dedicated AWS), 100% of the source code belongs strictly to the client. In Option B, the AWS infrastructure is registered in your own name with you paying the AWS bill directly. In Option C, Disan provides a turnkey multi-tenant software solution hosted on Disan's managed cloud with zero AWS complexity for the client."
+              "text": "In Option A (Freelance) and Option B (Dedicated AWS), 100% of the custom source code belongs strictly to the client. In Option B, the AWS infrastructure is registered in your own name with you paying the AWS bill directly. In Option C, Disan manages the modular core platform and cloud infrastructure, while clients receive full operational tenant access with zero AWS maintenance overhead."
             }
           },
           {
