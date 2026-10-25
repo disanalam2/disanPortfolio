@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MediaCarousel = ({ media }) => {
+const MediaCarousel = ({ media, title = '' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -18,6 +18,10 @@ const MediaCarousel = ({ media }) => {
 
   const currentMedia = media[currentIndex];
 
+  const altText = title
+    ? `${title} - Software Engineering Architecture by Disan Alam (Slide ${currentIndex + 1})`
+    : `Software Engineering Project Showcase by Disan Alam (Slide ${currentIndex + 1})`;
+
   return (
     <div className="project-media-carousel">
       {currentMedia.type === 'video' ? (
@@ -32,7 +36,7 @@ const MediaCarousel = ({ media }) => {
       ) : (
         <img 
           src={currentMedia.url} 
-          alt="Project showcase screenshot" 
+          alt={altText} 
           loading="lazy"
           decoding="async"
           className="carousel-media image" 

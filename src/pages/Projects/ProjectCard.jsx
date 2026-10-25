@@ -14,7 +14,7 @@ const ProjectCard = ({ project, isEditingPage, onEdit, onDelete, onViewDetails }
         />
       )}
 
-      <MediaCarousel media={project.media} />
+      <MediaCarousel media={project.media} title={project.title} />
 
       <h3>{project.title}</h3>
       

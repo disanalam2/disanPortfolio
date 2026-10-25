@@ -200,7 +200,7 @@ const Projects = () => {
       <Modal isOpen={!!selectedProject} onClose={() => setSelectedProject(null)}>
         {selectedProject && (
           <div className="project-modal-details">
-            <MediaCarousel media={selectedProject.media} />
+            <MediaCarousel media={selectedProject.media} title={selectedProject.title} />
             
             <h2 className="modal-title">{selectedProject.title}</h2>
             

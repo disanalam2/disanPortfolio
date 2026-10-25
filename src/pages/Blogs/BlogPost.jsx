@@ -138,7 +138,7 @@ const BlogPost = () => {
               <span className="featured-badge">Featured Gear</span>
               <a href={blog.affiliate_link} target="_blank" rel="noopener noreferrer sponsored">
                 {blog.affiliate_image ? (
-                  <img src={blog.affiliate_image} alt="Featured Gear" />
+                  <img src={blog.affiliate_image} alt={`Recommended Developer Tool: ${blog.title}`} loading="lazy" decoding="async" />
                 ) : (
                   <div className="placeholder-icon">🛒</div>
                 )}
@@ -152,7 +152,7 @@ const BlogPost = () => {
           <header className="blog-hero">
             {blog.thumbnail && (
               <div className="blog-hero-image-wrapper">
-                <img src={blog.thumbnail} alt={blog.title} className="blog-hero-image" loading="lazy" decoding="async" />
+                <img src={blog.thumbnail} alt={`Technical Article: ${blog.title} by Disan Alam`} className="blog-hero-image" loading="lazy" decoding="async" />
               </div>
             )}
             <h1 className="blog-title">{blog.title}</h1>

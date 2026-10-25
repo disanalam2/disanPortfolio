@@ -45,7 +45,7 @@ const BlogCard = ({ blog, isEditingPage, onEdit, onDelete }) => {
 
       {blog.thumbnail && (
         <div className="project-media-carousel" style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
-          <img src={blog.thumbnail} alt={blog.title} loading="lazy" decoding="async" className="carousel-media image" style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+          <img src={blog.thumbnail} alt={`Technical Article: ${blog.title} by Disan Alam`} loading="lazy" decoding="async" className="carousel-media image" style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
         </div>
       )}
 

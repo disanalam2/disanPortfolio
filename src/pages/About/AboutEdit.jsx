@@ -7,7 +7,7 @@ const AboutEdit = ({ tempData, imagePreview, handleInputChange, handleImageChang
       <div className="about-details">
         <div className="edit-photo-wrapper">
           {imagePreview ? (
-            <img src={imagePreview} alt="Disan PIC" />
+            <img src={imagePreview} alt="Disan Alam Profile Picture Preview" width="170" height="170" style={{ borderRadius: '50%', objectFit: 'cover' }} />
           ) : (
             <div style={{width: 170, height: 170, borderRadius: '50%', background: '#333'}}></div>
           )}

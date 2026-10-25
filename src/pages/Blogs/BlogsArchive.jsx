@@ -173,7 +173,7 @@ const BlogsArchive = () => {
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
               {displayData.find(b => b.affiliate_link).affiliate_image && (
-                <img src={displayData.find(b => b.affiliate_link).affiliate_image} alt="Amazon Product" style={{ maxWidth: '150px', borderRadius: '8px' }} />
+                <img src={displayData.find(b => b.affiliate_link).affiliate_image} alt="Featured Developer Gear on Amazon" loading="lazy" decoding="async" style={{ maxWidth: '150px', borderRadius: '8px' }} />
               )}
               <a href={displayData.find(b => b.affiliate_link).affiliate_link} target="_blank" rel="noopener noreferrer sponsored nofollow" className="amz-btn">
                 Check on Amazon

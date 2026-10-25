@@ -63,7 +63,7 @@ const AboutView = ({ aboutData = {}, experienceData = [], projectsData = [], ski
           <div className="photo-inner-circle">
             <img 
               src={aboutData.photo || "/disan-alam.webp"} 
-              alt="Disan Alam - Full Stack Developer & Cybersecurity Student" 
+              alt="Disan Alam - Full-Stack Systems Architect & AI Business Solutions Consultant" 
               width="240"
               height="240"
               decoding="async" 

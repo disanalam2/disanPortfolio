@@ -75,7 +75,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="logo">
           <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
-            <img src={logoUrl || "/disan-alam.webp"} alt="Disan Alam Logo" decoding="async" width="40" height="40" style={{objectFit: 'cover', borderRadius: '50%'}} />
+            <img src={logoUrl || "/disan-alam.webp"} alt="Disan Alam - Full-Stack Systems Architect & AI Consultant" decoding="async" width="40" height="40" style={{objectFit: 'cover', borderRadius: '50%'}} />
             Disan Alam
           </NavLink>
         </div>

@@ -19,7 +19,7 @@ const CertificateCard = ({ certificate, isEditingPage, onEdit, onDelete }) => {
 
       {certificate.image && (
         <div style={{ width: '100%', height: '220px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.5rem', background: 'var(--shadow-color)', border: '1px solid var(--glass-bg)' }}>
-          <img src={certificate.image} alt={`Certificate: ${certificate.title}`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={certificate.image} alt={`Disan Alam Verified Credential: ${certificate.title} issued by ${certificate.issuer || 'Official Issuer'}`} loading="lazy" decoding="async" width="380" height="220" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       )}
 
