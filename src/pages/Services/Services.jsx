@@ -157,9 +157,9 @@ const Services = () => {
   return (
     <PageLayout className="services-page">
       <SEO 
-        title="Engineering Services & Transparent Pricing Models | Disan Alam"
-        description="Explore Full-Stack Web Development, Cloud Infrastructure, and Managed Retainer packages by Disan Alam. Transparent pricing in INR (₹) with milestone delivery."
-        url="https://disanalam.me/services"
+        title="Engineering Services & AI Business Solutions | Disan Alam"
+        description="Explore Full-Stack Web Systems, Agentic AI, Custom RAG, and Managed Retainer packages by Disan Alam. Transparent milestone pricing in INR (₹) with 100% client source code ownership."
+        url="https://www.disanalam.me/services"
       />
 
       {/* Page Header */}
@@ -173,6 +173,51 @@ const Services = () => {
           title="Engineering Services & Engagement Models"
           subtitle="Three tailored engagement structures designed to give you clarity, full pricing predictability, and enterprise-grade software delivery."
         />
+      </div>
+
+      {/* Strategic Discovery & AI Solutions Framework */}
+      <div className="services-framework-card">
+        <div className="framework-header">
+          <span className="framework-tag">HOLISTIC DIGITAL TRANSFORMATION</span>
+          <h3 className="framework-title">Beyond Simple Websites: End-to-End Business Solutions</h3>
+          <p className="framework-description">
+            I don&apos;t just assemble off-the-shelf website templates. I dive deep into your organization&apos;s daily operations, customer drop-off points, data silos, and technical bottlenecks to architect a bespoke, high-leverage digital solution.
+          </p>
+        </div>
+
+        <div className="framework-features-grid">
+          <div className="framework-feature-item">
+            <div className="feature-icon-badge" aria-hidden="true">🔍</div>
+            <div className="feature-text">
+              <h4 className="feature-title">Deep Business &amp; Industry Discovery</h4>
+              <p className="feature-desc">Meticulous analysis of your operational workflows and competitive landscape before engineering any code, ensuring maximum business impact.</p>
+            </div>
+          </div>
+
+          <div className="framework-feature-item">
+            <div className="feature-icon-badge" aria-hidden="true">🤖</div>
+            <div className="feature-text">
+              <h4 className="feature-title">Agentic AI &amp; Custom RAG Workflows</h4>
+              <p className="feature-desc">Autonomous multi-agent execution, intelligent operations, and custom RAG pipelines trained securely on your company&apos;s proprietary knowledge base.</p>
+            </div>
+          </div>
+
+          <div className="framework-feature-item">
+            <div className="feature-icon-badge" aria-hidden="true">☁️</div>
+            <div className="feature-text">
+              <h4 className="feature-title">Production Cloud &amp; Payment Systems</h4>
+              <p className="feature-desc">High-performance Next.js/React frontends, Node.js microservices, Razorpay/Cashfree payment flows, and resilient AWS EC2 deployments.</p>
+            </div>
+          </div>
+
+          <div className="framework-feature-item">
+            <div className="feature-icon-badge" aria-hidden="true">📱</div>
+            <div className="feature-text">
+              <h4 className="feature-title">Cross-Platform Mobile Expansion (Roadmap)</h4>
+              <p className="feature-desc">Modular API-first architectures built to seamlessly scale into native-feel iOS and Android mobile apps (React Native / Flutter) within 2–3 months.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* 3 Core Engagement Cards */}

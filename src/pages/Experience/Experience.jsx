@@ -85,7 +85,7 @@ const Experience = () => {
       <SEO 
         title="Experience | Disan Alam" 
         description="View Disan Alam's professional experience, work history, and roles as a Full-Stack Web Developer, building and maintaining production-grade applications." 
-        url="experience"
+        url="https://www.disanalam.me/experience"
       />
       <SectionTitle 
         title="My Experience" 

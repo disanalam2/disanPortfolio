@@ -63,6 +63,7 @@ function App() {
             <Suspense fallback={<Loader message="Loading Page..." />}>
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<AboutContainer />} />
+                <Route path="/about" element={<AboutContainer />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/skills" element={<Skills />} />

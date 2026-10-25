@@ -113,7 +113,7 @@ const Projects = () => {
     "itemListElement": displayData.map((proj, i) => ({
       "@type": "ListItem",
       "position": i + 1,
-      "url": proj.liveLink || "https://disanalam.me/projects",
+      "url": proj.liveLink || "https://www.disanalam.me/projects",
       "name": proj.title,
       "description": proj.description
     }))
@@ -124,7 +124,7 @@ const Projects = () => {
       <SEO 
         title="Projects | Disan Alam" 
         description="Check out Disan Alam's portfolio of real-world projects, including scalable web applications, enterprise platforms, modern UIs, and full-stack solutions." 
-        url="projects"
+        url="https://www.disanalam.me/projects"
         keywords={dynamicKeywords}
         schema={projectListSchema}
       />

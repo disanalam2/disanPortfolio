@@ -21,4 +21,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://disanalam.me/sitemap.xml
+Sitemap: https://www.disanalam.me/sitemap.xml

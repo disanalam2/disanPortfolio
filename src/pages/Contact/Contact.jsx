@@ -40,9 +40,9 @@ const Contact = () => {
   return (
     <PageLayout className="contact-section">
       <SEO 
-        title={isAdmin ? "Messages Inbox" : "Get In Touch"} 
+        title={isAdmin ? "Messages Inbox | Disan Alam" : "Initiate a Project & Get In Touch | Disan Alam"} 
         description="Hire Disan Alam for Custom Website Development, Speed Optimization, or Tech Stack Modernization. Contact now for a free technical SEO and performance audit." 
-        url="contact"
+        url="https://www.disanalam.me/contact"
       />
       <SectionTitle 
         title={isAdmin ? "Messages Inbox" : "Get In Touch"} 

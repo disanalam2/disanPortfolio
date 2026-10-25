@@ -7,8 +7,8 @@ const PrivacyPolicy = () => {
     <LegalLayout activePolicy="Privacy Policy">
       <SEO
         title="Privacy Policy | Disan Alam"
-        description="Official Privacy Policy of Disan Alam (disanalam.me). Learn how client data is handled, our zero sensitive storage guarantee for payments, and statutory data protections."
-        url="https://disanalam.me/privacy-policy"
+        description="Official Privacy Policy of Disan Alam (www.disanalam.me). Learn how client data is handled, our zero sensitive storage guarantee for payments, and statutory data protections."
+        url="https://www.disanalam.me/privacy-policy"
       />
 
       <article className="legal-glass-card">

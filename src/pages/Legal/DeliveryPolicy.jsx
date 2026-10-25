@@ -7,8 +7,8 @@ const DeliveryPolicy = () => {
     <LegalLayout activePolicy="Service Delivery">
       <SEO
         title="Service Delivery & Shipping Policy | Disan Alam"
-        description="Official Service Delivery and Shipping Policy of Disan Alam (disanalam.me). Explaining our 100% digital electronic delivery model via GitHub, cloud servers, and registered email."
-        url="https://disanalam.me/delivery-policy"
+        description="Official Service Delivery and Shipping Policy of Disan Alam (www.disanalam.me). Explaining our 100% digital electronic delivery model via GitHub, cloud servers, and registered email."
+        url="https://www.disanalam.me/delivery-policy"
       />
 
       <article className="legal-glass-card">

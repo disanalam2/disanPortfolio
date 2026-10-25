@@ -8,8 +8,8 @@ const RefundPolicy = () => {
     <LegalLayout activePolicy="Refund & Cancellation">
       <SEO
         title="Refund & Cancellation Policy | Disan Alam"
-        description="Official Refund and Cancellation Policy of Disan Alam (disanalam.me). Clear terms on advance deposits, milestone payments, and our mandatory 5-7 working days refund turnaround time."
-        url="https://disanalam.me/refund-policy"
+        description="Official Refund and Cancellation Policy of Disan Alam (www.disanalam.me). Clear terms on advance deposits, milestone payments, and our mandatory 5-7 working days refund turnaround time."
+        url="https://www.disanalam.me/refund-policy"
       />
 
       <article className="legal-glass-card">

@@ -70,7 +70,7 @@ const BlogPost = () => {
       "author": {
         "@type": "Person",
         "name": "Disan Alam",
-        "url": "https://disanalam.me"
+        "url": "https://www.disanalam.me"
       }
     }
   ];
@@ -102,7 +102,7 @@ const BlogPost = () => {
       <SEO 
         title={`${blog.title} - Disan Alam`} 
         description={blog.summary} 
-        url={`blogs/${blog.slug}`}
+        url={`https://www.disanalam.me/blogs/${blog.slug}`}
         image={blog.thumbnail}
         schema={schemas}
       />

@@ -106,7 +106,7 @@ const Skills = () => {
       <SEO 
         title="Skills | Disan Alam" 
         description="Explore Disan Alam's technical skills and tech stack, including React.js, Node.js, Express.js, MySQL, and modern web development technologies." 
-        url="skills"
+        url="https://www.disanalam.me/skills"
         keywords={dynamicKeywords}
       />
       <SectionTitle 

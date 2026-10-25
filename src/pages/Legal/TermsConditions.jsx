@@ -7,8 +7,8 @@ const TermsConditions = () => {
     <LegalLayout activePolicy="Terms & Conditions">
       <SEO
         title="Terms & Conditions | Disan Alam"
-        description="Official Terms and Conditions of Disan Alam (disanalam.me). Governs software development services, intellectual property ownership, Section 10A electronic contract validity, and Ranchi, Jharkhand jurisdiction."
-        url="https://disanalam.me/terms-and-conditions"
+        description="Official Terms and Conditions of Disan Alam (www.disanalam.me). Governs software development services, intellectual property ownership, Section 10A electronic contract validity, and Ranchi, Jharkhand jurisdiction."
+        url="https://www.disanalam.me/terms-and-conditions"
       />
 
       <article className="legal-glass-card">

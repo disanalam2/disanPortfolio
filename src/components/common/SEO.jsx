@@ -2,11 +2,11 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ 
-  title = "Disan Alam | Full-Stack Web Developer & Software Engineer", 
-  description = "Portfolio of Disan Alam, Full-Stack Web Developer & Software Engineer specializing in React, Next.js, Node.js, and AWS cloud architecture. Delivering high-performance web applications with transparent milestone pricing models.", 
-  keywords = "Disan Alam, Full Stack Developer, Software Engineer, React Developer, Next.js, Node.js, Express.js, AWS EC2, Web Development Services, Freelance Web Developer India, Tech Partner", 
-  url = "https://disanalam.me/",
-  image = "https://disanalam.me/og-image.jpg",
+  title = "Disan Alam | Full-Stack Systems Architect & AI Business Solutions", 
+  description = "Portfolio of Disan Alam, Full-Stack Systems Architect & AI Business Solutions Consultant. Specializing in deep industry discovery, bespoke web engineering, Agentic AI, custom RAG integrations, and AWS cloud systems.", 
+  keywords = "Disan Alam, Full Stack Systems Architect, AI Business Solutions, Agentic AI, Custom RAG, Business Process Automation, React Developer, Next.js, Node.js, Express.js, AWS Cloud, Ranchi, India", 
+  url = "https://www.disanalam.me/",
+  image = "https://www.disanalam.me/og-image.jpg",
   schema = null
 }) => {
   return (
@@ -31,7 +31,7 @@ const SEO = ({
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Disan Alam - Full-Stack Web Developer & Software Engineer" />
+      <meta property="og:image:alt" content="Disan Alam - Full-Stack Systems Architect & AI Business Solutions" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -39,7 +39,7 @@ const SEO = ({
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
-      <meta property="twitter:image:alt" content="Disan Alam - Full-Stack Web Developer & Software Engineer" />
+      <meta property="twitter:image:alt" content="Disan Alam - Full-Stack Systems Architect & AI Business Solutions" />
 
       {/* Dynamic JSON-LD Schema for LLMs and Search Engines */}
       {schema && (

@@ -89,7 +89,7 @@ const Certificates = () => {
       <SEO 
         title="Certificates | Disan Alam" 
         description="View Disan Alam's verified certifications from top institutions in Web Development, Cybersecurity, and Software Engineering." 
-        url="certificate"
+        url="https://www.disanalam.me/certificate"
       />
       <SectionTitle 
         title="My Certificates" 

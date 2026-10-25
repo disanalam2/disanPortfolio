@@ -156,7 +156,7 @@ const BlogsArchive = () => {
       <SEO 
         title="Articles & Blogs | Disan Alam" 
         description="Read the latest articles, tutorials, and tech insights written by Disan Alam on Web Development, System Architecture, and Software Engineering best practices." 
-        url="blogs"
+        url="https://www.disanalam.me/blogs"
         keywords={dynamicKeywords}
       />
       <SectionTitle 

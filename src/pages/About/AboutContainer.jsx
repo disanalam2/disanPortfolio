@@ -146,9 +146,9 @@ const AboutContainer = () => {
   return (
     <PageLayout className="about-page">
       <SEO 
-        title="About Me | Disan Alam" 
-        description="Disan Alam is a highly skilled Full-Stack Web Developer specializing in React.js, Node.js & modern databases. Hire for custom web apps & scalable solutions." 
-        url=""
+        title="Disan Alam | Full-Stack Systems Architect & AI Business Solutions" 
+        description="Disan Alam is a Full-Stack Systems Architect and AI Solutions Consultant. Deep industry discovery, bespoke web engineering, Agentic AI workflows, custom RAG integrations, and AWS cloud systems." 
+        url="https://www.disanalam.me/"
       />
       <SectionTitle 
         title="About Me" 

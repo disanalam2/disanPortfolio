@@ -85,7 +85,7 @@ const Education = () => {
       <SEO 
         title="Education | Disan Alam" 
         description="Discover Disan Alam's educational background, degrees, and academic achievements in the field of Computer Science and Engineering." 
-        url="education"
+        url="https://www.disanalam.me/education"
       />
       <SectionTitle 
         title="My Education" 
