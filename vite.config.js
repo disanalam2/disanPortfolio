@@ -63,11 +63,11 @@ export default defineConfig({
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Disan Alam',
-        short_name: 'Disan',
-        description: 'Disan Alam is a Professional Full-Stack Web Developer, Website Developer, and Software Engineer.',
-        theme_color: '#0f172a',
-        background_color: '#0f172a',
+        name: 'Disan Alam | Full-Stack Systems Architect & AI Business Solutions',
+        short_name: 'Disan Alam',
+        description: 'Portfolio and engineering services of Disan Alam, Full-Stack Systems Architect & AI Business Solutions Consultant.',
+        theme_color: '#0E7C66',
+        background_color: '#030507',
         display: 'standalone',
         icons: [
           {
