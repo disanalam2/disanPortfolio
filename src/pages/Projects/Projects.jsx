@@ -113,9 +113,24 @@ const Projects = () => {
     "itemListElement": displayData.map((proj, i) => ({
       "@type": "ListItem",
       "position": i + 1,
-      "url": proj.liveLink || "https://www.disanalam.me/projects",
-      "name": proj.title,
-      "description": proj.description
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": proj.title,
+        "description": proj.description,
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Cloud",
+        "url": proj.liveLink || "https://www.disanalam.me/projects",
+        "author": {
+          "@type": "Person",
+          "name": "Disan Alam",
+          "url": "https://www.disanalam.me/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR"
+        }
+      }
     }))
   } : null;
 

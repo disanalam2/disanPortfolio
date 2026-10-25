@@ -113,6 +113,7 @@
         <ul>
           <li><strong>GDG Management Portal & Project Hub</strong>: Real-time team collaboration platform and modular monolith for Google Developer Groups on Campus (HIT).</li>
           <li><strong>AI Healthcare Suite (Clinical Voice Scriber & Virtual Receptionist)</strong>: Real-time consultation voice-to-notes and patient query automation with Next.js, Prisma, AWS Transcribe, AWS Polly, and Google Gemini GenAI.</li>
+          <li><strong>AI Email Automation & Lead Scriber Engine</strong>: Full-stack automated lead generation and personalized email drafting engine with Gemini AI and real-time Socket.io telemetry.</li>
           <li><strong>Chaivik Tea B2B Portal</strong>: Enterprise ordering, supply chain, and inventory management system built with React, Node.js, Express, and MySQL.</li>
         </ul>
       </section>
@@ -333,10 +334,26 @@
             "position": 1,
             "item": {
               "@type": "SoftwareApplication",
+              "@id": "https://www.disanalam.me/projects#gdg-portal",
               "name": "GDG Management Portal & Project Hub",
+              "url": "https://www.disanalam.me/projects",
               "applicationCategory": "BusinessApplication",
-              "operatingSystem": "Web",
-              "description": "Real-time project management platform and modular monolith for team operations and API orchestration using MERN stack and WebSockets."
+              "operatingSystem": "Web, Cloud",
+              "author": {
+                "@id": "https://www.disanalam.me/#person"
+              },
+              "description": "Real-time project management platform and modular monolith for team operations and API orchestration using MERN stack, WebSockets, and role-based access control.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR"
+              },
+              "featureList": [
+                "Role-based access control (Admin, Lead, Core Member)",
+                "Real-time global team chat via WebSockets",
+                "Project lifecycle tracking and multi-team collaboration",
+                "High-speed React.js & Vite architecture"
+              ]
             }
           },
           {
@@ -344,10 +361,26 @@
             "position": 2,
             "item": {
               "@type": "SoftwareApplication",
+              "@id": "https://www.disanalam.me/projects#ai-healthcare",
               "name": "AI Healthcare Suite: Clinical Voice Scriber & Virtual Receptionist",
+              "url": "https://www.disanalam.me/projects",
               "applicationCategory": "HealthApplication",
-              "operatingSystem": "Web",
-              "description": "Automated voice-to-clinical documentation and AI medical receptionist built with Next.js, Prisma, AWS Transcribe, AWS Polly, and Google Gemini."
+              "operatingSystem": "Web, Cloud",
+              "author": {
+                "@id": "https://www.disanalam.me/#person"
+              },
+              "description": "Automated voice-to-clinical EHR documentation scriber and 24/7 AI virtual receptionist engineered with Next.js, Prisma, AWS Transcribe, AWS Polly, and Google Gemini.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR"
+              },
+              "featureList": [
+                "Real-time consultation voice-to-notes transcription via AWS Transcribe",
+                "Automated clinical SOAP notes generation with Google Gemini GenAI",
+                "Natural conversational voice synthesis via AWS Polly",
+                "Prisma ORM schema with strict patient data privacy compliance"
+              ]
             }
           },
           {
@@ -355,10 +388,53 @@
             "position": 3,
             "item": {
               "@type": "SoftwareApplication",
-              "name": "Chaivik Tea B2B Portal",
+              "@id": "https://www.disanalam.me/projects#ai-email-engine",
+              "name": "AI Email Automation & Lead Scriber Engine",
+              "url": "https://www.disanalam.me/projects",
               "applicationCategory": "BusinessApplication",
-              "operatingSystem": "Web",
-              "description": "Full-stack tea ordering and enterprise inventory management platform built with React, Node.js, Express, and MySQL."
+              "operatingSystem": "Web, Cloud",
+              "author": {
+                "@id": "https://www.disanalam.me/#person"
+              },
+              "description": "Full-stack lead generation and automated email drafting engine with Gemini AI sentiment analysis and real-time Socket.io admin telemetry.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR"
+              },
+              "featureList": [
+                "Automated lead ingestion and classification",
+                "Dynamic email drafting and sentiment analysis via Gemini AI",
+                "Real-time admin telemetry data stream via Socket.io",
+                "MySQL database integration with secure JWT authentication"
+              ]
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "SoftwareApplication",
+              "@id": "https://www.disanalam.me/projects#chaivik-portal",
+              "name": "Chaivik Tea B2B Enterprise Portal",
+              "url": "https://www.disanalam.me/projects",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web, Cloud",
+              "author": {
+                "@id": "https://www.disanalam.me/#person"
+              },
+              "description": "Enterprise B2B wholesale ordering, supply chain tracking, and distributor inventory management platform built with React, Node.js, Express, and MySQL.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR"
+              },
+              "featureList": [
+                "Wholesale order processing and quote generation",
+                "Distributor inventory tracking and real-time stock telemetry",
+                "Secure session handling and role-based permissions",
+                "Express.js backend with optimized MySQL database queries"
+              ]
             }
           }
         ]
