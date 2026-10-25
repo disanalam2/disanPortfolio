@@ -13,24 +13,31 @@ const preferenceOptions = [
 ];
 
 const subjectOptions = [
-  { value: 'Option A: One-Time Handover (Full Ownership)', label: 'Option A: One-Time Handover (Full Ownership) — ₹30,000' },
-  { value: 'Option B: Standard Maintenance (Tech Partner)', label: 'Option B: Standard Maintenance (Tech Partner) — ₹25,000 + ₹2,500/mo' },
-  { value: 'Option C: Fully Managed & Hosted (Zero-Headache)', label: 'Option C: Fully Managed & Hosted (Zero-Headache) — ₹20,000 + ₹5,000/mo' },
-  { value: 'Agentic AI & Custom RAG Integration', label: 'Agentic AI & Custom RAG Integration (Business Automation)' },
+  { value: 'Option A: One-Time Handover (Full Ownership)', label: 'Option A: New Build — One-Time Handover (Full Ownership) — Starting from ₹30,000' },
+  { value: 'Option B: Standard Maintenance (Tech Partner)', label: 'Option B: New Build — Standard Maintenance (Tech Partner) — Starting from ₹25,000 + ₹2,500/mo' },
+  { value: 'Option C: Fully Managed & Hosted (Zero-Headache)', label: 'Option C: New Build — Fully Managed & Hosted (Zero-Headache) — Starting from ₹20,000 + ₹5,000/mo' },
+  { value: 'Enterprise Custom Web App (New Build)', label: 'Enterprise Custom Scope (New Build / Multi-Platform Architecture)' },
+  { value: 'Website Rebuild & Tech Stack Modernization', label: 'Website Rebuild & Tech Stack Modernization' },
   { value: 'Free Technical Performance & SEO Audit', label: 'Free Technical Performance & SEO Audit' },
   { value: 'Free System Architecture & Automation Audit', label: 'Free System Architecture & Automation Audit' },
   { value: 'Free Sales Funnel, UX & Tracking Audit', label: 'Free Sales Funnel, UX & Tracking Audit' },
-  { value: 'Website Rebuild & Tech Stack Modernization', label: 'Website Rebuild & Tech Stack Modernization' },
-  { value: 'Enterprise Custom Web App (New Build)', label: 'Enterprise Custom Web App (New Build)' },
   { value: 'Complete Digital Infrastructure Overhaul (Full Transformation)', label: 'Complete Digital Infrastructure Overhaul (Full Transformation)' },
   { value: 'Other', label: 'Other / Custom Inquiry' }
+];
+
+const buildOptions = [
+  'Option A: One-Time Handover (Full Ownership)',
+  'Option B: Standard Maintenance (Tech Partner)',
+  'Option C: Fully Managed & Hosted (Zero-Headache)',
+  'Enterprise Custom Web App (New Build)',
+  'Website Rebuild & Tech Stack Modernization',
+  'Complete Digital Infrastructure Overhaul (Full Transformation)'
 ];
 
 const servicesWithOptionalUrl = [
   'Option A: One-Time Handover (Full Ownership)',
   'Option B: Standard Maintenance (Tech Partner)',
   'Option C: Fully Managed & Hosted (Zero-Headache)',
-  'Agentic AI & Custom RAG Integration',
   'Enterprise Custom Web App (New Build)',
   'Complete Digital Infrastructure Overhaul (Full Transformation)',
   'Other'
@@ -54,6 +61,20 @@ const ContactForm = () => {
   const [localNumber, setLocalNumber] = useState('');
   const [customSubject, setCustomSubject] = useState('');
 
+  const [requirements, setRequirements] = useState({
+    agenticAi: false,
+    customRag: false,
+    paymentGateway: false,
+    mobileRoadmap: false
+  });
+
+  const toggleRequirement = (key) => {
+    setRequirements((prev) => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
+
   const [formData, setFormData] = useState({
     name: '', 
     email: '', 
@@ -63,6 +84,8 @@ const ContactForm = () => {
     websiteUrl: '',
     message: ''
   });
+
+  const isBuildOption = buildOptions.includes(formData.subject);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -99,10 +122,22 @@ const ContactForm = () => {
       return;
     }
 
+    const selectedAddons = [];
+    if (requirements.agenticAi) selectedAddons.push('Agentic AI Workflows (Autonomous task execution & intelligent business agents)');
+    if (requirements.customRag) selectedAddons.push('Custom RAG Knowledge Base (AI grounded on company documents, data & records)');
+    if (requirements.paymentGateway) selectedAddons.push('Payment Gateway Integration (Razorpay / Cashfree with automated webhooks)');
+    if (requirements.mobileRoadmap) selectedAddons.push('Mobile App Scalability Roadmap (2–3 Months API Expansion)');
+
+    let finalMessage = formData.message.trim();
+    if (isBuildOption && selectedAddons.length > 0) {
+      finalMessage += `\n\n--- Selected Project Scope & AI Requirements ---\n` + selectedAddons.map(item => `• ${item}`).join('\n');
+    }
+
     const payload = {
       ...formData,
       subject: formData.subject === 'Other' ? customSubject.trim() : formData.subject,
-      contactHandle: finalHandle
+      contactHandle: finalHandle,
+      message: finalMessage
     };
 
     try {
@@ -117,6 +152,12 @@ const ContactForm = () => {
           subject: 'Free Technical Performance & SEO Audit',
           websiteUrl: '',
           message: ''
+        });
+        setRequirements({
+          agenticAi: false,
+          customRag: false,
+          paymentGateway: false,
+          mobileRoadmap: false
         });
         setCustomSubject('');
       } else {
@@ -245,6 +286,82 @@ const ContactForm = () => {
               onChange={(e) => setCustomSubject(e.target.value)} 
               required
             />
+          </div>
+        )}
+
+        {isBuildOption && (
+          <div className="form-group full-width-field">
+            <div className="requirements-scope-card">
+              <div className="requirements-header">
+                <span className="scope-badge">⚡ TAILOR YOUR PROJECT REQUIREMENTS</span>
+                <h4 className="requirements-title">Select AI &amp; Architecture Features (Optional)</h4>
+                <p className="requirements-note">
+                  Pricing is <strong>Starting from</strong> for core full-stack build. Your final investment adjusts transparently based on required AI workflows, custom RAG pipelines, or specialized integrations.
+                </p>
+              </div>
+
+              <div className="requirements-grid">
+                <label className={`requirement-chip ${requirements.agenticAi ? 'active' : ''}`}>
+                  <input 
+                    type="checkbox" 
+                    checked={requirements.agenticAi} 
+                    onChange={() => toggleRequirement('agenticAi')} 
+                  />
+                  <div className="chip-content">
+                    <span className="chip-icon" aria-hidden="true">🤖</span>
+                    <div className="chip-text">
+                      <strong>Agentic AI Workflows</strong>
+                      <small>Autonomous task execution &amp; smart business agents</small>
+                    </div>
+                  </div>
+                </label>
+
+                <label className={`requirement-chip ${requirements.customRag ? 'active' : ''}`}>
+                  <input 
+                    type="checkbox" 
+                    checked={requirements.customRag} 
+                    onChange={() => toggleRequirement('customRag')} 
+                  />
+                  <div className="chip-content">
+                    <span className="chip-icon" aria-hidden="true">📚</span>
+                    <div className="chip-text">
+                      <strong>Custom RAG Knowledge Base</strong>
+                      <small>AI grounded on your company documents &amp; data</small>
+                    </div>
+                  </div>
+                </label>
+
+                <label className={`requirement-chip ${requirements.paymentGateway ? 'active' : ''}`}>
+                  <input 
+                    type="checkbox" 
+                    checked={requirements.paymentGateway} 
+                    onChange={() => toggleRequirement('paymentGateway')} 
+                  />
+                  <div className="chip-content">
+                    <span className="chip-icon" aria-hidden="true">💳</span>
+                    <div className="chip-text">
+                      <strong>Payment Gateway Integration</strong>
+                      <small>Razorpay / Cashfree setup with automated webhooks</small>
+                    </div>
+                  </div>
+                </label>
+
+                <label className={`requirement-chip ${requirements.mobileRoadmap ? 'active' : ''}`}>
+                  <input 
+                    type="checkbox" 
+                    checked={requirements.mobileRoadmap} 
+                    onChange={() => toggleRequirement('mobileRoadmap')} 
+                  />
+                  <div className="chip-content">
+                    <span className="chip-icon" aria-hidden="true">📱</span>
+                    <div className="chip-text">
+                      <strong>Mobile App Roadmap (2–3 Mo)</strong>
+                      <small>API-first design ready for future iOS &amp; Android scaling</small>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
           </div>
         )}
 

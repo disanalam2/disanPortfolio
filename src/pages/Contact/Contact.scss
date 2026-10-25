@@ -260,6 +260,138 @@
       }
     }
 
+    // Interactive Project Scope & AI Requirements Selector
+    .requirements-scope-card {
+      width: 100%;
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: var(--radius-md, 8px);
+      padding: 1.35rem 1.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+
+      @media (max-width: 640px) {
+        padding: 1.15rem 1rem;
+      }
+
+      .requirements-header {
+        margin-bottom: 1.15rem;
+
+        .scope-badge {
+          display: inline-block;
+          font-family: var(--font-mono, monospace);
+          font-size: 0.72rem;
+          font-weight: 750;
+          color: var(--accent-color, #0E7C66);
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          margin-bottom: 0.35rem;
+        }
+
+        .requirements-title {
+          font-size: 1.05rem;
+          font-weight: 750;
+          color: var(--text-primary, #14181B);
+          margin: 0 0 0.35rem 0;
+        }
+
+        .requirements-note {
+          font-size: 0.84rem;
+          color: var(--text-secondary, #4A5568);
+          line-height: 1.5;
+          margin: 0;
+
+          strong {
+            color: var(--accent-color, #0E7C66);
+          }
+        }
+      }
+
+      .requirements-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+
+        @media (max-width: 640px) {
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+
+        .requirement-chip {
+          display: flex;
+          align-items: center;
+          gap: 0.85rem;
+          padding: 0.85rem 1rem;
+          border-radius: var(--radius-sm, 6px);
+          background: rgba(255, 255, 255, 0.85);
+          border: 1px solid rgba(15, 23, 42, 0.12);
+          cursor: pointer;
+          user-select: none;
+          transition: all 0.15s ease;
+
+          input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            cursor: pointer;
+            accent-color: #0E7C66;
+            margin: 0;
+            padding: 0;
+          }
+
+          .chip-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            flex: 1;
+
+            .chip-icon {
+              font-size: 1.25rem;
+              line-height: 1;
+              flex-shrink: 0;
+              margin-top: 1px;
+            }
+
+            .chip-text {
+              display: flex;
+              flex-direction: column;
+
+              strong {
+                font-size: 0.88rem;
+                font-weight: 700;
+                color: var(--text-primary, #14181B);
+                line-height: 1.3;
+              }
+
+              small {
+                font-size: 0.76rem;
+                color: var(--text-muted, #718096);
+                line-height: 1.35;
+                margin-top: 2px;
+              }
+            }
+          }
+
+          &:hover {
+            border-color: rgba(16, 185, 129, 0.45);
+            background: #ffffff;
+            transform: translateY(-1px);
+          }
+
+          &.active {
+            background: rgba(240, 253, 244, 0.95);
+            border-color: #10B981;
+            box-shadow: 0 0 0 1px #10B981, 0 2px 8px rgba(16, 185, 129, 0.12);
+
+            .chip-text strong {
+              color: #0E7C66;
+            }
+          }
+        }
+      }
+    }
+
     .submit-btn {
       width: 100%;
       background: var(--gradient-primary);
