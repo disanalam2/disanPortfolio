@@ -40,7 +40,7 @@ const SkillCategoryEdit = ({
             onDragOver={(e) => e.preventDefault()}
           >
             <p>{skill}</p>
-            <button className="delete-skill-btn" onClick={() => handleRemoveSkill(catIndex, skillIndex)}>×</button>
+            <button className="delete-skill-btn" onClick={() => handleRemoveSkill(catIndex, skillIndex)} aria-label={`Delete skill ${skill}`}>×</button>
           </div>
         ))}
 
@@ -51,8 +51,9 @@ const SkillCategoryEdit = ({
             value={newSkillInput || ''}
             onChange={(e) => setNewSkillInput(catIndex, e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleAddSkill(catIndex)}
+            aria-label="New skill name"
           />
-          <button onClick={() => handleAddSkill(catIndex)}>+</button>
+          <button onClick={() => handleAddSkill(catIndex)} aria-label="Add skill to category">+</button>
         </div>
       </div>
     </>

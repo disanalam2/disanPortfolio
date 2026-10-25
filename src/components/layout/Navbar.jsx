@@ -126,6 +126,7 @@ const Navbar = () => {
               <button 
                 onClick={handleEditResumeLink}
                 title="Edit Resume Link (Database)"
+                aria-label="Edit resume URL"
                 style={{ 
                   background: 'var(--glass-hover)', 
                   border: 'none', 

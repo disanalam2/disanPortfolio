@@ -110,10 +110,10 @@ const BlogPost = () => {
       <div className="blog-layout-wrapper">
         {/* Sticky Sidebar */}
         <aside className="blog-sidebar">
-          <Link to="/blogs" className="sidebar-btn back-btn" title="Back to Articles">
+          <Link to="/blogs" className="sidebar-btn back-btn" title="Back to Articles" aria-label="Back to all technical articles">
             ←
           </Link>
-          <button onClick={handleCopyLink} className="sidebar-btn share-btn" title="Copy Link" style={{ position: 'relative' }}>
+          <button onClick={handleCopyLink} className="sidebar-btn share-btn" title="Copy Link" aria-label="Copy article link to clipboard" style={{ position: 'relative' }}>
             🔗
             {copied && (
               <span style={{
