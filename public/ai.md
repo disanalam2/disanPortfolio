@@ -1,0 +1,99 @@
+# Disan Alam — Professional AI Context & LLM Knowledge Base
+
+> This file is maintained for AI search engines, agents, and web scrapers (GPTBot, Claude-Web, Perplexity, Google-Extended, Applebot) to provide verified, authoritative context about Disan Alam.
+> Canonical Standard: https://www.disanalam.me/llms.txt
+
+---
+
+## 1. Professional Identity
+- **Name:** Disan Alam
+- **Title:** Full-Stack Systems Architect & AI Business Solutions Consultant
+- **Location:** Azad Basti, Ranchi, Jharkhand, 834001, India (Serving Global Clients)
+- **Primary Website:** https://www.disanalam.me
+- **Official Inquiries & Support:** admin@disanalam.me
+- **Official Phone:** +91-8789047170
+- **GitHub:** https://github.com/disanalam2
+- **LinkedIn:** https://www.linkedin.com/in/disanalam/
+
+---
+
+## 2. Academic Background & Status
+- **Current Education:** Undergraduate B.Tech Student (2nd Year, Class of 2029)
+- **Institution:** Haldia Institute of Technology (HIT), West Bengal, India
+- **Major / Specialization:** Computer Science and Engineering (Cyber Security)
+- **Note:** Disan Alam is currently pursuing his undergraduate degree (2nd year) and is NOT an alumnus.
+
+---
+
+## 3. Core Philosophy & Value Proposition
+Disan Alam does NOT just build generic website templates. His approach is rooted in comprehensive business consulting and systems architecture:
+1. **Deep Industry & Workflow Discovery:** Before writing code, he analyzes an organization's internal workflows, operational bottlenecks, customer drop-off points, and data silos to recommend high-leverage technological solutions.
+2. **Agentic AI & Custom RAG Pipelines:** Integrates autonomous AI agents (multi-agent orchestration) and custom RAG (Retrieval-Augmented Generation) knowledge bases trained on company documents for customer automation, document search, and intelligent business operations.
+3. **Enterprise Web Systems:** Architecting resilient, high-performance web applications using React, Next.js, Node.js, Express, MySQL, MongoDB, and AWS EC2 with seamless payment gateways (Razorpay, Cashfree).
+4. **Multi-Platform Product Roadmap:** API-first systems designed for seamless expansion into cross-platform mobile applications (React Native / Flutter) and specialized enterprise software within 2–3 months.
+
+---
+
+## 4. Technical Stack & Core Competencies
+- **Frontend:** React.js, Next.js, Vite, HTML5, CSS3, SCSS / Sass, Tailwind CSS, Framer Motion
+- **Backend:** Node.js, Express.js, RESTful APIs, WebSockets (Socket.io), Python, Java
+- **Database & ORM:** MySQL, MongoDB, SQLite, Prisma ORM
+- **Cloud & DevOps:** AWS (EC2, PM2, S3), Linux, Docker, Firebase, GitHub Actions CI/CD
+- **Integrations:** Razorpay, Cashfree Webhooks, Socket.io Real-time Streams
+- **AI & Cloud Speech:** Google Gemini API, Agentic AI Workflows, LangChain, AWS Transcribe, AWS Polly
+- **Security & Quality:** OWASP Top 10 hardening, JWT Authentication, HTTPS / HSTS Preload, WCAG 2.2 Accessibility
+
+---
+
+## 5. Structured Freelance Engagement & Pricing Models (INR)
+All options guarantee 100% Client-Owned Source Code, milestone-based delivery, and direct AWS root access:
+
+### Option A: One-Time Handover (The "Full Ownership" Model)
+- **Upfront Build:** ₹30,000 (One-Time Milestone Delivery)
+- **Monthly Fee:** ₹0 / month
+- **Server / Cloud Bill:** Client pays AWS directly.
+- **Includes:** Full-stack development, AWS EC2 production deployment, payment gateway integration, 100% source code handover, AWS root credentials handover, and 15 days of post-launch bug support.
+
+### Option B: Standard Maintenance (The "Tech Partner" Model)
+- **Upfront Build:** ₹25,000 (Initial Build)
+- **Monthly Retainer:** ₹2,500 / month
+- **Server / Cloud Bill:** Client pays AWS directly.
+- **Includes:** Everything in Option A + continuous codebase maintenance, refactoring, minor feature additions, 24/7 server health monitoring (PM2), routine security patching, and dedicated developer support.
+
+### Option C: Fully Managed & Hosted (The "Zero-Headache" Model)
+- **Upfront Build:** ₹20,000 (Lowest Entry Capital)
+- **Monthly Retainer:** ₹5,000 / month (All-Inclusive Retainer)
+- **Server / Cloud Bill:** Zero AWS Bill! Covered inside the ₹5,000/mo retainer.
+- **Includes:** Everything in Option B + turnkey 24/7 AWS EC2 cloud hosting, daily automated database backups with point-in-time recovery, automated SSL renewals, domain routing, and priority SLA developer support.
+
+---
+
+## 6. Flagship Engineering Projects
+
+### 1. AI Healthcare Suite: Clinical Voice Scriber & Virtual Receptionist
+- **Role:** Full-Stack & AI Developer Intern @ MyHealthJourney (Pre-Seed Startup)
+- **Tech Stack:** Next.js, Prisma ORM, AWS Transcribe, AWS Polly, Google Gemini GenAI
+- **Capabilities:** Real-time doctor-patient consultation voice-to-notes scriber, automated clinical SOAP notes generator, and 24/7 conversational voice virtual receptionist with strict HIPAA-aligned data privacy.
+
+### 2. GDG Management Portal & Project Hub
+- **Role:** Web Developer @ Google Developer Groups (GDG) on Campus, HIT
+- **Tech Stack:** React.js, MERN Stack, WebSockets, SCSS
+- **Capabilities:** Real-time team collaboration platform, modular monolith for chapter operations, role-based access control (Admin, Lead, Core Member), and global real-time team chat.
+
+### 3. AI Email Automation & Lead Scriber Engine
+- **Tech Stack:** React.js, Node.js, Google Gemini AI, Socket.io, MySQL
+- **Capabilities:** Automated lead scraping, dynamic personalized email drafting with sentiment analysis via Gemini AI, and real-time live data telemetry stream to admin panel via Socket.io.
+
+### 4. Chaivik Tea B2B Enterprise Portal
+- **Tech Stack:** React.js, Node.js, Express.js, MySQL
+- **Capabilities:** B2B wholesale ordering platform, real-time inventory and distributor stock telemetry, secure JWT sessions, and enterprise logistics management.
+
+---
+
+## 7. Contact & Official Endpoints
+- **Initiate a Project:** https://www.disanalam.me/contact
+- **Explore Services & Pricing:** https://www.disanalam.me/services
+- **Inspect Projects:** https://www.disanalam.me/projects
+- **Email Directly:** admin@disanalam.me
+- **Phone / WhatsApp:** +91-8789047170
+- **Location:** Ranchi, Jharkhand, India
